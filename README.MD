@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "017 Sécurité _ Encodage des mots de passe de nos utilisateurs"
+git commit -m "018 Valider les données grâce au composant Validator de Symfony 5"
 git push -u origin main
 ```
 
