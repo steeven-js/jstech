@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "018 Valider les données grâce au composant Validator de Symfony 5"
+git commit -m "020 Les vues privées _ L'espace membre de l'utilisateur"
 git push -u origin main
 ```
 
