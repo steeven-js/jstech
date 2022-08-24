@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "020 Les vues privées _ L'espace membre de l'utilisateur"
+git commit -m "023 Vous êtes arrivé jusqu'ici, bravo ! On fait le point en vidéo"
 git push -u origin main
 ```
 
