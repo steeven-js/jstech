@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "016 Sauvegarder les informations du formulaire en base de donnée"
+git commit -m "017 Sécurité _ Encodage des mots de passe de nos utilisateurs"
 git push -u origin main
 ```
 
