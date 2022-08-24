@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "029 Important - Le point avant de continuer sur les mises à jour"
+git commit -m "032 Important - Correctif mise à jour _ Mapping Product() avec EasyAdmin"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -51,7 +51,7 @@ git push -u origin main
 - [x]  029 Important - Le point avant de continuer sur les mises à jour
 - [ ]  030 Mapping de l'entité Product() dans EasyAdmin
 - [ ]  031 Refactor de notre EventSubscriber pour l'ajout d'image dans nos produits
-- [ ]  032 Important - Correctif mise à jour _ Mapping Product() avec EasyAdmin
+- [x]  032 Important - Correctif mise à jour _ Mapping Product() avec EasyAdmin
 - [ ]  033 Création des produits dans le backoffice
 - [ ]  034 Création des vues pour afficher nos produits à nos utilisateurs
 - [ ]  035 Création d'une barre de filtre produit pour faciliter la navigation
