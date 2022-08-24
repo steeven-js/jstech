@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "027 Mapping de l'entité Category() dans EasyAdmin"
+git commit -m "029 Important - Le point avant de continuer sur les mises à jour"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -47,8 +47,8 @@ git push -u origin main
 ## 05 Les produits
 - [x]  026 Création de l'entité Category() pour organiser nos produits
 - [x]  027 Mapping de l'entité Category() dans EasyAdmin
-- [ ]  028 Création de l'entité Product()
-- [ ]  029 Important - Le point avant de continuer sur les mises à jour
+- [x]  028 Création de l'entité Product()
+- [x]  029 Important - Le point avant de continuer sur les mises à jour
 - [ ]  030 Mapping de l'entité Product() dans EasyAdmin
 - [ ]  031 Refactor de notre EventSubscriber pour l'ajout d'image dans nos produits
 - [ ]  032 Important - Correctif mise à jour _ Mapping Product() avec EasyAdmin
