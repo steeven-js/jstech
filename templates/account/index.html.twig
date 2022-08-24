@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h1>Mon compte</h1>
+		Bienvenue
+		{{ app.user.firstname }}
+		dans votre compte.
+		<br>
+		C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personelles.
+		<hr>
+		- Modifier mon mot de passe<br>
+		- Ajouter mes adresses
+		<br>
+		- Mes commandes
+		<br>
+		<hr>
+	</div>
+{% endblock %}
