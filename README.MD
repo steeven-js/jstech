@@ -4,7 +4,7 @@ git init
 git add .
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/steeven-js/JSTech.git
+git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
