@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{product.name}}
+{% endblock %}
+
+{% block content %}
+	<section class="section gallery">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img src="/uploads/{{ product.illustration}}" alt="{{product.name}}" class"img-fluid">
+				</div>
+				<div class="col-md-8">
+					<h3>{{product.name}}</h3>
+					<h3>{{product.subtitle}}</h3>
+					{{(product.price/100) |number_format(2, ',', '.')}}
+					<hr>
+					<p>
+						{{product.description}}
+					</p>
+					<a href="#" class="btn btn-main">Ajouter au panier</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}
