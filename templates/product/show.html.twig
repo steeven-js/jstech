@@ -8,13 +8,16 @@
 	<section class="section gallery">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
-					<img src="/uploads/{{ product.illustration}}" alt="{{product.name}}" class"img-fluid">
+				<div class="col-md-5 mb-4 mb-md-0">
+					<div class="product_image">
+						<img src="/uploads/{{ product.illustration}}" alt="{{product.name}}">
+					</div>
 				</div>
-				<div class="col-md-8">
-					<h3>{{product.name}}</h3>
+
+				<div class="col-lg-6 col-md-7 offset-lg-1">
+					<h1 class="mb-4">{{product.name}}</h3>
 					<h3>{{product.subtitle}}</h3>
-					{{(product.price/100) |number_format(2, ',', '.')}}
+					<p class"price py-4">{{(product.price/100) |number_format(2, ',', '.')}}</p>
 					<hr>
 					<p>
 						{{product.description}}

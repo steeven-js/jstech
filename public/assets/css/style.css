@@ -656,6 +656,10 @@ textarea.form-control {
   max-width: 100%;
 }
 
+.product_image img {
+  width: 100%;
+}
+
 /* content style */
 .content * {
   margin-bottom: 20px;
