@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "034 Création des vues pour afficher nos produits à nos utilisateurs"
+git commit -m "035 Création d'une barre de filtre produit pour faciliter la navigation"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -54,7 +54,7 @@ git push -u origin main
 - [x]  032 Important - Correctif mise à jour _ Mapping Product() avec EasyAdmin
 - [x]  033 Création des produits dans le backoffice
 - [x]  034 Création des vues pour afficher nos produits à nos utilisateurs
-- [ ]  035 Création d'une barre de filtre produit pour faciliter la navigation
+- [x]  035 Création d'une barre de filtre produit pour faciliter la navigation
 
 ## 06 Le panier
 - [ ]  036 Comprendre l'utilité de la sessionInterface() de Symfony 5

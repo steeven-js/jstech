@@ -7,35 +7,41 @@
 	<section class="section gallery">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 text-center mb-5">
-					<h1 class="font-weight-bold">Nos montres connectées</h1>
+				<div class="col-md-3">
+					<h3>Filtrer</h3>
+					{{form(form)}}
+					</div>
 				</div>
+				<div class="row">
+					<div class="col-12 text-center mb-5">
+						<h1 class="font-weight-bold">Nos produits</h1>
+					</div>
 
-				{% for product in products %}
-					<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-						<div class="product-item text-center">
-							<div class="block">
-								<div class="gallery-overlay">
-									<a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup">
-										<i class="fa-solid fa-plus"></i>
-									</a>
+					{% for product in products %}
+						<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+							<div class="product-item text-center">
+								<div class="block">
+									<div class="gallery-overlay">
+										<a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup">
+											<i class="fa-solid fa-plus"></i>
+										</a>
+									</div>
+									<img class="img-fluid w-100" src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
 								</div>
-								<img class="img-fluid w-100" src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
-							</div>
-							<div class="product-info">
-								<a class="link-title" href="{{path('app_product', {'slug' : product.slug})}}">
-									<h4>{{product.name}}</h4>
-								</a>
-								<p>{{product.subtitle}}</p>
-								<p class="price">{{(product.price/100) |number_format(2, ',', '.')}}
-									€</p>
+								<div class="product-info">
+									<a class="link-title" href="{{path('app_product', {'slug' : product.slug})}}">
+										<h4>{{product.name}}</h4>
+									</a>
+									<p>{{product.subtitle}}</p>
+									<p class="price">{{(product.price/100) |number_format(2, ',', '.')}}
+										€</p>
+								</div>
 							</div>
 						</div>
-					</div>
-				{% endfor %}
+					{% endfor %}
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
 
-{% endblock %}
+	{% endblock %}
