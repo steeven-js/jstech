@@ -28,7 +28,6 @@
 			<link href="{{ asset('assets/plugins/themefisher-font/themefisher-font.min.css')}}" rel="stylesheet">
 			<link href="{{ asset('assets/plugins/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
 			<link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
-
 		{% endblock %}
 
 	</head>
@@ -53,10 +52,6 @@
 
 							<li class="nav-item">
 								<a class="nav-link" href="{{path('app_products')}}">Produits</a>
-							</li>
-
-							<li class="nav-item">
-								<a class="nav-link" href="#">blog</a>
 							</li>
 
 							<li class="nav-item dropdown">
@@ -91,21 +86,17 @@
 								</ul>
 							</li>
 
-							<li class="nav-item">
-								<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
-							</li>
-
-
 							{% if app.user %}
-								<a class="dropdown-item" href="{{ path('app_account') }}">Mon compte
+								<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+								<a class="nav-link" href="{{ path('app_account') }}">Mon compte
 									<small>({{ app.user.firstname }})</small>
 								</a>
 								|
-								<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+								<a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
 							{% else %}
-								<a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a>
+								<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
 								|
-								<a class="dropdown-item" href="{{ path('app_register') }}">Inscription</a>
+								<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
 							{% endif %}
 						</ul>
 					</div>
@@ -156,8 +147,6 @@
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 			<script src="{{ asset('assets/plugins/bootstrap/bootstrap.min.js')}}"></script>
 			<script src="{{ asset('assets/plugins/js/script.js')}}"></script>
-
-
 		{% endblock %}
 
 	</body>

@@ -3,31 +3,37 @@
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: 'integer')]
+    private ?int $id;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $firstname = null;
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    #[Assert\Length(min: 2, max: 50)]
+    private ?string $fullName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
+    #[ORM\Column(type: 'string', length: 180)]
+    #[Assert\Email()]
+    #[Assert\Length(min: 2, max: 180)]
+    private string $email;
 
-    #[ORM\Column(length: 100, nullable: true)]
+    #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    #[Assert\Length(min: 2, max: 100)]
     private ?string $subject = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $message = null;
+    #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank()]
+    private string $message;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\NotNull()]
+    private ?\DateTimeImmutable $createdAt;
 
     public function __construct()
     {
@@ -39,14 +45,14 @@ class Contact
         return $this->id;
     }
 
-    public function getFirstname(): ?string
+    public function getFullName(): ?string
     {
-        return $this->firstname;
+        return $this->fullName;
     }
 
-    public function setFirstname(?string $firstname): self
+    public function setFullName(?string $fullName): self
     {
-        $this->firstname = $firstname;
+        $this->fullName = $fullName;
 
         return $this;
     }

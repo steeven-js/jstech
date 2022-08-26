@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<h1>Message de
+			{{ contact.fullName }}</h1>
+		<p>Email :
+			{{ contact.email }}</p>
+		<p>Sujet :
+			{{ contact.subject }}</p>
+		<p>Message :</p>
+		<div>
+			{{ contact.message|raw }}
+		</div>
+	</body>
+</html>

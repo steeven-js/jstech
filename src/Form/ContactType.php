@@ -11,25 +11,30 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
+
 class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstname', TextType::class, [
-                'label' => 'Votre prénom'
+            ->add('fullName', TextType::class, [
+                'label' => 'Nom / Prénom',
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Adresse email'
+                'label' => 'Adresse email',
             ])
-            ->add('subject', TextType::class)
-            ->add('message', TextareaType::class)
+            ->add('subject', TextType::class, [
+                'label' => 'Sujet',
+            ])
+            ->add('message', TextareaType::class, [
+                'label' => 'Description',
+            ])
             ->add('submit', SubmitType::class, [
+                'label' => 'Envoyer',
                 'attr' => [
                     'class' => 'btn btn-main'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
