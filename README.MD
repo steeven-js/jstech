@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "035 Création d'une barre de filtre produit pour faciliter la navigation"
+git commit -m "Création des formulaires Contact pour les Users et non Users"
 git push -u origin main
 ```
 ## 01 Introduction

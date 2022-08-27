@@ -87,7 +87,7 @@
 							</li>
 
 							{% if app.user %}
-								<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+								<a class="nav-link" href="{{path('app_user_contact')}}">Contact</a>
 								<a class="nav-link" href="{{ path('app_account') }}">Mon compte
 									<small>({{ app.user.firstname }})</small>
 								</a>
@@ -121,7 +121,7 @@
 								</li>
 
 								<li class="list-inline-item">
-									<a href="contact.html">Contact</a>
+									<a href="{{path('app_contact')}}">Contact</a>
 								</li>
 
 								<li class="list-inline-item">
