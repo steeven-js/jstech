@@ -20,6 +20,7 @@ class ProductController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
+
     #[Route('/nos-produits', name: 'app_products')]
     public function index(Request $request): Response
     {
@@ -41,13 +42,16 @@ class ProductController extends AbstractController
         ]);
     }
 
-     #[Route('/produit/{slug}', name: 'app_product')]
+    #[Route('/produit/{slug}', name: 'app_product')]
     public function show($slug): Response
     {
+        // dd($slug);
+        // On recherche en base de donnée un produit associer à son slug.
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
 
+         // Partie sécurité
         if (!$product){
-            return $this->redirectToRoute('products');
+            return $this->redirectToRoute('app_products');
         }
 
         return $this->render('product/show.html.twig', [

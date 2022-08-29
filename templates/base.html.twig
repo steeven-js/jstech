@@ -50,15 +50,18 @@
 								<a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
 							</li>
 
-							<li class="nav-item">
-								<a class="nav-link" href="{{path('app_products')}}">Produits</a>
-							</li>
-
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#!" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages
+								<a class="nav-link dropdown-toggle" href="#!" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos Produits
 									<i class="fa-solid fa-chevron-down"></i>
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="dropdown03">
+
+									<li>
+										<a class="dropdown-item" href="{{path('app_products')}}">Montres connectées</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{path('app_smartphones')}}">Smartphones</a>
+									</li>
 									<li class="dropdown dropdown-submenu dropright">
 										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu 01
 											<i class="fa-solid fa-chevron-right"></i>
@@ -73,7 +76,6 @@
 											</li>
 										</ul>
 									</li>
-
 									<li>
 										<a class="dropdown-item" href="#">Blog Details</a>
 									</li>

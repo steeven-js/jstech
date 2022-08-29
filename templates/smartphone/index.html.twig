@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos produit
+{% block title %}Smartphones
 {% endblock %}
 
 {% block content %}
 	<section class="section gallery">
 		<div class="heading">
-			<h2 class="font-weight-bold">Montres connectées</h2>
+			<h2 class="font-weight-bold">Smartphones</h2>
 		</div>
 
 		<div class="container">
@@ -17,25 +17,24 @@
 					</div>
 					<div class="col-md-10 text-center mb-5">
 						<div class="row product-container">
-							{% for product in products %}
+							{% for smartphone in smartphones %}
 								<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
 									<div class="block">
 										<div class="gallery-overlay">
-											<a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup">
+											<a href="{{path('app_smartphone', {'slug' : smartphone.slug})}}" class="gallery-popup">
 												<i class="fa-solid fa-plus"></i>
 											</a>
 										</div>
-										<img class="img-fluid w-100" src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
+										<img class="img-fluid w-100" src="/uploads/{{smartphone.illustration}}" alt="{{smartphone.name}}" class="img-fluid">
 									</div>
 									<div class="product-info">
-										<a class="link-title" href="{{path('app_product', {'slug' : product.slug})}}">
-											<h4>{{product.name}}</h4>
+										<a class="link-title" href="{{path('app_smartphone', {'slug' : smartphone.slug})}}">
+											<h4>{{smartphone.name}}</h4>
 										</a>
-										<p>{{product.subtitle}}</p>
-										<p class="price">{{(product.price/100) |number_format(2, ',', '.')}}
+										<p>{{smartphone.subtitle}}</p>
+										<p class="price">{{(smartphone.price/100) |number_format(2, ',', '.')}}
 											€</p>
 									</div>
-
 								</div>
 							{% endfor %}
 						</div>
@@ -44,6 +43,4 @@
 
 			</div>
 		</section>
-
-
 	{% endblock %}

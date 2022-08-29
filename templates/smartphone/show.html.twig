@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{product.name}}
+{% endblock %}
+
+{% block content %}
+	<section class="section gallery">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 mb-4 mb-md-0">
+					<div class="product_image">
+						<img src="/uploads/{{ smartphone.illustration}}" alt="{{smartphone.name}}">
+
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-7 offset-lg-1">
+					<h1 class="mb-4">{{smartphone.name}}</h3>
+					<h3>{{smartphone.subtitle}}</h3>
+					<p class="price py-4">{{(smartphone.price/100) |number_format(2, ',', '.')}}</p>
+					<hr>
+					<p>
+						{{smartphone.description}}
+					</p>
+					<a href="#" class="btn btn-main">Ajouter au panier</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}
