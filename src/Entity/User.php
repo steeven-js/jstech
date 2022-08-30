@@ -35,12 +35,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $subject = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $message = null;
-
     public function getId(): ?int
     {
         return $this->id;

@@ -2,6 +2,147 @@
 
 
 {% block content %}
+
+	<section class="section gallery">
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-12 text-center mb-5">
+					<h1 class="font-weight-bold">Catégories</h1>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+					<div class="block">
+						<div class="gallery-overlay">
+							<a href="{{path('app_smartphones')}}" class="gallery-popup">
+								<i class="tf-ion-plus-round"></i>
+							</a>
+						</div>
+						<img class="img-fluid" src="images/showcase/showcase-smp-1.jpg" alt="Apple Watch">
+					</div>
+					<div class="product-info">
+						<h4 class="mb-2">
+							<a href="{{path('app_smartphones')}}" class="link-title">Smartphones</a>
+						</h4>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+					<div class="block">
+						<div class="gallery-overlay">
+							<a href="#" class="gallery-popup">
+								<i class="tf-ion-plus-round"></i>
+							</a>
+						</div>
+						<img class="img-fluid" src="images/showcase/showcase-op-1.jpg" alt="Galaxy Watch">
+					</div>
+					<div class="product-info">
+						<h4 class="mb-2">
+							<a href="#" class="link-title">Ordinateurs Portables</a>
+						</h4>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+					<div class="block">
+						<div class="gallery-overlay">
+							<a href="{{path('app_products')}}" class="gallery-popup">
+								<i class="tf-ion-plus-round"></i>
+							</a>
+						</div>
+						<img class="img-fluid" style="width : 85%" src="images/showcase/showcase-1.png" alt="Motorola Watch">
+
+					</div>
+					<div class="product-info">
+						<h4 class="mb-2">
+							<a href="{{path('app_products')}}" class="link-title">Montres connectées</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="gallery mt-5" id="products">
+		<div class="container d-flex justify-content-center">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading">
+						<h2>Nos dernieres sorties</h2>
+					</div>
+					<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="block d-inline-flex">
+									<div class="gallery-overlay">
+										<a href="#" class="gallery-popup">
+											<i class="tf-ion-plus-round"></i>
+										</a>
+									</div>
+									<img src="images/showcase/showcase-1.png" class="w-10 h-10" alt="showcase-1">
+								</div>
+
+								<div class="block d-inline-flex">
+									<div class="gallery-overlay">
+										<a href="#" class="gallery-popup">
+
+											<i class="tf-ion-plus-round"></i>
+										</a>
+									</div>
+									<img src="images/showcase/showcase-2.png" class="w-10 h-10" alt="showcase-1">
+								</div>
+
+							</div>
+							<div class="carousel-item">
+								<div class="block d-inline-flex">
+									<div class="gallery-overlay">
+										<a href="#" class="gallery-popup">
+
+											<i class="tf-ion-plus-round"></i>
+										</a>
+									</div>
+									<img src="images/showcase/showcase-3.png" class="w-10 h-10" alt="showcase-1">
+								</div>
+
+								<div class="block d-inline-flex">
+									<div class="gallery-overlay">
+										<a href="#" class="gallery-popup">
+
+											<i class="tf-ion-plus-round"></i>
+										</a>
+									</div>
+									<img src="images/showcase/showcase-4.png" class="w-10 h-10" alt="showcase-1">
+								</div>
+
+							</div>
+							<div class="carousel-item">
+								<div class="block d-inline-flex">
+									<div class="gallery-overlay">
+										<a href="#" class="gallery-popup">
+
+											<i class="tf-ion-plus-round"></i>
+										</a>
+									</div>
+									<img src="images/showcase/showcase-5.png" class="w-10 h-10" alt="showcase-1">
+								</div>
+
+								<div class="block d-inline-flex">
+									<div class="gallery-overlay">
+										<a href="#" class="gallery-popup">
+
+											<i class="tf-ion-plus-round"></i>
+										</a>
+									</div>
+									<img src="images/showcase/showcase-6.png" class="w-10 h-10" alt="showcase-1">
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="section">
 		<div class="container">
 			<div class="row">
@@ -129,97 +270,16 @@
 		</div>
 	</section>
 
-	<section class="gallery" id="products">
-		<div class="container d-flex justify-content-center">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="heading">
-						<h2>Nos dernieres sorties</h2>
-					</div>
-					<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<div class="block d-inline-flex">
-									<div class="gallery-overlay">
-										<a href="#" class="gallery-popup">
-											<i class="tf-ion-plus-round"></i>
-										</a>
-									</div>
-									<img src="images/showcase/showcase-1.png" class="w-10 h-10" alt="showcase-1">
-								</div>
-
-								<div class="block d-inline-flex">
-									<div class="gallery-overlay">
-										<a href="#" class="gallery-popup">
-
-											<i class="tf-ion-plus-round"></i>
-										</a>
-									</div>
-									<img src="images/showcase/showcase-2.png" class="w-10 h-10" alt="showcase-1">
-								</div>
-
-							</div>
-							<div class="carousel-item">
-								<div class="block d-inline-flex">
-									<div class="gallery-overlay">
-										<a href="#" class="gallery-popup">
-
-											<i class="tf-ion-plus-round"></i>
-										</a>
-									</div>
-									<img src="images/showcase/showcase-3.png" class="w-10 h-10" alt="showcase-1">
-								</div>
-
-								<div class="block d-inline-flex">
-									<div class="gallery-overlay">
-										<a href="#" class="gallery-popup">
-
-											<i class="tf-ion-plus-round"></i>
-										</a>
-									</div>
-									<img src="images/showcase/showcase-4.png" class="w-10 h-10" alt="showcase-1">
-								</div>
-
-							</div>
-							<div class="carousel-item">
-								<div class="block d-inline-flex">
-									<div class="gallery-overlay">
-										<a href="#" class="gallery-popup">
-
-											<i class="tf-ion-plus-round"></i>
-										</a>
-									</div>
-									<img src="images/showcase/showcase-5.png" class="w-10 h-10" alt="showcase-1">
-								</div>
-
-								<div class="block d-inline-flex">
-									<div class="gallery-overlay">
-										<a href="#" class="gallery-popup">
-
-											<i class="tf-ion-plus-round"></i>
-										</a>
-									</div>
-									<img src="images/showcase/showcase-6.png" class="w-10 h-10" alt="showcase-1">
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<section class="call-to-action section bg-opacity" style="background-image: url('images/call-to-action.jpg');">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-8 text-center mx-auto">
-					<h2 class="subheading text-white">Get Product Updates</h2>
+					<h2 class="subheading text-white">Restez informé</h2>
 					<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
 					<div class="input-group">
 						<form action="" method="post" class="w-100" name="mc-embedded-subscribe-form" target="_blank">
-							<input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address Here" required>
-							<button class="btn btn-main btn-submit" type="submit" name="subscribe">Subscribe</button>
+							<input type="email" id="email" class="form-control" name="email" placeholder="Votre adresse email" required>
+							<button class="btn btn-main btn-submit" type="submit" name="subscribe">Abonnement</button>
 							<div style="position: absolute; left: -5000px;" aria-hidden="true">
 								<input type="text" name="" tabindex="-1">
 							</div>

@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Classe\Search;
 use App\Entity\Smartphone;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Smartphone>
@@ -37,6 +38,35 @@ class SmartphoneRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param  Search $search
+     *
+     * @return Smartphone []
+     */
+    public function findWithSearch(Search $search) {
+
+        $query = $this
+            ->createQueryBuilder('s')
+            ->select('c', 's')
+            ->join('s.CategorySmartphone', 'c');
+
+        if (!empty($search->categories)) {
+        $query = $query  
+            ->andWhere('c.id IN (:CategorySmartphone)')
+            ->setParameter('CategorySmartphone', $search->categories);
+        }
+
+        if (!empty($search->string)) {
+            $query =$query  
+                ->andWhere('p.name LIKE :string')
+                ->setParameter('string', "%($search->string)%");
+        }
+
+        return $query->getQuery()->getResult();
     }
 
 //    /**
