@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Création des catégories montres connectées et smartphones + filtres "
+git commit -m "037 Création du panier et de notre classe Cart()"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -57,8 +57,8 @@ git push -u origin main
 - [x]  035 Création d'une barre de filtre produit pour faciliter la navigation
 
 ## 06 Le panier
-- [ ]  036 Comprendre l'utilité de la sessionInterface() de Symfony 5
-- [ ]  037 Création du panier et de notre classe Cart()
+- [x]  036 Comprendre l'utilité de la sessionInterface() de Symfony 5
+- [x]  037 Création du panier et de notre classe Cart()
 - [ ]  038 Création de la vue récapitulatif panier avant l'entrée en tunnel d'achat
 - [ ]  039 Ajout, diminution et suppression de produit dans panier
 
