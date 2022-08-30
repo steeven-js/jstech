@@ -6,9 +6,8 @@
 {% block content %}
 	<section class="section">
 		<div class="container">
-			<h1>Rectouvez l'ensombre des produit que vous avez ajouté à votre panier.</h1>
+			<h1>Rectouvez ici l'ensemble des produits que vous avez ajouté à votre panier.</h1>
 			<hr>
-
 
 			<table class="table">
 				<thead>
@@ -21,7 +20,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% set total = nul l%}
 					{% for product in cart %}
 						<tr>
 							<th>
@@ -39,18 +37,11 @@
 							<td>{{(product.product.price * product.quantity/100) |number_format(2, ',', '.')}}
 								€</td>
 						</tr>
-						{% set total =total + (product.product.price * product.quantity) %}
+
 					{% endfor %}
 				</tbody>
 			</table>
 			<div class="text-right mb-5">
-				<b>Nombre de produits :</b>
-				{{ cart |length }}
-				<br>
-				<b>Total de mon panier :</b>
-				{{(total/100) |number_format(2, ',', '.')}}
-				€
-
 				<a href="#" class="btn btn-main">Valider mon panier</a>
 			</div>
 		</div>

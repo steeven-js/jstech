@@ -33,12 +33,14 @@ class Cart
 		$this->requestStack->getSession()->set('cart',$cart); 
 	}
 
+	// AFFICHE le panier
 	public function get()
 	{
 		
 		return $this->requestStack->getSession()->get('cart');
 	}
 
+	// SUPPRIME le panier
 	public function remove()
 	{
 		

@@ -11,58 +11,49 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CartController extends AbstractController
 {
 
-private $entityManager;
+    private $entityManager;
 
-public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
 
-{
-    $this->entityManager = $entityManager;
-}
-
-/**
- * @Route("/mon-panier", name="cart")
- */
-
-public function index(Cart $cart)
-{
-    $cartComplete = [];
-
-    foreach ($cart->get() as $id => $quantity){
-        $cartComplete[] = [
-            'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
-            'quantity' => $quantity
-        ];
+    {
+        $this->entityManager = $entityManager;
     }
 
-    return $this->render('cart/index.html.twig', [
-        'cart' => $cartComplete
-    ]);
-}
 
+    #[Route('/mon-panier', name: 'app_cart')]
+    public function index(Cart $cart)
+    {
+        $cartComplete = [];
 
-/**
- * @Route("/cart/add/{id}", name="add_to_cart")
- */
+        foreach ($cart->get() as $id => $quantity){
+            $cartComplete[] = [
+                'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
+                'quantity' => $quantity
+            ];
+        }
 
-public function add(Cart $cart, $id)
-{
-    $cart->add($id);
+        return $this->render('cart/index.html.twig', [
+            'cart' => $cartComplete
+        ]);
+    }
 
-    return $this->redirectToRoute('cart');
+    #[Route('/cart/add/{id}', name: 'add_to_cart')]
+    public function add(Cart $cart, $id)
+    {
+        $cart->add($id);
 
-}
+        return $this->redirectToRoute('app_cart');
 
-/**
- * @Route("/cart/remove/", name="remove_my_cart")
- */
+    }
 
-public function remove(Cart $cart)
-{
-    $cart->remove();
+    #[Route('/cart/remove', name: 'remove_my_cart')]
+    public function remove(Cart $cart)
+    {
+        $cart->remove();
 
-    return $this->redirectToRoute('products');
+        return $this->redirectToRoute('app_products');
 
-}
+    }
 
 
 }
