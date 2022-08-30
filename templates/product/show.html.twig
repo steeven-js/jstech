@@ -17,7 +17,8 @@
 				<div class="col-lg-6 col-md-7 offset-lg-1">
 					<h1 class="mb-4">{{product.name}}</h3>
 					<h3>{{product.subtitle}}</h3>
-					<p class="price py-4">{{(product.price/100) |number_format(2, ',', '.')}}</p>
+					<p class="price py-4">{{(product.price/100) |number_format(2, ',', '.')}}
+						€</p>
 					<hr>
 					<p>
 						{{product.description}}
