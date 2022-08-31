@@ -36,7 +36,7 @@ class CartController extends AbstractController
         // je définis remove dans l'entité Cart
         $cart->remove();
 
-        // Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
+
         return $this->redirectToRoute('app_products');
 
     }
@@ -45,10 +45,10 @@ class CartController extends AbstractController
     #[Route('/cart/delete/{id}', name: 'delete_to_cart')]
     public function delete(Cart $cart, $id)
     {
-        // je définis remove dans l'entité Cart
+        // je définis delete dans l'entité Cart
         $cart->delete($id);
 
-        // Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
+        
         return $this->redirectToRoute('app_cart');
 
     }
@@ -57,10 +57,10 @@ class CartController extends AbstractController
     #[Route('/cart/descrease/{id}', name: 'decrease_to_cart')]
     public function decrease(Cart $cart, $id)
     {
-        // je définis remove dans l'entité Cart
+        // je définis decrease dans l'entité Cart
         $cart->decrease($id);
 
-        // Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
+    
         return $this->redirectToRoute('app_cart');
 
     }

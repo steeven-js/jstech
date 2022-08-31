@@ -102,6 +102,8 @@ class Cart
                 ];
             }
 
+			// dd($cartComplete);
+
         }
 		return $cartComplete;
 
