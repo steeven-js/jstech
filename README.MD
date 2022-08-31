@@ -59,12 +59,12 @@ git push -u origin main
 ## 06 Le panier
 - [x]  036 Comprendre l'utilité de la sessionInterface() de Symfony 5
 - [x]  037 Création du panier et de notre classe Cart()
-- [ ]  038 Création de la vue récapitulatif panier avant l'entrée en tunnel d'achat
-- [ ]  039 Ajout, diminution et suppression de produit dans panier
+- [x]  038 Création de la vue récapitulatif panier avant l'entrée en tunnel d'achat
+- [x]  039 Ajout, diminution et suppression de produit dans panier
 
 ## 07 Les adresses
-- [ ]  040 Création de l'entité Address() pour les adresses de nos utilisateurs
-- [ ]  041 Ajouter, modifier, supprimer une adresse depuis l'espace membre de l'utilisateur
+- [x]  040 Création de l'entité Address() pour les adresses de nos utilisateurs
+- [x]  041 Ajouter, modifier, supprimer une adresse depuis l'espace membre de l'utilisateur
 
 ## 08 Les commandes
 - [ ]  042 Création de l'entité Carrier() pour stocker nos transporteurs
