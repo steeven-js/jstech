@@ -2,6 +2,8 @@
 
 namespace App\Classe;
 
+use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 //use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -11,12 +13,14 @@ class Cart
 {
 	//private $session;
 	private $requestStack;
+	private $entityManager;
 
 	//public function __construct(SessionInterface $session)
-	public function __construct(RequestStack $requestStack)
+	public function __construct(EntityManagerInterface $entityManager, RequestStack $requestStack)
 	{
 	//$this->session = $session;
 	$this->requestStack = $requestStack;
+	$this->entityManager = $entityManager;
 	}
 
 
@@ -82,6 +86,24 @@ class Cart
 		
 		// Je redéfini la même route que mon panier
 		$this->requestStack->getSession()->set('cart',$cart); 
+	}
+
+	public function getFull() 
+	{
+		$cartComplete = [];
+
+        // Si il y a un ajout, je rente dans le tableau
+        if ($this->get()) {
+            // je définis get dans l'entité Cart
+            foreach ($this->get() as $id => $quantity){
+                $cartComplete[] = [
+                    'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
+                    'quantity' => $quantity
+                ];
+            }
+
+        }
+		return $cartComplete;
 	}
 
 }
