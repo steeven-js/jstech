@@ -22,14 +22,18 @@ class Cart
 
 	public function add($id)
 	{
+		// On récupère les informations du panier à l'aide de la session
 		$cart = $this->requestStack->getSession()->get('cart', []);
 
+		// Si dans le panier il y a un produit déjà inséré
 		if (!empty($cart[$id])) {
+			// On incrémente
         	$cart[$id]++; 
 		} else {
 			$cart[$id] = 1;
 		}
 		// Il s'agit du set de la biblihothèque SessionInterface (Sets an attribute.)
+		// On stock les informations du panier dans une session (cart)
 		$this->requestStack->getSession()->set('cart',$cart); 
 	}
 
@@ -56,6 +60,26 @@ class Cart
 		// Je retire du tableau l'entré cart qui à l'id qui correspond à l' id que je souhaite supprimer
 		unset($cart[$id]);
 
+		// Je redéfini la même route que mon panier
+		$this->requestStack->getSession()->set('cart',$cart); 
+	}
+
+	// REDUIRE
+	public function decrease($id)
+	{
+		// On récupère les informations du panier à l'aide de la session
+		$cart = $this->requestStack->getSession()->get('cart', []);
+
+		// Vrérifier si la quantité de notre produit = 1
+		if ($cart[$id] > 1) {
+			// Retirer une quantité (-1)
+			$cart[$id]--; 
+			
+		} else {
+			// Supprimer mon produit
+			unset($cart[$id]);
+		}
+		
 		// Je redéfini la même route que mon panier
 		$this->requestStack->getSession()->set('cart',$cart); 
 	}

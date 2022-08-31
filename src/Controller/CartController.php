@@ -73,5 +73,17 @@ class CartController extends AbstractController
 
     }
 
+    // REDUIRE
+    #[Route('/cart/descrease/{id}', name: 'decrease_to_cart')]
+    public function decrease(Cart $cart, $id)
+    {
+        // je définis remove dans l'entité Cart
+        $cart->decrease($id);
+
+        // Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
+        return $this->redirectToRoute('app_cart');
+
+    }
+
 
 }
