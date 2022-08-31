@@ -94,7 +94,7 @@ class Cart
 
         // Si il y a un ajout, je rente dans le tableau
         if ($this->get()) {
-            // je définis get dans l'entité Cart
+            // Je récupère l'ID du produit en base de données
             foreach ($this->get() as $id => $quantity){
                 $cartComplete[] = [
                     'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
@@ -104,6 +104,8 @@ class Cart
 
         }
 		return $cartComplete;
+
+		// Sinon je retrouve le template mon panier vide
 	}
 
 }
