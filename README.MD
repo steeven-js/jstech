@@ -12,20 +12,20 @@ git commit -m "037 Création du panier et de notre classe Cart()"
 git push -u origin main
 ```
 ## 01 Introduction
-- [ ]  001 Le programme de la formation étape par étape
-- [ ]  002 Qu'est-ce que Symfony et pourquoi l'utiliser
-- [ ]  003 Configurer son environnement de développement
-- [ ]  004 Choisir son éditeur de code
-- [ ]  005 Avec la CLI de Symfony, comment installer Symfony 5
+- [x]  001 Le programme de la formation étape par étape
+- [x]  002 Qu'est-ce que Symfony et pourquoi l'utiliser
+- [x]  003 Configurer son environnement de développement
+- [x]  004 Choisir son éditeur de code
+- [x]  005 Avec la CLI de Symfony, comment installer Symfony 5
 
 ## 02 Les fondations pour comprendre
-- [ ]  006 Installation de notre premier projet Symfony
-- [ ]  007 L'organisation et l'architecture de Symfony 5_
-- [ ]  008 Le premier lancement de Symfony sur notre machine
-- [ ]  009 Création de notre première page
-- [ ]  010 Twig, le moteur de template pour afficher nos vues à nos utilisateurs
-- [ ]  011 Prêt pour attaquer le projet _ On pose les bases
-- [ ]  012 Le framework Bootstrap pour le template de notre site
+- [x]  006 Installation de notre premier projet Symfony
+- [x]  007 L'organisation et l'architecture de Symfony 5_
+- [x]  008 Le premier lancement de Symfony sur notre machine
+- [x]  009 Création de notre première page
+- [x]  010 Twig, le moteur de template pour afficher nos vues à nos utilisateurs
+- [x]  011 Prêt pour attaquer le projet _ On pose les bases
+- [x]  012 Le framework Bootstrap pour le template de notre site
 ## 03 Les membres
 
 - [x]  013 Création de notre première entité _ User()
@@ -49,8 +49,8 @@ git push -u origin main
 - [x]  027 Mapping de l'entité Category() dans EasyAdmin
 - [x]  028 Création de l'entité Product()
 - [x]  029 Important - Le point avant de continuer sur les mises à jour
-- [ ]  030 Mapping de l'entité Product() dans EasyAdmin
-- [ ]  031 Refactor de notre EventSubscriber pour l'ajout d'image dans nos produits
+- [x]  030 Mapping de l'entité Product() dans EasyAdmin
+- [x]  031 Refactor de notre EventSubscriber pour l'ajout d'image dans nos produits
 - [x]  032 Important - Correctif mise à jour _ Mapping Product() avec EasyAdmin
 - [x]  033 Création des produits dans le backoffice
 - [x]  034 Création des vues pour afficher nos produits à nos utilisateurs
