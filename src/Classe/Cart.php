@@ -47,4 +47,17 @@ class Cart
 		return $this->requestStack->getSession()->remove('cart');
 	}
 
+	// SUPPRIME le produit du panier sans supprimer le reste du panier
+	public function delete($id)
+	{
+
+		$cart = $this->requestStack->getSession()->get('cart', []);
+
+		// Je retire du tableau l'entré cart qui à l'id qui correspond à l' id que je souhaite supprimer
+		unset($cart[$id]);
+
+		// Je redéfini la même route que mon panier
+		$this->requestStack->getSession()->set('cart',$cart); 
+	}
+
 }
