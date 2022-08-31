@@ -6,10 +6,10 @@
 {% block content %}
 	<section class="section">
 		<div class="container">
-			<h1>Rectouvez ici l'ensemble des produits que vous avez ajouté à votre panier.</h1>
+			<h1>Rectouvez l'ensemble des produits que vous avez ajouté à votre panier.</h1>
 			<hr>
 
-			<table class="table">
+			<table class="table mt-3">
 				<thead>
 					<tr>
 						<th scope="col">Produit</th>
@@ -20,29 +20,39 @@
 					</tr>
 				</thead>
 				<tbody>
+					{% set total = null %}
 					{% for product in cart %}
 						<tr>
 							<th>
-								<img src="/uploads/{{product.product.illustration}}" height="50px" alt="{{product.product.name}}">
+								<img src="/uploads/{{product.product.illustration}}" height="75px" alt="{{product.product.name}}">
 								<br>
 							</th>
-							<td>{{product.product.name}}
+							<td>
+								{{product.product.name}}
 								<br>
-								{{product.product.subtitle}}
-
+								<small>{{product.product.subtitle}}</small>
 							</td>
 							<td>{{product.quantity}}</td>
-							<td>{{(product.product.price/100) |number_format(2, ',', '.')}}
+							<td>{{((product.product.price) / 100) |number_format(2, ',', '.')}}
 								€</td>
-							<td>{{(product.product.price * product.quantity/100) |number_format(2, ',', '.')}}
+							<td>{{((product.product.price * product.quantity) / 100) |number_format(2, ',', '.')}}
 								€</td>
 						</tr>
-
+						{% set total = total + (product.product.price * product.quantity) %}
 					{% endfor %}
 				</tbody>
 			</table>
 			<div class="text-right mb-5">
-				<a href="#" class="btn btn-main">Valider mon panier</a>
+				<b>Nombe de produits:
+				</b>
+				{{cart|length}}
+				<br>
+				<b>Total du panier:
+				</b>
+				{{((total) / 100) |number_format(2, ',', '.')}}
+				€
+
+				<a href="#" class="btn btn-main btn-block">Valider mon panier</a>
 			</div>
 		</div>
 	</section>
