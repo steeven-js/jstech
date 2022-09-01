@@ -17,7 +17,7 @@ class OrderController extends AbstractController
     public function index(): Response
     {
         if( ! $this->getUser()->getAddresses()->getValues()){// si pas d'adresse => redir vers ajouter une adresse
-            return $this->redirectToRoute('account_address_add');
+            return $this->redirectToRoute('app_account_address_add');
         }
 
          // createForm : OrderType / null (instance de la classe ex : $search etc..) / [current user]
