@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "037 Création du panier et de notre classe Cart()"
+git commit -m "043 Création de l'entité Order() et OrderDetails()"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -67,8 +67,8 @@ git push -u origin main
 - [x]  041 Ajouter, modifier, supprimer une adresse depuis l'espace membre de l'utilisateur
 
 ## 08 Les commandes
-- [ ]  042 Création de l'entité Carrier() pour stocker nos transporteurs
-- [ ]  043 Création de l'entité Order() et OrderDetails()
+- [x]  042 Création de l'entité Carrier() pour stocker nos transporteurs
+- [x]  043 Création de l'entité Order() et OrderDetails()
 - [ ]  044 Tunnel d'achat _ Choix de l'adresse de livraison
 - [ ]  045 Tunnel d'achat _ Choix du transporteur
 - [ ]  046 Tunnel d'achat _ Sommaire de la commande et ajout de style

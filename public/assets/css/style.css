@@ -736,4 +736,9 @@ textarea.form-control {
   color: #008DD0;
 }
 
+.block-small {
+  width: 600px;
+  margin: 0 auto;
+}
+
 /*# sourceMappingURL=style.css.map */
