@@ -123,6 +123,11 @@ a:active {
   line-height: 1.2;
 }
 
+.block-small {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 @media (max-width: 575px) {
   .font-size-60 {
     font-size: 40px;
@@ -734,11 +739,6 @@ textarea.form-control {
 
 .link-title:hover {
   color: #008DD0;
-}
-
-.block-small {
-  width: 600px;
-  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

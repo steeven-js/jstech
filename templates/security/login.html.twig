@@ -7,7 +7,7 @@
 {% block content %}
 <section class="section">
 	<div class="container">
-		<div class="block-small" style="max-width: 600px; margin: 0 auto;">
+		<div class="block-small">
 			<form method="post">
 				{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -21,7 +21,7 @@
 				</div>
 				{% endif %}
 
-				<h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter</h1>
+				<h2 class="col-md-12 mb-3 font-weight-normal">Merci de vous connecter</h2>
 				<label for="inputEmail">Votre Email</label>
 				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3"
 					placeholder="Votre adresse email" autocomplete="email" required autofocus>

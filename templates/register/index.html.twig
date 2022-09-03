@@ -4,9 +4,19 @@
 {% endblock %}
 
 {% block content %}
+<div class="section">
 	<div class="container">
-		<h1>Inscription</h1>
-		{{form(form)}}
-
+		<div class="block-small">
+			<h2 class="col-md-12 mb-3 font-weight-normal">Inscription</h2>
+			{{form_start(form)}}
+			<div class="row">
+				<div class="col-md-6">{{form_row(form.firstname)}}</div>
+				<div class="col-md-6">{{form_row(form.lastname)}}</div>
+				<div class="col-md-12">{{form_row(form.email)}}</div>
+				<div class="col-md-12">{{form_row(form.password)}}</div>
+			</div>
+			{{form_end(form)}}
 		</div>
-	{% endblock %}
+	</div>
+</div>
+{% endblock %}
