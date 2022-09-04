@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "047 Tunnel d'achat _ Stocker les informations de la commande en base"
+git commit -m "048 Mapping de nos nouvelles entités avec EasyAdmin"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -73,7 +73,7 @@ git push -u origin main
 - [x]  045 Tunnel d'achat _ Choix du transporteur
 - [x]  046 Tunnel d'achat _ Sommaire de la commande et ajout de style
 - [x]  047 Tunnel d'achat _ Stocker les informations de la commande en base
-- [ ]  048 Mapping de nos nouvelles entités avec EasyAdmin
+- [x]  048 Mapping de nos nouvelles entités avec EasyAdmin
 
 ## 09 Le paiement
 - [ ]  049 Présentation de l'outil de paiement Stripe
