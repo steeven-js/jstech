@@ -61,16 +61,15 @@ class OrderController extends AbstractController
         $form = $form->handleRequest($request); // 1. ecoute de la request
 
         if ($form->isSubmitted() && $form->isValid()){// if 2(ecoute) && 3(check EmailType etc...)
-            $form = $this->createForm(OrderType::class, null, [
-                'user' => $this->getUser()
-            ]);
 
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $date = new \DateTimeImmutable();
+
                 $carriers = $form->get('carriers')->getData();
                 $delivery = $form->get('address')->getData();
+
                 $delivery_content = $delivery->getFirstName().' '.$delivery->getLastName();
                 $delivery_content .= '<br>'.$delivery->getPhone();
                 
@@ -103,21 +102,22 @@ class OrderController extends AbstractController
                     $orderDetails->setQuantity($product['quantity']);
                     $orderDetails->setPrice($product['product']->getPrice());
                     $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
-                    // dd($product);
-
+                    
                     $this->entityManager->persist($orderDetails);
+                    // dump($product['product']);
                 }
+                // dd($order);
 
-                $this->entityManager->flush();
+                $this->entityManager->flush(); // enregistrement BdD
             }
+            
+            return $this->render('order/add.html.twig', [
+                'cart' => $cart->getFull(),
+                'carrier' => $carriers,
+                'delivery' => $delivery_content
+            ]);
         }
-        return $this->render('order/add.html.twig', [
-            'cart' => $cart->getFull(),
-            'carrier' => $carriers,
-            'delivery' => $delivery_content
-        ]);
 
-        
         return $this->redirectToRoute('app_cart');
     }
 
