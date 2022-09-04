@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "043 Création de l'entité Order() et OrderDetails()"
+git commit -m "047 Tunnel d'achat _ Stocker les informations de la commande en base"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -69,10 +69,10 @@ git push -u origin main
 ## 08 Les commandes
 - [x]  042 Création de l'entité Carrier() pour stocker nos transporteurs
 - [x]  043 Création de l'entité Order() et OrderDetails()
-- [ ]  044 Tunnel d'achat _ Choix de l'adresse de livraison
-- [ ]  045 Tunnel d'achat _ Choix du transporteur
-- [ ]  046 Tunnel d'achat _ Sommaire de la commande et ajout de style
-- [ ]  047 Tunnel d'achat _ Stocker les informations de la commande en base
+- [x]  044 Tunnel d'achat _ Choix de l'adresse de livraison
+- [x]  045 Tunnel d'achat _ Choix du transporteur
+- [x]  046 Tunnel d'achat _ Sommaire de la commande et ajout de style
+- [x]  047 Tunnel d'achat _ Stocker les informations de la commande en base
 - [ ]  048 Mapping de nos nouvelles entités avec EasyAdmin
 
 ## 09 Le paiement
