@@ -143,8 +143,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Address>
+       /**
+     * @return Collection|Address[]
      */
     public function getAddresses(): Collection
     {

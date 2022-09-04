@@ -4,27 +4,27 @@
 {% endblock %}
 
 {% block content %}
-	<section class="section">
-		<div class="container">
-			<h1>Mon compte</h1>
-			<p class="mb-4">Bienvenue
-				{{ app.user.firstname }}
-				dans votre compte.
-				<br>
-				C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personelles.</p>
-
-			<hr>
-			<a href="{{ path('app_account_password') }}">
-				<p class="mb-4">- Modifier mon mot de passe</p>
-			</a><br>
-			<a href="{{ path('app_account_address') }}">
-				<p class="mb-4">- Gérer mes adresses</p>
-			</a><br>
-			<a href="#">
-				<p class="mb-4">- Gérer mes commandes</p>
-			</a><br>
-			<hr>
-		</div>
-	</section>
+<section class="section">
+	<div class="container">
+		<h1>Mon compte</h1>
+		<p class="mb-4">Bienvenue
+			{{ app.user.firstname }}
+			dans votre compte.
+			<br>
+			C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personelles.
+		</p>
+		<hr>
+		<a href="{{ path('app_account_password') }}">
+			<p class="mb-4">- Modifier mon mot de passe</p>
+		</a><br>
+		<a href="{{ path('app_account_address') }}">
+			<p class="mb-4">- Gérer mes adresses</p>
+		</a><br>
+		<a href="#">
+			<p class="mb-4">- Gérer mes commandes</p>
+		</a><br>
+		<hr>
+	</div>
+</section>
 
 {% endblock %}
