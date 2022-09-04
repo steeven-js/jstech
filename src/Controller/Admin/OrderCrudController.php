@@ -28,7 +28,7 @@ class OrderCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
-            DateTimeField::new('createdAt', 'Passée le')->setFormat('dd-MM-yyyy hh:mm:ss'),
+            DateTimeField::new('createAt', 'Passée le')->setFormat('dd-MM-yyyy hh:mm:ss'),
             TextField::new('user.getFullName', 'Client'),
             MoneyField::new('total')->setCurrency('EUR'),
             BooleanField::new('IsPaid', 'Payée')

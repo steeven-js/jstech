@@ -22,7 +22,7 @@ class Order
     private ?User $user = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTimeImmutable $createAt = null;
 
     #[ORM\Column(length: 255)]
     private ?string $carrierName = null;
@@ -72,14 +72,14 @@ class Order
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreateAt(): ?\DateTimeImmutable
     {
-        return $this->createdAt;
+        return $this->createAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreateAt(\DateTimeImmutable $createAt): self
     {
-        $this->createdAt = $createdAt;
+        $this->createAt = $createAt;
 
         return $this;
     }

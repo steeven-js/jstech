@@ -61,64 +61,63 @@ class OrderController extends AbstractController
         $form = $form->handleRequest($request); // 1. ecoute de la request
 
         if ($form->isSubmitted() && $form->isValid()){// if 2(ecoute) && 3(check EmailType etc...)
+            // dd($form);
+            $carriers = $form->get('carriers')->getData();
+            $delivery = $form->get('address')->getData();
+    
+            $delivery_content = $delivery->getFirstName().' '.$delivery->getLastName();
+            $delivery_content .= '<br>'.$delivery->getPhone();
 
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $date = new \DateTimeImmutable();
-
-                $carriers = $form->get('carriers')->getData();
-                $delivery = $form->get('address')->getData();
-
-                $delivery_content = $delivery->getFirstName().' '.$delivery->getLastName();
-                $delivery_content .= '<br>'.$delivery->getPhone();
-                
-                if ($delivery->getCompany()) {
-                    $delivery_content .= '<br>'.$delivery->getCompany();
-                }
-
-                $delivery_content .= '<br>'.$delivery->getAddress();
-                $delivery_content .= '<br>'.$delivery->getPostal().' '.$delivery->getCity();
-                $delivery_content .= '<br>'.$delivery->getCountry();
-
-                // dd($delivery_content);
-
-                //Enregistre ma commande Order()
-                $order = new Order();
-                $order->setUser($this->getUser());
-                $order->setCreatedAt($date);
-                $order->setCarrierName($carriers->getName());
-                $order->setCarrierPrice($carriers->getPrice());
-                $order->setDelivery($delivery_content);
-                $order->setIsPaid(0);
-
-                $this->entityManager->persist($order);
-
-                // Enregistre mes produits OrderDetails()
-                foreach ($cart->getFull() as $product) {
-                    $orderDetails = new OrderDetails();
-                    $orderDetails->setMyOrder($order);
-                    $orderDetails->setProduct($product['product']->getName());
-                    $orderDetails->setQuantity($product['quantity']);
-                    $orderDetails->setPrice($product['product']->getPrice());
-                    $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
-                    
-                    $this->entityManager->persist($orderDetails);
-                    // dump($product['product']);
-                }
-                // dd($order);
-
-                $this->entityManager->flush(); // enregistrement BdD
+            if($delivery->getCompany()){
+                $delivery_content .= '<br>'.$delivery->getCompany();
             }
-            
+
+            $delivery_content .= '<br>'.$delivery->getAddress().'<br>'.$delivery->getPostal().' '.$delivery->getCity();
+    
+            // dd($form->getData());
+
+            $date = new \DateTimeImmutable();
+
+            $order = new Order();
+            $reference = $date->format('dmY').'-'.uniqid();
+
+            // enregistrer la commande Order
+            $order->setUser($this->getUser());
+            $order->setCreateAt($date);
+            $order->setCarrierName($carriers->getName());
+            $order->setCarrierPrice($carriers->getPrice());
+            $order->setDelivery($delivery_content);
+            $order->setIsPaid(0);
+
+            $this->entityManager->persist($order);
+
+
+            foreach($cart->getFull() as $product){
+
+                // dd($product);
+                $orderDetails = new OrderDetails();
+                // enregistrer les produits OrderDetails
+                $orderDetails->setMyOrder($order);
+                $orderDetails->setProduct($product['product']->getName());
+                $orderDetails->setQuantity($product['quantity']);
+                $orderDetails->setPrice($product['product']->getPrice());
+                $orderDetails->setTotal(  $product['quantity'] * $product['product']->getPrice()  );
+                $orderDetails->setMyOrder($order);
+
+                $this->entityManager->persist($orderDetails);
+                // dump($product['product']);
+            }
+            // dd($order);
+
+            $this->entityManager->flush(); // enregistrement BdD
+
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'carrier' => $carriers,
-                'delivery' => $delivery_content
+                'delivery' => $delivery_content,
             ]);
         }
-
-        return $this->redirectToRoute('app_cart');
+        return $this->redirectToRoute('cart');
     }
 
 }
