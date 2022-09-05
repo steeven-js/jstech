@@ -80,6 +80,7 @@ class OrderController extends AbstractController
 
             $order = new Order();
             $reference = $date->format('dmY').'-'.uniqid();
+            $order->setReference($reference);
 
             // enregistrer la commande Order
             $order->setUser($this->getUser());
@@ -115,6 +116,7 @@ class OrderController extends AbstractController
                 'cart' => $cart->getFull(),
                 'carrier' => $carriers,
                 'delivery' => $delivery_content,
+                'reference' => $order->getReference()
             ]);
         }
         return $this->redirectToRoute('cart');

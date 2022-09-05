@@ -79,9 +79,9 @@
                 €
                 <br>
 
-                <a href="#" class="btn btn-main mt-4">
-                    Payer |
-                    {{ ((total / 100) + carrier.price / 100)|number_format(2, ',', '.') }}
+                <a href="{{ path('stripe_create_session', {'reference': reference}) }}"
+                    class="btn btn-success btn-main">Payer |
+                    {{ ((total / 100) + carrier.price / 100) | number_format(2, ',', '.') }}
                     €</a>
             </div>
         </div>
