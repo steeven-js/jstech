@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "048 Mapping de nos nouvelles entités avec EasyAdmin"
+git commit -m "052 Intégration de Stripe dans notre tunnel d'achat"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -76,7 +76,7 @@ git push -u origin main
 - [x]  048 Mapping de nos nouvelles entités avec EasyAdmin
 
 ## 09 Le paiement
-- [ ]  049 Présentation de l'outil de paiement Stripe
-- [ ]  050 Création de notre compte Stripe
-- [ ]  051 Installation de Stripe dans notre projet
-- [ ]  052 Intégration de Stripe dans notre tunnel d'achat
+- [x]  049 Présentation de l'outil de paiement Stripe
+- [x]  050 Création de notre compte Stripe
+- [x]  051 Installation de Stripe dans notre projet
+- [x]  052 Intégration de Stripe dans notre tunnel d'achat
