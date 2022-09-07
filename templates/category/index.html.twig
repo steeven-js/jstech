@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produit{% endblock %}
+
+{% block content %}
+
+    {# <pre>
+        {{ dump(category) }}
+        {{ dump(category.0.id) }}
+        {{ dump(category.0.name) }}
+    </pre> #}
+    <section class="section gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-5">
+                    <div class="row product-container justify-content-center">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <div class="block">
+                                <div class="gallery-overlay">
+                                    <a href="{{ path('app_category', {'id' : category.0.id}) }}" class="gallery-popup">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </a>
+                                </div>
+                                <img class="img-fluid w-100" src=" {{ asset('uploads/showcase/showcase-1.1.png') }} " alt="">
+                            </div>
+                            <h3>Montres Connectées</h3>
+                            <hr>
+                            <p><a href="{{ path('app_category', {'id' : category.0.id}) }}">{{ (category.0.name) }}</a></p>
+                            <p><a href="{{ path('app_category', {'id' : category.1.id}) }}">{{ (category.1.name) }}</a></p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <div class="block">
+                                <div class="gallery-overlay">
+                                    <a href="{{ path('app_category', {'id' : category.2.id}) }}" class="gallery-popup">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </a>
+                                </div>
+                                <img class="img-fluid w-100" src=" {{ asset('uploads/showcase/showcase-9.jpg') }} " alt="">
+                            </div>
+                            <h3>Smartphones</h3>
+                            <hr>
+                            <p><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
+                            <p><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <div class="block">
+                                <div class="gallery-overlay">
+                                    <a href="{{ path('app_category', {'id' : category.4.id}) }}" class="gallery-popup">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </a>
+                                </div>
+                                <img class="img-fluid w-100" src=" {{ asset('uploads/showcase/showcase-11.jpg') }} " alt="">
+                            </div>
+                            <h3>Ordinateurs portables</h3>
+                            <hr>
+                            <p><a href="{{ path('app_category', {'id' : category.4.id}) }}">{{ (category.4.name) }}</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
