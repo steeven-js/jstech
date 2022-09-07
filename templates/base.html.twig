@@ -15,21 +15,24 @@
 		<meta name="description" content="Vex HTML Template">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 		<meta name="author" content="Themefisher">
-		<meta
-		name="generator" content="Themefisher Vex HTML Template v1.0">
+		<meta name="generator" content="Themefisher Vex HTML Template v1.0">
 
 
 		{# ** Stylesheets #}
 		{% block stylesheets %}
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+			integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+			integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-			<link href="{{ asset('assets/plugins/themefisher-font/themefisher-font.min.css')}}" rel="stylesheet">
-			<link href="{{ asset('assets/plugins/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
-			<link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
-			<link href="{{ asset('assets/css/carousel.css')}}" rel="stylesheet">
+		<link href="{{ asset('assets/plugins/themefisher-font/themefisher-font.min.css')}}" rel="stylesheet">
+		<link href="{{ asset('assets/plugins/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
+		<link href="{{ asset('assets/css/carousel.css')}}" rel="stylesheet">
 		{% endblock %}
 
 	</head>
@@ -42,7 +45,9 @@
 					<a class="navbar-brand" href="{{ path('app_home') }}">
 						<img src="{{ asset('uploads/showcase/logo.png')}}" alt="JS" width="100px">
 					</a>
-					<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse"
+						data-target="#navigation" aria-controls="navigation" aria-expanded="false"
+						aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
@@ -51,6 +56,65 @@
 							<li class="nav-item">
 								<a class="nav-link" href="{{path('app_nos_category')}}">Tous Nos Produits</a>
 							</li>
+
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#!" id="dropdown03" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">Navigation <i
+										class="tf-ion-chevron-down"></i></a>
+								<ul class="dropdown-menu" aria-labelledby="dropdown03">
+
+									<li class="dropdown dropdown-submenu dropright">
+										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
+											role="button" data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Portables</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
+											<li><a class="dropdown-item" href="/category/5">PC portable</a></li>
+											<li><a class="dropdown-item" href="/category/6">MacBook</a></li>
+										</ul>
+									</li>
+
+									<li class="dropdown dropdown-submenu dropleft">
+										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
+											role="button" data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Objets connectés</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
+											<li><a class="dropdown-item" href="/category/1">Apple watch</a></li>
+											<li><a class="dropdown-item" href="/category/2">Android watch</a></li>
+										</ul>
+									</li>
+
+									<li class="dropdown dropdown-submenu dropright">
+										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
+											role="button" data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Téléphonie</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
+											<li><a class="dropdown-item" href="/category/3">Iphone</a></li>
+											<li><a class="dropdown-item" href="/category/4">Smartphone Android</a></li>
+										</ul>
+									</li>
+
+									<li class="dropdown dropdown-submenu dropleft">
+										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
+											role="button" data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false">Image et son</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
+											<li><a class="dropdown-item" href="/category/7">Télévision</a></li>
+											<li><a class="dropdown-item" href="/category/8">Appareil Photo</a></li>
+											<li><a class="dropdown-item" href="/category/9">Son Numérique</a></li>
+										</ul>
+									</li>
+
+									<li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
+									<li><a class="dropdown-item" href="product-details.html">Product Details</a></li>
+									<li><a class="dropdown-item" href="privacy-policy.html">Privacy Policy</a></li>
+									<li><a class="dropdown-item" href="terms-conditions.html">Terms Conditions</a></li>
+								</ul>
+							</li>
+
 							<li class="nav-item">
 								<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
 							</li>
@@ -60,19 +124,19 @@
 								</a>
 							</li>
 							{% if app.user %}
-								<a class="nav-link" href="{{ path('app_account') }}">
-									<i class="fa-solid fa-house-user"></i>
-									<small>({{ app.user.firstname }})</small>
-								</a>
-								|
-								<a class="nav-link" href="{{ path('app_logout') }}">
-									<i class="fa-solid fa-arrow-right-from-bracket"></i>
-								</a>
+							<a class="nav-link" href="{{ path('app_account') }}">
+								<i class="fa-solid fa-house-user"></i>
+								<small>({{ app.user.firstname }})</small>
+							</a>
+							|
+							<a class="nav-link" href="{{ path('app_logout') }}">
+								<i class="fa-solid fa-arrow-right-from-bracket"></i>
+							</a>
 
 							{% else %}
-								<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-								|
-								<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+							<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+							|
+							<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
 							{% endif %}
 						</ul>
 					</div>
@@ -119,8 +183,8 @@
 		</footer>
 
 		{% block javascripts %}
-			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-			<script src="{{ asset('assets/js/bootstrap.bundle.js')}}"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="{{ asset('assets/js/bootstrap.bundle.js')}}"></script>
 		{% endblock %}
 
 	</body>
