@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos produit
-{% endblock %}
+{% block title %}{{category.name}}{% endblock %}
+
 
 {% block content %}
 
@@ -14,7 +14,7 @@
         <h2 class="font-weight-bold">{{category.name}}</h2>
     </div>
     <div class="container">
-        <p><i class="fa-solid fa-rotate-left"></i><a class="link-title" href="{{path('app_nos_category')}}">Nos Produits</a></p>
+        <p><i class="fa-solid fa-rotate-left"></i><a class="link-title" href="{{path('app_nos_category')}}">Tous Nos Produits</a></p>
         <div class="row">
             <div class="col-md-12 text-center mb-5">
                 <div class="row product-container">
