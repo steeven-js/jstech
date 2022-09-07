@@ -72,13 +72,16 @@ class AccountAddressController extends AbstractController
             return $this->redirectToRoute('app_account_address');
         }
 
+        // Je passe en paramètres à ma fonction creatForm() Le type du formulaire et L'objet
         $form = $this->createForm(AddressType::class, $address);
 
+        // Ecoute la requête
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // dd($address);
             // A quel utilisateur lié cette adresse?
+            // Fige la data
             $this->entityManager->flush();
 
             return $this->redirectToRoute('app_account_address');
