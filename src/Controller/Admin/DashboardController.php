@@ -7,6 +7,7 @@ use App\Entity\Carrier;
 use App\Entity\Product;
 use App\Entity\Category;
 use App\Controller\Admin\UserCrudController;
+use App\Entity\Header;
 use App\Entity\Order;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -58,6 +59,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Category', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Product', 'fa-solid fa-tag', Product::class);
         yield MenuItem::linkToCrud('Carriers', 'fa-solid fa-truck', Carrier::class);
+        yield MenuItem::linkToCrud('Header', 'fa-solid fa-desktop', Header::class);
     }
 }
  
