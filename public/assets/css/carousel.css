@@ -29,6 +29,14 @@
     height: 32rem;
 }
 
+.carousel-caption h1 {
+    font-size: 60px !important;
+    font-weight: 700 !important;
+}
+
+.carousel-caption p {
+    font-weight: 700 !important;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

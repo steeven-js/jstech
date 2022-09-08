@@ -66,8 +66,8 @@
 											aria-expanded="false">Portables <i class="fa-solid fa-laptop"></i></a>
 
 										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/5">PC portable</a></li>
-											<li><a class="dropdown-item" href="/category/6">MacBook</a></li>
+											<li><a class="dropdown-item" href="/category/5"><i class="fa-solid fa-laptop"></i> PC portable</a></li>
+											<li><a class="dropdown-item" href="/category/6"><i class="fa-solid fa-laptop"></i> MacBook</a></li>
 										</ul>
 									</li>
 
@@ -77,8 +77,8 @@
 											aria-expanded="false"><i class="fa-solid fa-circle-nodes"></i> Objets connectés</a>
 
 										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/1">Apple watch</a></li>
-											<li><a class="dropdown-item" href="/category/2">Android watch</a></li>
+											<li><a class="dropdown-item" href="/category/1"><i class="fa-regular fa-clock"></i> Apple watch</a></li>
+											<li><a class="dropdown-item" href="/category/2"><i class="fa-regular fa-clock"></i> Android watch</a></li>
 										</ul>
 									</li>
 
@@ -88,8 +88,8 @@
 											aria-expanded="false">Téléphonie <i class="fa-solid fa-mobile-screen-button"></i></a>
 
 										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/3">Iphone</a></li>
-											<li><a class="dropdown-item" href="/category/4">Smartphone Android</a></li>
+											<li><a class="dropdown-item" href="/category/3"><i class="fa-solid fa-mobile-screen-button"></i> Iphone</a></li>
+											<li><a class="dropdown-item" href="/category/4"><i class="fa-solid fa-mobile-screen-button"></i> Smartphone Android</a></li>
 										</ul>
 									</li>
 
@@ -99,14 +99,13 @@
 											aria-expanded="false"><i class="fa-solid fa-tv"></i> Image et son</a>
 
 										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/7">Télévision</a></li>
-											<li><a class="dropdown-item" href="/category/8">Appareil Photo</a></li>
-											<li><a class="dropdown-item" href="/category/9">Son Numérique</a></li>
+											<li><a class="dropdown-item" href="/category/7"><i class="fa-solid fa-tv"></i> Télévision</a></li>
+											<li><a class="dropdown-item" href="/category/8"><i class="fa-solid fa-camera"></i> Appareil Photo</a></li>
+											<li><a class="dropdown-item" href="/category/9"><i class="fa-solid fa-headphones"></i> Son Numérique</a></li>
 										</ul>
 									</li>
 
 									<li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
-									<li><a class="dropdown-item" href="product-details.html">Product Details</a></li>
 									<li><a class="dropdown-item" href="privacy-policy.html">Privacy Policy</a></li>
 									<li><a class="dropdown-item" href="terms-conditions.html">Terms Conditions</a></li>
 								</ul>
@@ -130,11 +129,23 @@
 							<a class="nav-link" href="{{ path('app_logout') }}">
 								<i class="fa-solid fa-arrow-right-from-bracket"></i>
 							</a>
+							<a class="nav-link" href="#">
+								<i class="fa-brands fa-instagram"></i>
+							</a>
+							<a class="nav-link" href="#">
+								<i class="fa-brands fa-twitter"></i>
+							</a>
 							{# Si l'utilisateur n'est pas identifié, j'affiche les liens suivant #}
 							{% else %}
 							<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
 							|
 							<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+							<a class="nav-link" href="#">
+								<i class="fa-brands fa-instagram"></i>
+							</a>
+							<a class="nav-link" href="#">
+								<i class="fa-brands fa-twitter"></i>
+							</a>
 							{% endif %}
 						</ul>
 					</div>
@@ -166,10 +177,10 @@
 										background-position: center; {# au cas où Pb avec bg position #}
 										background-position: {{header.backgroundPosition}};">
 								<div class="container">
-									<div class="carousel-caption text-left">
+									<div class="carousel-caption text-left" style="color: {{ header.textColor }}">
 										<h1>{{header.title}}</h1>
 										<p>{{header.content}}</p>
-										<p><a class="btn btn-lg btn-info" href="{{header.btnUrl}}" role="button">{{header.btnTitle}}</a></p>
+										<p><a class="btn btn-lg btn-main" href="{{header.btnUrl}}" role="button">{{header.btnTitle}}</a></p>
 									</div>
 								</div>
 							</div>

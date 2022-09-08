@@ -7,8 +7,9 @@
 {% block content %}
 	<section class="section gallery">
 		<div class="container">
-		<p><i class="fa-solid fa-rotate-left"></i><a class="link-title" href="{{path('app_nos_category')}}">Tous Nos Produits</a></p>
-			<div class="row">
+		<a class="btn btn-second" href="{{path('app_nos_category')}}"><i class="fa-solid fa-arrow-left"></i> Tous Nos Produits</a>
+		<br>
+			<div class="row mt-4 ">
 				<div class="col-md-5 mb-4 mb-md-0">
 					<div class="product_image">
 						<img src="/uploads/{{ product.illustration}}" alt="{{product.name}}">
@@ -18,12 +19,9 @@
 				<div class="col-lg-6 col-md-7 offset-lg-1">
 					<h1 class="mb-4">{{product.name}}</h3>
 					<h3>{{product.subtitle}}</h3>
-					<p class="price py-4">{{(product.price/100) |number_format(2, ',', '.')}}
-						€</p>
+					<p class="price py-4">{{(product.price/100) |number_format(2, ',', '.')}} €</p>
 					<hr>
-					<p>
-						{{product.description}}
-					</p>
+					<p>{{product.description}}</p>
 					<a href="{{path('add_to_cart', {'id' : product.id})}}" class="btn btn-main">Ajouter au panier</a>
 				</div>
 			</div>

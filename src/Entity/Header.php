@@ -32,6 +32,9 @@ class Header
     #[ORM\Column(length: 255)]
     private ?string $backgroundPosition = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $textColor = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Header
     public function setBackgroundPosition(string $backgroundPosition): self
     {
         $this->backgroundPosition = $backgroundPosition;
+
+        return $this;
+    }
+
+    public function getTextColor(): ?string
+    {
+        return $this->textColor;
+    }
+
+    public function setTextColor(string $textColor): self
+    {
+        $this->textColor = $textColor;
 
         return $this;
     }
