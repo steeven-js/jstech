@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Header;
 use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,8 +23,12 @@ class CategoryController extends AbstractController
     {
         $category = $this->entityManager->getRepository(Category::class)->findAll();
 
+        $headers = $this->entityManager->getRepository(Header::class)->findall();
+        // dd($headers);
+
         return $this->render('category/index.html.twig', [
-            'category' => $category
+            'category' => $category,
+            'headers' => $headers
         ]);
         
     }

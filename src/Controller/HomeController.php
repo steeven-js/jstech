@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
-         $headers = $this->entityManager->getRepository(Header::class)->findall();
+        $headers = $this->entityManager->getRepository(Header::class)->findall();
         // dd($headers);
         
         return $this->render('home/index.html.twig', [

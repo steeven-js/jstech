@@ -1,53 +1,13 @@
 {% extends 'base.html.twig' %}
-
+{% block carousel %}{% endblock %}
 
 {% block content %}
-
-{# {{dump(headers)}} #}
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators">
-	{% for key,header in headers %}
-		<li data-target="#myCarousel" data-slide-to="{{key}}" {% if key == 0 %} class="active"{% endif %}></li>
-	{% endfor %}
-	</ol>
-	<div class="carousel-inner">
-	{% for key,header in headers %}
-{# -id: 1
--title: "Nouvelle collection"
--content: "Découvrez notre collection créée par nos artisans et nos couturiers."
--btnTitle: "Découvrez"
--btnUrl: "/nos-produits"
--illustration: "header-04d1383d1eecefefec8f4eb9b8166e95eb1e7efa.jpg" #}
-		<div class="carousel-item {% if key == 0 %}active{% endif %}" 
-				style="background: url('/uploads/{{header.illustration}}');
-					background-size: cover;
-					background-position: center; {# au cas où Pb avec bg position #}
-					background-position: {{header.backgroundPosition}};">
-			<div class="container">
-				<div class="carousel-caption text-left">
-					<h1>{{header.title}}</h1>
-					<p>{{header.content}}</p>
-					<p><a class="btn btn-lg btn-info" href="{{header.btnUrl}}" role="button">{{header.btnTitle}}</a></p>
-				</div>
-			</div>
-		</div>
-	{% endfor %}
-	</div>
-	<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a>
-	<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a>
-</div>
 
 <section class="section">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 text-center mb-5 mb-md-0">
-				<img class="img-fluid" src="images/watch.png" alt="">
+				<img class="img-fluid" src="{{ asset('/uploads/showcase/showcase-1.jpg') }}" alt="">
 			</div>
 			<div class="col-md-6 align-self-center text-center text-md-left">
 				<div class="block">
@@ -55,7 +15,7 @@
 					<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 						incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 						Voluptas, modi fugit in veritatis labore perferendis. Minima hic at, nostrum nihil!</p>
-					<a href="#" class="btn btn-main">Browse All Products</a>
+					<a href="{{ path('app_nos_category') }}" class="btn btn-main">Browse All Products</a>
 				</div>
 			</div>
 		</div>
@@ -67,48 +27,49 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="heading">
-					<h2>Notre Produit phare</h2>
+					<h2>Canon EOS 2000D + EF-S 18-55 mm IS II</h2>
 				</div>
 			</div>
 			<div class="col-md-4">
 
-				<div class="mb-40 text-center text-md-left">
+				<div class="mb-20 text-center">
 					<i class="d-inlin-block h2 mb-10 tf-ion-ios-alarm-outline"></i>
 					<h4 class="font-weight-bold mb-2">Smooth Touch</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
 				</div>
 
-				<div class="mb-40 text-center text-md-left">
+				<div class="mb-20 text-center">
 					<i class="d-inlin-block h2 mb-10 tf-ion-ios-bell-outline"></i>
 					<h4 class="font-weight-bold mb-2">Elegant Design</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
 				</div>
 
-				<div class="mb-40 text-center text-md-left">
+				<div class="mb-20 text-center">
 					<i class="d-inlin-block h2 mb-10 tf-ion-ios-cart-outline"></i>
 					<h4 class="font-weight-bold mb-2">Easy Pricing</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
 				</div>
 
 			</div>
-			<div class="col-md-4 text-center align-self-center mb-4 mb-md-0">
-				<img class="img-fluid" src="images/watch-2.png" alt="">
+			<div class="col-md-4 text-center mb-5 mb-md-0">
+				<img class="img-fluid" src="{{ asset('/uploads/showcase/showcase-15.jpg') }}" alt="">
 			</div>
+			
 			<div class="col-md-4">
 
-				<div class="mb-40 text-center text-md-left">
+				<div class="mb-20 text-center">
 					<i class="d-inlin-block h2 mb-10 tf-ion-ios-alarm-outline"></i>
 					<h4 class="font-weight-bold mb-2">Smooth Touch</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
 				</div>
 
-				<div class="mb-40 text-center text-md-left">
+				<div class="mb-20 text-center">
 					<i class="d-inlin-block h2 mb-10 tf-ion-ios-bell-outline"></i>
 					<h4 class="font-weight-bold mb-2">Elegant Design</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
 				</div>
 
-				<div class="mb-40 text-center text-md-left">
+				<div class="mb-20 text-center">
 					<i class="d-inlin-block h2 mb-10 tf-ion-ios-cart-outline"></i>
 					<h4 class="font-weight-bold mb-2">Easy Pricing</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, inventore?</p>
@@ -146,7 +107,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="heading">
-					<h2>Nos Portables</h2>
+					<h2>Nos Portables Phares</h2>
 				</div>
 			</div>
 		</div>
@@ -158,9 +119,9 @@
 			<div class="col-md-6 align-self-center text-center text-md-left">
 				<div class="content">
 					<h4 class="subheading">Apple MacBook Air M2 (2022)</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur sed
-						esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit quas, quo
-						harum deserunt consequatur cumque!</p>
+					<p>Boosté par la puce M2 nouvelle génération, le MacBook Air repensé offre des performances
+						exceptionnelles et jusqu'à 18
+						heures d'autonomie. Le tout, dans un boîtier en aluminium incroyablement fin.</p>
 				</div>
 			</div>
 		</div>
@@ -168,10 +129,10 @@
 		<div class="row mb-40">
 			<div class="col-md-6 order-md-1 order-2 align-self-center text-center text-md-left">
 				<div class="content">
-					<h4 class="subheading">Lorem ipsum dolor sit amet.</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, sed, assumenda. Tenetur sed
-						esse, voluptas voluptate est veniam numquam, quis magni. Architecto minus suscipit quas, quo
-						harum deserunt consequatur cumque!</p>
+					<h4 class="subheading">ASUS Vivobook S17 S712EAM-AU514W</h4>
+					<p>Mince, élégant et sophistiqué, le PC portable ASUS Vivobook S17 S712JA vous offre la puissance et
+						la mobilité dont vous avez besoin. Ce modèle sera adapté pour tous vos besoins du quotidien et
+						pour le divertissement occasionnel.</p>
 				</div>
 			</div>
 			<div class="col-md-6 order-md-2 order-1 text-center mb-5 mb-lg-0">
