@@ -8,13 +8,14 @@ use App\Entity\Order;
 use App\Entity\Product;
 use Stripe\Checkout\Session;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class StripeController extends AbstractController
 {
-        #[Route('/commande/create-session/{reference}', name: 'stripe_create_session')]
+    #[Route('/commande/create-session/{reference}', name: 'stripe_create_session')]
     public function index(EntityManagerInterface $entityManager, Cart $cart, $reference)
     {
         $product_for_stripe = [];
@@ -51,7 +52,6 @@ class StripeController extends AbstractController
             'quantity' => 1,
         ];
  
-
         // dd($product_for_stripe);
  
         // API Stripe pour le paiement
@@ -66,10 +66,24 @@ class StripeController extends AbstractController
                 'card',
             ],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/success.html',
-            'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+            'success_url' => $YOUR_DOMAIN . '/success',
+            'cancel_url' => $YOUR_DOMAIN . '/cancel',
         ]);
  
         return $this->redirect($checkout_session->url);
+    }
+    
+    #[Route('/success', name: 'app_success')]
+    public function success(): Response
+    {
+        
+        return $this->render('cart/success.html.twig');
+    }
+
+    #[Route('/cancel', name: 'app_cancel')]
+    public function cancel(): Response
+    {
+
+        return $this->render('cart/cancel.html.twig');
     }
 }

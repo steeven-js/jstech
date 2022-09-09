@@ -306,7 +306,12 @@ a:active {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #444;
+  color: #008DD0;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  background: #008DD0;
+  color: white;
 }
 
 .lang-list {
@@ -659,9 +664,9 @@ s.price {
   text-align: center;
 }
 
-.product-info .price {
+/* .product-info .price {
   font-size: 100%;
-}
+} */
 
 .contact-list li,
 .contact-list a {

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Thanks for your order!{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center mb-5 mb-md-0">
+                    <img class="img-fluid" src="{{ asset('/uploads/showcase/showcase-1.jpg') }}" alt="">
+                </div>
+                <div class="col-md-6 align-self-center text-center text-md-left">
+                    <div class="block">
+                        <h3 class="font-weight-bold mb-4 ">Merci pour votre achat et la confiance que vous nous attribuer! Si vous avez des questions, veuillez nous <a href="{{(path('app_contact'))}}">contacter</a>.</h3>
+                        <a href="{{ path('app_nos_category') }}" class="btn btn-main">Tous Nos Produits</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

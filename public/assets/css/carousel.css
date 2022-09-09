@@ -10,6 +10,10 @@
     background-color: #5a5a5a;
 }
 
+.carousel-indicators li {
+    background-color: #008DD0 !important;
+}
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
     bottom: 3rem;
