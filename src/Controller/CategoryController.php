@@ -44,6 +44,11 @@ class CategoryController extends AbstractController
 
         // dd($category);
 
+          // Partie sécurité
+        if (!$category){
+            return $this->redirectToRoute('app_nos_category');
+        }
+
         return $this->render('category/show.html.twig', [
             'category' => $category,
             'products' => $products
