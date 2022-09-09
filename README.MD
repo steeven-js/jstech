@@ -10,6 +10,7 @@ git push -u origin main
 git add .
 git commit -m "Add Heroku Procfile"
 git push -u origin main
+git push heroku main
 ```
 ## 01 Introduction
 - [x]  001 Le programme de la formation étape par étape
