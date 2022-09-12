@@ -43,6 +43,7 @@ class AccountAddressController extends AbstractController
             // dd($address);
             // A quel utilisateur lié cette adresse?
             $address->setUser($this->getUser());
+
             $this->entityManager->persist($address);
             $this->entityManager->flush();
 
@@ -63,11 +64,11 @@ class AccountAddressController extends AbstractController
     #[Route('/compte/modifier-une-adresse/{id}', name: 'app_account_address_edit')]
     public function edit(Request $request, $id): Response
     {
-        // On va chercher l'objet adresse que l'on souhaite modifier
+        // Je récupère l'adresse concernée à l'aide de doctrine en base de donnée
         $address = $this->entityManager->getRepository(Address::class)->findOneById($id);// De quel id on parle? De celui qui est passé en paramètre.
 
-        // Secutité pour empecher que l'utilisateur ne modifie l'adresse d'une autre id avec l'url
-        // Opérateur OU || voir si adresse et l'user lié 
+        // SECURITE
+        // S'il n'y a aucune adresse, ou que l'utilisateur qui à renseinger l'adressse ne correspond pas à celui actuellement connecté.
         if (!$address || $address->getUser() != $this->getUser()) {
             return $this->redirectToRoute('app_account_address');
         }

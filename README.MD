@@ -8,9 +8,8 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Add Heroku Procfile"
+git commit -m "Vérifications et ajustements"
 git push -u origin main
-git push heroku main
 ```
 ## 01 Introduction
 - [x]  001 Le programme de la formation étape par étape
