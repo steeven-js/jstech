@@ -41,7 +41,7 @@ class HeaderCrudController extends AbstractCrudController
             ChoiceField::new('textColor', 'couleur du text')
                     ->autocomplete()
                     ->setChoices([  'blanc' => '#fff',
-                                    'sombre' => '#3b4045',
+                                    'sombre' => '#008DD0',
                                     ])
         ];
     }
