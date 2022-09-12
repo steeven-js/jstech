@@ -18,7 +18,9 @@
 					<div class="col-md-10 text-center mb-5">
 						<div class="row product-container">
 							{% for product in products %}
+
 								<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
 									<div class="block">
 										<div class="gallery-overlay">
 											<a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup">
@@ -27,17 +29,19 @@
 										</div>
 										<img class="img-fluid w-100" src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
 									</div>
+
 									<div class="product-info">
 										<a class="link-title" href="{{path('app_product', {'slug' : product.slug})}}">
 											<h4>{{product.name}}</h4>
 										</a>
 										<p>{{product.subtitle}}</p>
-										<p class="price">{{(product.price/100) |number_format(2, ',', '.')}}
-											€</p>
+										<p class="price">{{(product.price/100) |number_format(2, ',', '.')}} €</p>
 									</div>
 
 								</div>
+								
 							{% endfor %}
+
 						</div>
 					</div>
 				</div>
