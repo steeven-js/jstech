@@ -1,4 +1,8 @@
 <?php
+/**
+ * Commentaires
+ */
+
 
 namespace App\Controller;
 
@@ -48,6 +52,8 @@ class ProductController extends AbstractController
         // dd($slug);
         // On recherche en base de donnée un produit associer à son slug.
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
+
+        dd($product);
 
          // Partie sécurité
         if (!$product){
