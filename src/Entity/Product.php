@@ -21,9 +21,6 @@ class Product
     private ?string $slug = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $illustration = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $subtitle = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -35,6 +32,9 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $illustration = null;
 
     #[ORM\Column(length: 255)]
     private ?string $illustration1 = null;
@@ -70,18 +70,6 @@ class Product
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    public function getIllustration(): ?string
-    {
-        return $this->illustration;
-    }
-
-    public function setIllustration(string $illustration): self
-    {
-        $this->illustration = $illustration;
 
         return $this;
     }
@@ -130,6 +118,18 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(string $illustration): self
+    {
+        $this->illustration = $illustration;
 
         return $this;
     }

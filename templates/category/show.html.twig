@@ -1,13 +1,27 @@
+{# 
+    Boucle 
+    Pour chaque produit ...
+
+    {% for product in category.products %}
+        {{ dump(product) }}
+    {% endfor %}
+
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
+    private Collection $products;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+
+ #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}{{category.name}}{% endblock %}
 
 
 {% block content %}
-
-{# {% for product in category.products %}
-    {{ dump(product) }}
-{% endfor %} #}
 
 <section class="section gallery">
     <div class="heading">
@@ -18,6 +32,12 @@
         <div class="row mt-5 pt-2 ">
             <div class="col-md-12 text-center mb-5">
                 <div class="row product-container">
+
+                    {# {% for product in category.products %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            {{ dump(product) }}
+                        </div>
+                    {% endfor %} #}
 
                     {% for product in category.products %}
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">

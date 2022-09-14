@@ -5,20 +5,26 @@
  * #[Route('/category', name: 'app_nos_category')]
  * 
  * 1. j'appel ma base de donnée
- * 1. Je stock les données issue de ma table (db) dans une variable
- * 1. Je renvoie les requêtes à ma vue twig
+ * 2. Je stock les données issue de ma table (db) Category dans une variable $category (Création de la page catégory/index)
+ * 3. Je stock les données issue de ma table (db) Header dans une variable $headers (Je récupère les données pour mon Carousel en haut de la page)
+ * 4. Je renvoie les données/requêtes à ma vue twig
  * *******************************************************************
  * 
  * #[Route('/category/{id}', name: 'app_category')] 
  * 
- * 1. Je stock les données issue de ma table (db) dans une variable
- * 1. Je défini une route avec un id comme paramètre de l'url
- * 1. On recherche en base de donnée un produit associer à son id.
- * 1. Je vérifie si je retrouve bien id et le nom de la catégorie avec un dd($category);
- * 1. Si j'inscris un id dans l'url qui ne fais pas partie de la db je suis redirigé 
- * 1. Lorsque j'ai crée l'entité Category, j'ai fais une relation avec l'entité Product
- * 1. Je revoie les données de mon tableau category à ma vue twig
- * 1. Je revoie les données de mon tableau product à ma vue twig
+ * 5. Je défini une route avec id comme paramètre de l'url
+ * 6. Je stock les données issue de ma table (db) Category dans une variable $category et je les regroupe par id ->findOneById($id)
+ * 7. Je vérifie si je retrouve bien id et le nom de la catégorie avec un dd($category);
+ * 8. SECURITÉ : Si j'inscris un id dans l'url qui ne fais pas partie de la db je suis redirigé 
+ * 9. Je revoie les données de mon tableau category à ma vue twig
+ * 
+ * #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
+ *   private Collection $products;
+
+ *   public function __construct()
+ *   {
+ *       $this->products = new ArrayCollection();
+ *   }
  */
 
 namespace App\Controller;
@@ -42,39 +48,33 @@ class CategoryController extends AbstractController
     #[Route('/category', name: 'app_nos_category')]
     public function idex(): Response
     {
-        $category = $this->entityManager->getRepository(Category::class)->findAll(); // 1  
+        $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
 
-        $headers = $this->entityManager->getRepository(Header::class)->findAll(); // 1  
+        $headers = $this->entityManager->getRepository(Header::class)->findAll(); // 3
         // dd($headers);
 
         return $this->render('category/index.html.twig', [
-            'category' => $category, // 1  
-            'headers' => $headers // 1  
+            'category' => $category, // 4 
+            'headers' => $headers // 4
         ]);
         
     }
     
-    #[Route('/category/{id}', name: 'app_category')] // 1  
+    #[Route('/category/{id}', name: 'app_category')] // 5  
     public function show($id): Response
     {
         
-        $category = $this->entityManager->getRepository(Category::class)->findOneById($id); // 1  
+        $category = $this->entityManager->getRepository(Category::class)->findOneById($id); // 6  
 
-        // dd($category); // 1  
+        // dd($category); // 7  
 
         // Partie sécurité
-        if (!$category){     // 1                 
+        if (!$category){     // 8                 
             return $this->redirectToRoute('app_nos_category');
         }
 
-        $product = $category->getProducts(); // 1  
-
-        // dd($product);
-
         return $this->render('category/show.html.twig', [
-            'category' => $category, // 1 
-            'product' => $product // 1 
-            
+            'category' => $category, // 9
         ]);
         
     }

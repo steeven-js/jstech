@@ -53,7 +53,7 @@ class ProductController extends AbstractController
         // On recherche en base de donnée un produit associer à son slug.
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
 
-        dd($product);
+        // dd($product);
 
          // Partie sécurité
         if (!$product){
