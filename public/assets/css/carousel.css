@@ -11,7 +11,10 @@
 }
 
 .carousel-indicators li {
-    background-color: #008DD0 !important;
+    background-color: #008DD0;
+    height: 30px;
+    border-radius: 50%;
+    margin: 10px;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -34,12 +37,24 @@
 }
 
 .carousel-caption h1 {
-    font-size: 60px !important;
-    font-weight: 700 !important;
+    font-size: 60px;
+    font-weight: 700;
 }
 
 .carousel-caption p {
-    font-weight: 700 !important;
+    font-weight: 700;
+}
+
+.arrow-color {
+    position: absolute;
+    display: flex;
+    background: #008DD0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
 }
 
 /* MARKETING CONTENT
