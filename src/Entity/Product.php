@@ -36,6 +36,15 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $illustration1 = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $illustration2 = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $illustration3 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +130,42 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getIllustration1(): ?string
+    {
+        return $this->illustration1;
+    }
+
+    public function setIllustration1(string $illustration1): self
+    {
+        $this->illustration1 = $illustration1;
+
+        return $this;
+    }
+
+    public function getIllustration2(): ?string
+    {
+        return $this->illustration2;
+    }
+
+    public function setIllustration2(string $illustration2): self
+    {
+        $this->illustration2 = $illustration2;
+
+        return $this;
+    }
+
+    public function getIllustration3(): ?string
+    {
+        return $this->illustration3;
+    }
+
+    public function setIllustration3(string $illustration3): self
+    {
+        $this->illustration3 = $illustration3;
 
         return $this;
     }
