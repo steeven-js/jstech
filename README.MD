@@ -80,3 +80,6 @@ git push -u origin main
 - [x]  050 Création de notre compte Stripe
 - [x]  051 Installation de Stripe dans notre projet
 - [x]  052 Intégration de Stripe dans notre tunnel d'achat
+- [x]  53. Ajout de la livraison dans les informations envoyées à Stripe
+- [x]  54. Création des vues "Merci pour votre commande" / "Echec de paiement"
+- [x]  55. Afficher les commandes dans l'espace membre de nos utilisateurs

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une adresse
+{% endblock %}
+
+
+{% block content %}
+<section class="section">
+    <div class="container">
+
+        <h1>Ma commande {{ order.reference }}</h1>
+
+        <a href="{{ path('app_account') }}" class="btn btn-second"><i class="fa-solid fa-arrow-left"></i> Mon compte</a><br>
+
+        <br>
+
+        {{ dump(order) }}
+    </div>
+</section>
+
+{% endblock %}
