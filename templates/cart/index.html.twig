@@ -7,8 +7,10 @@
 		<div class="container">
 			<a class="btn btn-second mb-5" href="#" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Retour</a>
 			<h1>Mon panier</h1>
-			Rectouvez l'ensemble des produits que vous avez ajouté à votre panier.
+			<p>Rectouvez l'ensemble des produits que vous avez ajouté à votre panier.</p> 
+
 			<hr>
+
 			{# AFFICHE le panier que si il y a au moins 1 produit #}
 			{# SINON AFFICHE "Votre panier est vide" #}
 			{% if cart|length > 0 %}
@@ -79,7 +81,7 @@
 
 				<b>Total du panier:</b> {{((total) / 100) |number_format(2, ',', '.')}}€
 
-				<a href="{{path('app_order')}}" class="btn btn-main btn-block">Valider mon panier</a>
+				<a href="{{path('app_order')}}" class="btn btn-main btn-block m-3">Valider mon panier</a>
 
 			</div>
 
