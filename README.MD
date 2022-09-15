@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Mise à jour des produits easy admin et des commentaires"
+git commit -m "mes commandes"
 git push -u origin main
 ```
 ## 01 Introduction
