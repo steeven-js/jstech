@@ -9,25 +9,35 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 
 class Cart 
-
+	//Création de la sessionInterface
+    //Création de la fonction qui va me permettre d'ajouter un produit à mon panier 
+	//Pour cela on crée une varible private $session
 {
 	//private $session;
-	private $requestStack;
+	private $session;
+	// Cette variable j'ai besoin de la contruire
 	private $entityManager;
+	// Cette variable j'ai besoin de la contruire
 
 	//public function __construct(SessionInterface $session)
-	public function __construct(EntityManagerInterface $entityManager, RequestStack $requestStack)
+	public function __construct(EntityManagerInterface $entityManager, RequestStack $session)
+	//Des que ma class va être appelé la fonction __constructeur va s'initialiser.
+	//J'ai besoin de lui injecter la SessionInterface et de lui donner la variable $session
 	{
-	//$this->session = $session;
-	$this->requestStack = $requestStack;
+
+	//Pour que ce soit accessible au sein de la class on fait donc:
+	$this->session = $session;
 	$this->entityManager = $entityManager;
 	}
 
 
 	public function add($id)
 	{
+		//Je veux que tu me set une session qui va s'appeler cart et je veux que tu lui associe un tableau
+		//Dans ce tableau je veux tous les produits de mon panier qui ont un couple id/qté
+
 		// On récupère les informations du panier à l'aide de la session
-		$cart = $this->requestStack->getSession()->get('cart', []);
+		$cart = $this->session->getSession()->get('cart', []);
 
 		// Si dans le panier il y a un produit déjà inséré
 		if (!empty($cart[$id])) {
@@ -38,41 +48,41 @@ class Cart
 		}
 		// Il s'agit du set de la biblihothèque SessionInterface (Sets an attribute.)
 		// On stock les informations du panier dans une session (cart)
-		$this->requestStack->getSession()->set('cart',$cart); 
+		$this->session->getSession()->set('cart',$cart); 
 	}
 
 	// AFFICHE le panier
 	public function get()
 	{
 		// Il s'agit du get de la biblihothèque SessionInterface (Returns an attribute.)
-		return $this->requestStack->getSession()->get('cart');
+		return $this->session->getSession()->get('cart');
 	}
 
 	// SUPPRIME le panier
 	public function remove()
 	{
 		// Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
-		return $this->requestStack->getSession()->remove('cart');
+		return $this->session->getSession()->remove('cart');
 	}
 
 	// SUPPRIME le produit du panier sans supprimer le reste du panier
 	public function delete($id)
 	{
 
-		$cart = $this->requestStack->getSession()->get('cart', []);
+		$cart = $this->session->getSession()->get('cart', []);
 
 		// Je retire du tableau l'entré cart qui à l'id qui correspond à l' id que je souhaite supprimer
 		unset($cart[$id]);
 
 		// Je redéfini la même route que mon panier
-		$this->requestStack->getSession()->set('cart',$cart); 
+		$this->session->getSession()->set('cart',$cart); 
 	}
 
 	// REDUIRE
 	public function decrease($id)
 	{
 		// On récupère les informations du panier à l'aide de la session
-		$cart = $this->requestStack->getSession()->get('cart', []);
+		$cart = $this->session->getSession()->get('cart', []);
 
 		// Vrérifier si la quantité de notre produit = 1
 		if ($cart[$id] > 1) {
@@ -85,7 +95,7 @@ class Cart
 		}
 		
 		// Je redéfini la même route que mon panier
-		$this->requestStack->getSession()->set('cart',$cart); 
+		$this->session->getSession()->set('cart',$cart); 
 	}
 
 	public function getFull() 

@@ -63,7 +63,7 @@ class CategoryController extends AbstractController
     #[Route('/category/{id}', name: 'app_category')] // 5  
     public function show($id): Response
     {
-        
+         
         $category = $this->entityManager->getRepository(Category::class)->findOneById($id); // 6  
 
         // dd($category); // 7  

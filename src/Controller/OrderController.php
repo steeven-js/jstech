@@ -25,14 +25,15 @@ class OrderController extends AbstractController
 		$this->entityManager = $entityManager;	
 	}
     
-    // dd($this->getUser()->getAdresses()->getValue());
+    
     // getUser : get current user
     // getAddresses : get les addresses mais BdD relationnelle => il nous faut les valeurs correspondantes
     // getValues : get les valeurs correspondantes
     #[Route('/commande', name: 'app_order')]
    public function index(Cart $cart, Request $request): Response
     {
-      // Si l'utilisateur n'a pas d'adresses ALORS
+        // dd($this->getUser()->getAdresses()->getValue());
+        // Si l'utilisateur n'a pas d'adresses ALORS
         if (!$this->getUser()->getAddresses()->getValues()) {
             // On le redirige vers la page d'ajout d'adresse
             return $this->redirectToRoute('account_address_add');
