@@ -12,7 +12,42 @@
 
         <a href="{{ path('app_account') }}" class="btn btn-second"><i class="fa-solid fa-arrow-left"></i> Mon compte</a><br>
 
-        <br>
+        <br> 
+
+        <p><strong>Commande passé le :</strong> {{ order.createdAt|date('d/m/y') }}</p>
+        <p><strong>Référence de ma commande :</strong> <small>{{ order.reference }}</small></p>
+        <p><strong>Transporteur choisi :</strong> {{ order.carrierName }}</p>
+        <hr>
+        <p><strong>Détails:</strong></p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Produit</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix unitaire</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {# Je boucle le(s) produit(s) qui se trouve(nt) dans order.orderDetails #}
+                {% for product in order.orderDetails %}
+                    {# {{ dump(product) }} #}
+                    <tr>
+                        <td> {{ product.product }} </td>
+                        <td> {{ product.quantity }} </td>
+                        <td> {{ (product.price / 100)|number_format(2, ',', '.') }} €</td>
+                        <td> {{ (product.total / 100)|number_format(2, ',', '.') }} €</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <p><strong>Sous-total : </strong> {{ (order.getTotal / 100)|number_format(2, ',', '.') }} €</p>
+            <p><strong>Livraison : </strong> {{ (order.carrierPrice / 100)|number_format(2, ',', '.') }} €</p>
+            <p><strong>Total : </strong> {{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',', '.') }} €</p>
+        </div>
 
         {# {{ dump(order) }} #}
     </div>

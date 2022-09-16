@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "54. Création des vues Merci pour votre commande / Echec de paiement"
+git commit -m "55. Afficher les commandes dans l'espace membre de nos utilisateurs"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -81,5 +81,5 @@ git push -u origin main
 - [x]  051 Installation de Stripe dans notre projet
 - [x]  052 Intégration de Stripe dans notre tunnel d'achat
 - [x]  53. Ajout de la livraison dans les informations envoyées à Stripe
-- [x]  54. Création des vues "Merci pour votre commande" / "Echec de paiement"
+- [x]  54. Création des vues "Merci pour votre commande / Echec de paiement"
 - [x]  55. Afficher les commandes dans l'espace membre de nos utilisateurs
