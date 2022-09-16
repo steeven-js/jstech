@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de commande - JSTech{% endblock %}
+
+{% block content %}
+
+{# {{ dump(order) }} #}
+
+<section class="section">
+    <div class="container">
+        <h3>Bonjour <b>{{order.user.firstName}} {{order.user.lastName}}</b></h3>
+        <ul style="list-style:none;">
+            <li>Nous vous remercions pour votre commande n° <b>{{order.reference}}</b></li>
+            <li>Une confirmation vient de vous être envoyée par email à l'adresse : {{order.user.email}}</li>
+
+            <hr>
+
+            <li>Votre commande sera livrée par <b>{{order.carrierName}}</b> à l'adresse suivante :</li>
+            <li>{{ order.delivery | raw }}</li>{# |raw : permet de prendre en compte les <br> contenu dans delivery#}
+
+            <hr>
+
+            <li>Pour suivre votre commande, rendez-vous dans votre <a href="{{path('app_account')}}">compte</a></li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

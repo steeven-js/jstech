@@ -22,7 +22,7 @@ class Order
     private ?User $user = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createAt = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(length: 255)]
     private ?string $carrierName = null;
@@ -41,6 +41,9 @@ class Order
 
     #[ORM\Column(length: 255)]
     private ?string $reference = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $stripeSessionId = null;
 
     public function __construct()
     {
@@ -75,14 +78,14 @@ class Order
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
-    public function setCreateAt(\DateTimeImmutable $createAt): self
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -173,6 +176,18 @@ class Order
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getStripeSessionId(): ?string
+    {
+        return $this->stripeSessionId;
+    }
+
+    public function setStripeSessionId(?string $stripeSessionId): self
+    {
+        $this->stripeSessionId = $stripeSessionId;
 
         return $this;
     }

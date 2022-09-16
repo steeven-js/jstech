@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de paiement - JSTech{% endblock %}
+
+{% block content %}
+
+{# {{ dump(order) }} #}
+
+<section class="section">
+    <div class="container">
+
+        <h3>Bonjour <b>{{order.user.firstName}} {{order.user.lastName}}</b></h3>
+
+        <ul style="list-style:none;">
+            <li>Il semblerait que votre paiement ait échoué pour votre commande n° <b>{{order.reference}}</b></li>
+            {# <li>Une confirmation d'erreur vient de vous être envoyée par email à l'adresse : {{order.user.email}}</li> #}
+
+            <hr>
+
+            <li><a  class="btn btn-second mt-3 " href="{{path('app_order')}}">Réessayer le paiement</a></li>
+        </ul>
+
+    </div>
+</section>
+
+{% endblock %}

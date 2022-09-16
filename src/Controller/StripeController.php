@@ -70,24 +70,15 @@ class StripeController extends AbstractController
                 'card',
             ],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/success',
-            'cancel_url' => $YOUR_DOMAIN . '/cancel',
+            'success_url' => $YOUR_DOMAIN . '/commande/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $YOUR_DOMAIN . '/commande/erreur/{CHECKOUT_SESSION_ID}',
         ]);
+
+        $order->setStripeSessionId($checkout_session->id);
+
+        $entityManager->flush();
  
         return $this->redirect($checkout_session->url);
     }
     
-    #[Route('/success', name: 'app_success')]
-    public function success(): Response
-    {
-        
-        return $this->render('cart/success.html.twig');
-    }
-
-    #[Route('/cancel', name: 'app_cancel')]
-    public function cancel(): Response
-    {
-
-        return $this->render('cart/cancel.html.twig');
-    }
 }

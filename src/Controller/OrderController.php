@@ -33,6 +33,7 @@ class OrderController extends AbstractController
    public function index(Cart $cart, Request $request): Response
     {
         // dd($this->getUser()->getAdresses()->getValue());
+        
         // Si l'utilisateur n'a pas d'adresses ALORS
         if (!$this->getUser()->getAddresses()->getValues()) {
             // On le redirige vers la page d'ajout d'adresse
@@ -91,7 +92,7 @@ class OrderController extends AbstractController
 
             // enregistrer la commande Order
             $order->setUser($this->getUser());
-            $order->setCreateAt($date);
+            $order->setCreatedAt($date);
             $order->setCarrierName($carriers->getName());
             $order->setCarrierPrice($carriers->getPrice());
             $order->setDelivery($delivery_content);
