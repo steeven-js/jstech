@@ -9,7 +9,7 @@
     Common Css
 --*/
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Josefin+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;600;700&display=swap');
 
 html {
   overflow-x: hidden;
@@ -218,6 +218,11 @@ a:active {
 
 .header_shadow {
   text-shadow: 2px 2px 3px black;
+}
+
+.carousel-caption p {
+  font-size: 40px !important;
+  font-weight: 400 !important;
 }
 
 /*--

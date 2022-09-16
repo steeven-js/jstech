@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Crud product détail description"
+git commit -m "Vérifications et ajustements"
 git push -u origin main
 ```
 ## 01 Introduction
