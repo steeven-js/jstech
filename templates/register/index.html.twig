@@ -8,6 +8,11 @@
 	<div class="container">
 		<div class="block-small">
 			<h2 class="col-md-12 mb-3 font-weight-normal">Inscription</h2>
+			{% if notification %}
+				<div class="alert alert-info"> {{ notification }}</div>
+				<hr>
+			{% endif %}
+			
 			{{form_start(form)}}
 			<div class="row">
 				<div class="col-md-6">{{form_row(form.firstname)}}</div>

@@ -6,6 +6,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,6 +31,8 @@ class RegisterController extends AbstractController
     #[Route('/inscription', name: 'app_register')]
     public function index(Request $request, UserPasswordHasherInterface $encoder)
     {
+        $notification = null;
+
         $user = new User(); 
         $form = $this->createForm(RegisterType::class, $user);
 
@@ -40,21 +43,39 @@ class RegisterController extends AbstractController
             $user = $form->getData();
             // dd($user); // 1.
 
-            $password = $encoder->hashPassword($user, $user->getPassword());
-            $user->setPassword($password);
+            $serch_email = $this->entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
 
-            // dd($password); // 2.
-            // $doctrine = $this->getDoctrine()->getManager(); $doctrine est passé en parametre il pourra être utilisé plusieurs fois
-            $this->entityManager->persist($user);
-            $this->entityManager->flush();// 4.
+            if (!$serch_email) {
+                $password = $encoder->hashPassword($user, $user->getPassword());
+
+                $user->setPassword($password);
+
+                // dd($password); // 2.
+                // $doctrine = $this->getDoctrine()->getManager(); $doctrine est passé en parametre il pourra être utilisé plusieurs fois
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();// 4.
+
+                $mail = new Mail();
+
+                $content = "Bonjour ".$user->getFirstname()."Bienvenue sur jstech";
+
+                $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur la Boutique Française', $content);
+
+                $notification = "Votre inscrpition c'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte";
+
+            }else {
+
+                $notification = "L'email que vous avez renseigner existe déjà.";
+                
+            }
 
             // dd($user);
-            return $this->redirectToRoute('app_login');
-
+            
         }
 
         return $this->render('register/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'notification' => $notification
         ]);
     }
 }

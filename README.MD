@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "55. Afficher les commandes dans l'espace membre de nos utilisateurs"
+git commit -m "060. Envoyer les emails à nos clients dans les différents controllers"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -80,6 +80,13 @@ git push -u origin main
 - [x]  050 Création de notre compte Stripe
 - [x]  051 Installation de Stripe dans notre projet
 - [x]  052 Intégration de Stripe dans notre tunnel d'achat
-- [x]  53. Ajout de la livraison dans les informations envoyées à Stripe
-- [x]  54. Création des vues "Merci pour votre commande / Echec de paiement"
-- [x]  55. Afficher les commandes dans l'espace membre de nos utilisateurs
+- [x]  053. Ajout de la livraison dans les informations envoyées à Stripe
+- [x]  054. Création des vues "Merci pour votre commande / Echec de paiement"
+- [x]  055. Afficher les commandes dans l'espace membre de nos utilisateurs
+
+## 10 Les emails
+- [x] 056. Pourquoi choisir Mailjet pour la gestion des emails transactionnels
+- [x] 057. Création de notre compte Mailjet
+- [x] 058. Intégration de la librairie Mailjet dans notre projet Symfony
+- [x] 059. Création d'une classe Mail() et envoie de notre premier mail 
+- [x] 060. Envoyer les emails à nos clients dans les différents controllers
