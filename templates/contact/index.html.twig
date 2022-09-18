@@ -7,16 +7,8 @@
 
 	<section class="section">
 		<div class="container">
-			{% for message in app.flashes('success') %}
-				<div class="alert alert-success mt-4">
-					{{ message }}
-				</div>
-			{% endfor %}
-
-			{% for message in app.flashes('danger') %}
-				<div class="alert alert-success mt-4">
-					{{ message }}
-				</div>
+			{% for message in app.flashes('notice') %}
+					<div class="alert alert-info">{{ message }}</div>
 			{% endfor %}
 
 			<div class="row justify-content-center">
