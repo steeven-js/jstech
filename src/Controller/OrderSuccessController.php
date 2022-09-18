@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,15 +32,21 @@ class OrderSuccessController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        // Modifier le statut isPaid de notre commande en mettant 1 (Booléen)
-            // Seulement si la commande est en staut 'non payé'
-        if(!$order->isIsPaid()){
+        // Modifier le statut State de notre commande en mettant 1 (payée)
+        // Seulement si la commande est en staut 'non payé'
+        if($order->getState() == 0){
 
+            // Vider la session "cart"
             $cart->remove(); // JE SUPPRIME MON PANIER APRES LA CONFIRMATION DU PAIEMENT
-            $order->setIsPaid(1);
-            $this->entityManager->flush();
+
+            // Modifier le statut State de notre commande en mettant 1
+            $order->setState(1); // Mise à jour du statut
+            $this->entityManager->flush(); // Mise à jour doctrine
 
             // Envoyer un Email à notre client pour lui confirmer çà commande
+            $mail = new Mail();
+            $content = "Bonjour ...";
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande jstech est bien validée', $content);
         }
 
         // Afficher les quelques information de la commande de l'utilisateur

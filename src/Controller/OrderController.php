@@ -37,7 +37,7 @@ class OrderController extends AbstractController
         // Si l'utilisateur n'a pas d'adresses ALORS
         if (!$this->getUser()->getAddresses()->getValues()) {
             // On le redirige vers la page d'ajout d'adresse
-            return $this->redirectToRoute('account_address_add');
+            return $this->redirectToRoute('app_account_address_add');
         }
         
         // createForm : OrderType / null (instance de la classe ex : $search etc..) / [current user]
@@ -96,7 +96,7 @@ class OrderController extends AbstractController
             $order->setCarrierName($carriers->getName());
             $order->setCarrierPrice($carriers->getPrice());
             $order->setDelivery($delivery_content);
-            $order->setIsPaid(0);
+            $order->setState(0);
 
             $this->entityManager->persist($order);
 

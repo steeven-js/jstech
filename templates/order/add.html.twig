@@ -27,7 +27,7 @@
                         <br>
                         {{ carrier.description }}
                         <br>
-                        {{ (carrier.price / 100) |number_format(2, ',', '.') }}€
+                        {{ (carrier.price / 100) |number_format(2, ',', '.') }} €
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                                 </div>
 
                                 <div class="col-2 my-auto">
-                                    {{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }}€
+                                    {{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }} €
                                 </div>
                             </div>
 
@@ -69,19 +69,19 @@
                     {# {{ dump(carrier) }} #}
                     <hr>
 
-                    <strong>Sous-Total :</strong>{{ (total / 100) |number_format(2, ',', '.') }}€
+                    <strong>Sous-Total :</strong> {{ (total / 100) |number_format(2, ',', '.') }} €
 
                     <br>
 
-                    <strong>Livraison :</strong>{{ (carrier.price / 100) |number_format(2, ',', '.') }}€
+                    <strong>Livraison :</strong> {{ (carrier.price / 100) |number_format(2, ',', '.') }} €
 
                     <hr>
 
-                    <strong>Total :</strong>{{ ((total / 100) + carrier.price / 100)|number_format(2, ',', '.') }}€
+                    <strong>Total :</strong> {{ ((total / 100) + carrier.price / 100)|number_format(2, ',', '.') }}€
 
                     <br>
 
-                    <a href="{{ path('stripe_create_session', {'reference': reference}) }}"class="btn btn-success btn-main">Payer | {{ ((total / 100) + carrier.price / 100) | number_format(2, ',', '.') }}€</a>
+                    <a href="{{ path('stripe_create_session', {'reference': reference}) }}"class="btn btn-success btn-main">Payer | {{ ((total / 100) + carrier.price / 100) | number_format(2, ',', '.') }} €</a>
 
                 </div>
             </div>

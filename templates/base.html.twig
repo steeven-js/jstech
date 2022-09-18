@@ -47,13 +47,10 @@
 
 					<div class="collapse navbar-collapse text-center" id="navigation">
 						<ul class="navbar-nav ml-auto mr-n0 mr-md-n3">
-							<li class="nav-item">
-								<a class="nav-link" href="{{path('app_nos_category')}}">Tous Nos Produits</a>
-							</li>
 
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#!" id="dropdown03" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">Navigation <i
+								<a class="nav-link dropdown-toggle" href="{{path('app_nos_category')}}" id="dropdown03" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">Tous nos produits<i
 										class="tf-ion-chevron-down"></i></a>
 								<ul class="dropdown-menu" aria-labelledby="dropdown03">
 
@@ -103,20 +100,19 @@
 										</ul>
 									</li>
 
-									<li><a class="dropdown-item" href="#">Blog Details</a></li>
-									<li><a class="dropdown-item" href="#">Privacy Policy</a></li>
-									<li><a class="dropdown-item" href="#">Terms Conditions</a></li>
 								</ul>
 							</li>
 
-							<li class="nav-item">
-								<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
-							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_cart')}}">
 									<i class="fa-solid fa-cart-shopping"></i>
 								</a>
 							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+							</li>
+
 							{# Si l'utilisateur est identifié, j'affiche les liens suivant #}
 							{% if app.user %}
 							<a class="nav-link" href="{{ path('app_account') }}">
