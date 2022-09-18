@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "060. Envoyer les emails à nos clients dans les différents controllers"
+git commit -m "Essaie Mail"
 git push -u origin main
 ```
 ## 01 Introduction
@@ -90,3 +90,13 @@ git push -u origin main
 - [x] 058. Intégration de la librairie Mailjet dans notre projet Symfony
 - [x] 059. Création d'une classe Mail() et envoie de notre premier mail 
 - [x] 060. Envoyer les emails à nos clients dans les différents controllers
+
+## 11 Pour aller plus loin
+- [x] 061. Créer une mécanique de gestion de statut de commande pour informer l'utilisateur
+- [ ] 062. Mettre des produits à la une pour les afficher sur la homepage
+- [ ] 063. Ajouter une fonctionnalité de gestion du header depuis le backoffice
+- [ ] 064. Création de la mécanique de mot de passe oublié.
+- [ ] 065. Sécuriser l'accès à notre backoffice pour les administrateurs
+- [ ] 066. Gérer les vues "erreurs" de Symfony pour préparer notre mise en production
+- [ ] 067. Mise à jour graphique et création de la page "nous contacter"
+- [ ] 068. Mettre son site en production et dépôt GIT du projet

@@ -38,13 +38,14 @@ class ContactController extends AbstractController
             $contact = $form->getData();
 
             $manager->persist($contact);
-            $manager->flush();
+            // $manager->flush();
 
             //Email
             $email = (new TemplatedEmail())
                 ->from($contact->getEmail())
                 ->to('admin@jstech.com')
                 ->subject($contact->getSubject())
+                ->text($contact->getMessage())
                 // path of the Twig template to render
                 ->htmlTemplate('emails/contact.html.twig')
 
@@ -52,6 +53,8 @@ class ContactController extends AbstractController
                 ->context([
                 'contact' => $contact
                 ]);
+
+            // dd($email);
 
             $mailer->send($email);
 
