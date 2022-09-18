@@ -26,15 +26,12 @@ class ContactController extends AbstractController
             $this->addFlash('notice', 'Merci de nous avoir contacté. Notre équipe va nous répondre dans les meilleur délais');
 
             $mail = new Mail();
-            $gerant = "JSTech";             
-            $admin = "kisama972@gmail.com";              
-            
-            $content = "Bonjour " . $gerant . ",<br/><br/>Vous avez reçu une nouvelle demande de contact:<br/>" . $form->get('prenom')->getData() . " " . $form->get('nom')->getData() . "<br/>" . $form->get('email')->getData() . "<br/>" .                 
-            "Message : " . $form->get('content')->getData() . "<br/>"; 
+
+            $content = "Bonjour </br>Vous avez reçus un message de <strong>".$form->getData()['prenom']." ".$form->getData()['nom']."</strong></br>Adresse email : <strong>".$form->getData()['email']."</strong> </br>Message : ".$form->getData()['content']."</br></br>";             
+         
+            $mail->send('kisama972@gmail.com', 'JSTech', 'Vous avez reçus une nouvelle demande de contact', $content); 
 
             // dd($form->getData());
-
-            $mail->send($admin, $gerant, 'Nouvelle demande de contact', $content);
         }
 
         return $this->render('contact/index.html.twig', [
