@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Refonte de l'espace Contact et de l'envoi de mail Contact"
+git commit -m "Vérification et ajustement"
 git push -u origin main
 ```
 ## 01 Introduction

@@ -116,8 +116,7 @@
 							{# Si l'utilisateur est identifié, j'affiche les liens suivant #}
 							{% if app.user %}
 							<a class="nav-link" href="{{ path('app_account') }}">
-								<i class="fa-solid fa-house-user"></i>
-								<small>({{ app.user.firstname }})</small>
+								<i class="fa-solid fa-house-user"></i><small>({{ app.user.firstname }})</small>
 							</a>
 							|
 							<a class="nav-link" href="{{ path('app_logout') }}">
