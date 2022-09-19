@@ -66,6 +66,17 @@ class ProductRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    /**
+     * @return void Permet d'afficher les produits filtré par prix croissant
+     */
+    public function findPrice()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.price', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */

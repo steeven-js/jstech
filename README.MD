@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Ajout d'un filtre dans le dashboard Product"
+git commit -m "afficher les produits filtré par prix croissant"
 git push -u origin main
 ```
 ## 01 Introduction
