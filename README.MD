@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Vérification et ajustement"
+git commit -m "Ajout d'un filtre dans le dashboard Product"
 git push -u origin main
 ```
 ## 01 Introduction
