@@ -30,7 +30,7 @@ class Cart
 	$this->entityManager = $entityManager;
 	}
 
-
+	// AJOUTER
 	public function add($id)
 	{
 		//Je veux que tu me set une session qui va s'appeler $cart et je veux que tu lui associe un tableau
