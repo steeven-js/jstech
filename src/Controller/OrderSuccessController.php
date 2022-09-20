@@ -28,6 +28,7 @@ class OrderSuccessController extends AbstractController
         // Si l'utilisateur n'existe pas 
         // OU
         // Si $order->getUser() est différent de $this->getUser()
+        // Si la commande n'existe pas OU que l'utilisateur ne correspond pas à celui actuellement connecté ALORS
         if(!$order || $order->getUser() !== $this->getUser()){
             return $this->redirectToRoute('app_home');
         }
@@ -44,9 +45,9 @@ class OrderSuccessController extends AbstractController
             $this->entityManager->flush(); // Mise à jour doctrine
 
             // Envoyer un Email à notre client pour lui confirmer çà commande
-            $mail = new Mail();
-            $content = "Bonjour ...";
-            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande jstech est bien validée', $content);
+            // $mail = new Mail();
+            // $content = "Bonjour ...";
+            // $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande jstech est bien validée', $content);
         }
 
         // Afficher les quelques information de la commande de l'utilisateur

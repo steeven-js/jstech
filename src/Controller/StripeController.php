@@ -12,7 +12,6 @@ use App\Entity\Order;
 use App\Entity\Product;
 use Stripe\Checkout\Session;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -25,6 +24,7 @@ class StripeController extends AbstractController
         $product_for_stripe = [];
         $YOUR_DOMAIN = 'http://127.0.0.1:8000';
 
+        // On récupère la commande en base de données à l'aide de la référence
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
 
         // Panier
