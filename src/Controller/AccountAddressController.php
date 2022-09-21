@@ -22,6 +22,11 @@ class AccountAddressController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
+    // 1. Dès que ce formulaire est saisi (ecoute submit)
+    // 2. Traiter les informations
+    // 3. Les valider ou pas...
+    // 4. Si tout est ok => enregister en DB
+
     #[Route('/compte/adresses', name: 'app_account_address')]
     public function index(): Response
     {
@@ -37,15 +42,17 @@ class AccountAddressController extends AbstractController
 
         $form = $this->createForm(AddressType::class, $address);
 
-        $form->handleRequest($request);
+        $form->handleRequest($request); // 1. ecoute de la request
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // dd($address);
+        if ($form->isSubmitted() && $form->isValid()) {  // if 2(ecoute) && 3(check EmailType etc...
+
+            // dd($address); // 1.
+
             // A quel utilisateur lié cette adresse?
             $address->setUser($this->getUser());
 
             $this->entityManager->persist($address);
-            $this->entityManager->flush();
+            $this->entityManager->flush(); // 4
 
             if ($cart->get()) {
                 return $this->redirectToRoute('app_account_address');
@@ -73,6 +80,8 @@ class AccountAddressController extends AbstractController
             return $this->redirectToRoute('app_account_address');
         }
 
+        // dd($address);
+
         // Je passe en paramètres à ma fonction creatForm() Le type du formulaire et L'objet
         $form = $this->createForm(AddressType::class, $address);
 
@@ -87,6 +96,8 @@ class AccountAddressController extends AbstractController
 
             return $this->redirectToRoute('app_account_address');
         }
+
+        // dd($form);
 
         // dd($this->getUser());
         return $this->render('account/address_form.html.twig', [

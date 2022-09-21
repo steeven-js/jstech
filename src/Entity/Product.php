@@ -29,6 +29,7 @@ class Product
     #[ORM\Column]
     private ?float $price = null;
 
+    // Un categories peut avoir plusieurs produits, mais les produits ont qu'une seul catégorie
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;

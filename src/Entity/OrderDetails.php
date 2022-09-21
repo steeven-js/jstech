@@ -13,6 +13,7 @@ class OrderDetails
     #[ORM\Column]
     private ?int $id = null;
 
+    // Une commande peut avoir plusieurs paniers, mais les paniers ont qu'une seul commandes
     #[ORM\ManyToOne(inversedBy: 'orderDetails')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Order $myOrder = null;

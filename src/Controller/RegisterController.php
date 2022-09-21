@@ -39,9 +39,10 @@ class RegisterController extends AbstractController
         $form->handleRequest($request); // 1. ecoute de la request
 
         if ($form->isSubmitted() && $form->isValid()) { // if 2(ecoute) && 3(check EmailType etc...
-
-            $user = $form->getData();
+            
             // dd($user); // 1.
+            
+            $user = $form->getData();
 
             $serch_email = $this->entityManager->getRepository(User::class)->findOneByEmail($user->getEmail());
 
@@ -55,11 +56,11 @@ class RegisterController extends AbstractController
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();// 4.
 
-                $mail = new Mail();
+                // $mail = new Mail();
 
-                $content = "Bonjour ".$user->getFirstname()."Bienvenue sur jstech";
+                // $content = "Bonjour ".$user->getFirstname()."Bienvenue sur jstech";
 
-                $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur la Boutique Française', $content);
+                // $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur la Boutique Française', $content);
 
                 $notification = "Votre inscrpition c'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte";
 

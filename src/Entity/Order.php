@@ -17,6 +17,7 @@ class Order
     #[ORM\Column]
     private ?int $id = null;
 
+    // Un utilisateur peut avoir plusieur commandes, mais les commandes ont qu'un seul utilisateur
     #[ORM\ManyToOne(inversedBy: 'orders')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
@@ -33,6 +34,7 @@ class Order
     #[ORM\Column(type: Types::TEXT)]
     private ?string $delivery = null;
 
+    // Une commande peut avoir plusieurs paniers, mais les paniers ont qu'une seul commandes
     #[ORM\OneToMany(mappedBy: 'myOrder', targetEntity: OrderDetails::class)]
     private Collection $orderDetails;
 

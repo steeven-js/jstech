@@ -47,7 +47,7 @@ class Cart
 			$cart[$id] = 1;
 		}
 		// Il s'agit du set de la biblihothèque SessionInterface (Sets an attribute.)
-		// On stock les informations du panier dans une session (cart)
+		// On stock les informations du panier dans une variable $cart de la session 'cart'
 		$this->requestStack->getSession()->set('cart',$cart); 
 	}
 
@@ -55,6 +55,7 @@ class Cart
 	public function get()
 	{
 		// Il s'agit du get de la biblihothèque SessionInterface (Returns an attribute.)
+		// La session appelé va donc s'appellé 'cart'
 		return $this->requestStack->getSession()->get('cart');
 	}
 
@@ -62,6 +63,7 @@ class Cart
 	public function remove()
 	{
 		// Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
+		// La session appelé 'cart' va donc être supprimé.
 		return $this->requestStack->getSession()->remove('cart');
 	}
 

@@ -36,9 +36,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
+    // Un utilisateur peut avoir plusieurs adresses, mais les adresses ont qu'un seul utilisateur.
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
     private Collection $addresses;
 
+    // Un utilisateur peut avoir plusieurs commandes, mais les commandes ont qu'un seul utilisateur.
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class)]
     private Collection $orders;
 

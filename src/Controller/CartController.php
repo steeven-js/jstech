@@ -35,12 +35,12 @@ class CartController extends AbstractController
     {
         //On passe dans la variable add le paramètre id pour pouvoir l'exploiter dans cette public function add en lui passant en paramètre.
 		//Le controller ne connait la variable $cart que le viens de créer dans la Class Cart. On utilise donc le même mécanique d'injection de dépendance.
-		//Des que tu vas entrer dans CartController et dans la fonction add je veux que tu embarques avec toi ma Class Cart que je stock dans la variable $cart.
+		//Des que tu vas entrer dans CartController et dans la fonction add je veux que tu embarques avec toi ma Class Cart que tu stock dans la variable $cart comme nouvel objet de la class.
 
-        //La fonction add connait $cart grace à l'injection de dépendance 
+        //La fonction add connait $cart grace à l'injection de dépendance.
         $cart->add($id);
 
-        // On transforme le rendu en redirection vers app_cart
+        // On transforme le rendu en redirection vers app_cart.
         return $this->redirectToRoute('app_cart');
 
     }
