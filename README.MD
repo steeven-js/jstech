@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Ajout de commantaires vérification et ajustement"
+git commit -m "ajout de la colonne description1 de l'entité product"
 git push -u origin main
 ```
 ## 01 Introduction

@@ -46,6 +46,9 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $illustration3 = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $description1 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -167,6 +170,18 @@ class Product
     public function setIllustration3(string $illustration3): self
     {
         $this->illustration3 = $illustration3;
+
+        return $this;
+    }
+
+    public function getDescription1(): ?string
+    {
+        return $this->description1;
+    }
+
+    public function setDescription1(string $description1): self
+    {
+        $this->description1 = $description1;
 
         return $this;
     }
