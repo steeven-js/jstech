@@ -28,7 +28,7 @@ class OrderCrudController extends AbstractCrudController
     public function __construct(EntityManagerInterface $entityManager, AdminUrlGenerator  $adminUrlGenerator)
     {
         $this->entityManager = $entityManager;
-        $this->adminUrlGenerator = $adminUrlGenerator;
+        $this->adminUrlGenerator = $adminUrlGenerator; // Permet de générer un URL de redirection
     }
 
     public static function getEntityFqcn(): string
@@ -36,10 +36,11 @@ class OrderCrudController extends AbstractCrudController
         return Order::class;
     }
 
+    // Configuration des nouvelles actions de easy admin en plus de l'affichage par défault
     public function configureActions(Actions $actions): Actions
     {
-        $updatePreparation = Action::new('updatePreparation', 'Préparation en cous', 'fas fa-box-open')->linkToCrudAction('UpdatePreparation');
-        $updateDelivery = Action::new('updateDelivery', 'Livraison en cous', 'fas fa-truck')->linkToCrudAction('UpdateDelivery');
+        $updatePreparation = Action::new('updatePreparation', 'Préparation en cours', 'fas fa-box-open')->linkToCrudAction('UpdatePreparation'); // Initialisation du bouton updatePreparation Préparation en cours
+        $updateDelivery = Action::new('updateDelivery', 'Livraison en cours', 'fas fa-truck')->linkToCrudAction('UpdateDelivery'); // Initialisation du bouton updateDelivery Livraison en cours
 
         return $actions
             ->add('detail', $updatePreparation)
@@ -49,44 +50,57 @@ class OrderCrudController extends AbstractCrudController
 
     public function updatePreparation(AdminContext $context)
     {
+        // Initialisation de la variable order dans easy admin
         $order = $context->getEntity()->getInstance();
+        // Définition de la nouvelle valeur de la propriété State de l'object de l' entité Order
         $order->setState(2);
 
+        // Mise à jour de la base de donnée
         $this->entityManager->flush();
  
+        // initialisation de l'url
         $url = $this->adminUrlGenerator
             ->setController(OrderCrudController::class)
             ->setAction('index')
             ->generateUrl();
 
-        $this->addFlash('notice', '<span style="color:green;"><strong>La commande' . $order->getReference() . ' est bien en cours de préparation</strong></span>');
+        // Notification
+        $this->addFlash('notice', '<span style="color:green;"><strong>La commande' . $order->getReference() . ' est bien en cours de préparation</strong></span>');  
 
+        // Redirection avec les paramètres le l'url 
         return $this->redirect($url);
     }
 
     public function updateDelivery(AdminContext $context)
     {
+        // Initialisation de la variable order dans easy admin
         $order = $context->getEntity()->getInstance();
+        // Définition de la nouvelle valeur de la propriété State de l'object de l' entité Order
         $order->setState(3);
 
         $this->entityManager->flush();
  
+        // initialisation de l'url
         $url = $this->adminUrlGenerator
             ->setController(OrderCrudController::class)
             ->setAction('index')
             ->generateUrl();
 
+        // Notification
         $this->addFlash('notice', '<span style="color:blue;"><strong>La commande' . $order->getReference() . ' est bien en cours de livraison</strong></span>');
 
+        // Redirection avec les paramètres le l'url 
         return $this->redirect($url);
     }
 
+    // Modification du trie par défault (Du plus ancien au plus vieux DESC)
     public function configureCrud(Crud $crud): Crud
     {
         // J'affiche mes id par défaut par ordre décroissant
         return $crud->setDefaultSort(['id' => 'DESC']);
     }
 
+    // Configuration des champs de easy admin en lien avec l'entité Order
     public function configureFields(string $pageName): iterable
     {
         return [

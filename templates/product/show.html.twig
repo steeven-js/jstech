@@ -70,8 +70,15 @@
 					<p class="price py-4">{{(product.price/100) |number_format(2, ',', '.')}} €</p>
 					<hr>
 					<p>{{product.description}}</p>
-					<a href="{{path('add_to_cart', {'id' : product.id})}}" class="btn btn-main">Ajouter au panier</a>
+					<a href="{{path('add_to_cart', {'id' : product.id})}}" class="btn btn-main mt-4">Ajouter au panier</a>
 				</div>
+			</div>
+
+			<hr>
+			
+			<div class="row mt-4">
+				<h3>Fiche technique</h3>
+				<p class="mt-4">{{product.description1}}</p>
 			</div>
 		</div>
 	</section>

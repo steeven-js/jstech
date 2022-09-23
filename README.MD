@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "ajout de la colonne description1 de l'entité product"
+git commit -m "Mise à jour de l'admin productCrudController et de l'orderCrudController"
 git push -u origin main
 ```
 ## 01 Introduction
