@@ -42,11 +42,11 @@
 
                         {% for key,product in cart %}
                             <div class="row {% if key > 0 %} mt-2 {% endif %}">
-                                <div class="col-2">
+                                <div class="col-md-2">
                                     <img class="p-1 mx-1 my-0" height="75px" src="/uploads/{{ product.product.illustration }}"alt="{{ product.product.name }}"><br>
                                 </div>
 
-                                <div class="col-8 my-auto">
+                                <div class="col-md-8">
                                     {{ product.product.name }}
                                     <br>
                                     <small>
@@ -56,7 +56,7 @@
                                     </small>
                                 </div>
 
-                                <div class="col-2 my-auto">
+                                <div class="col-md-2">
                                     {{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }} €
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
 
                     <br>
 
-                    <a href="{{ path('stripe_create_session', {'reference': reference}) }}"class="btn btn-success btn-main">Payer | {{ ((total / 100) + carrier.price / 100) | number_format(2, ',', '.') }} €</a>
+                    <a href="{{ path('stripe_create_session', {'reference': reference}) }}"class="btn btn-success btn-main mt-4">Payer | {{ ((total / 100) + carrier.price / 100) | number_format(2, ',', '.') }} €</a>
 
                 </div>
             </div>

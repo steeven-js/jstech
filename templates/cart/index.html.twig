@@ -5,7 +5,7 @@
 {% block content %}
 	<section class="section">
 		<div class="container">
-			<a class="btn btn-second mb-5" href="#" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Retour</a>
+			<a class="primary-btn mb-5" href="#" onclick="history.back()"><i class="fa fa-arrow-left"></i> Retour</a>
 			<h1>Mon panier</h1>
 			<p>Rectouvez l'ensemble des produits que vous avez ajouté à votre panier.</p> 
 
@@ -49,11 +49,11 @@
 
 								<td>
 									<a href=" {{path('decrease_to_cart', {'id' : product.product.id})}}">
-										<i class="fa-solid fa-minus"></i>
+										<i class="fa fa-minus"></i>
 									</a>
 									x {{product.quantity}}
 									<a href=" {{path('add_to_cart', {'id' : product.product.id})}}">
-										<i class="fa-solid fa-plus"></i>
+										<i class="fa fa-plus"></i>
 									</a>
 								</td>
 
@@ -75,14 +75,18 @@
 
 			<div class="text-right mb-5">
 
-				<b>Nombe de produits:</b> {{cart|length}}
+				<div class="row">
+				<b>Nombe de produits : </b> {{cart|length}}
 
 				<br>
 
-				<b>Total du panier:</b> {{((total) / 100) |number_format(2, ',', '.')}}€
+				<b>Total du panier : </b> {{((total) / 100) |number_format(2, ',', '.')}}€
 
-				<a href="{{path('app_order')}}" class="btn btn-main btn-block m-3">Valider mon panier</a>
+				</div>
+			</div>
+			<div class="row text-right">
 
+				<a href="{{path('app_order')}}" class="primary-btn mt-10">Valider mon panier</a>
 			</div>
 
 			{% else %}

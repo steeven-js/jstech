@@ -1,250 +1,308 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
-	<head>
-
-		{# ** Basic Page Needs ** #}
-
-		<meta charset="utf-8">
-		<title>JSTech</title>
-
-		{# ** Mobile Specific Metas ** #}
-
+<html>
+    <head>
+        <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="Vex HTML Template">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-		<meta name="author" content="Jacques Steeven">
-		<meta name="generator" content="Jacques Steeven JSTech">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+		<title>jstech</title>
+        {% block stylesheets %}
+            <!-- Google font -->
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-		{# ** Stylesheets #}
-		{% block stylesheets %}
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-				integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-				crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <!-- Bootstrap -->
+            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap-utilities.min.css" integrity="sha512-/j+mUkUn8RkWly6SVmNCaTNXRhoZAhe/mDv3+EgwjBEhQemU2smhHIDrAiC+qE3GpnwBKLd//8X2yq2axnJLnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-			<link href="{{ asset('assets/plugins/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
-			<link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
-			<link href="{{ asset('assets/css/carousel.css')}}" rel="stylesheet">
-		{% endblock %}
+            <!-- Slick -->
+            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick.css') }}" />
+            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}" />
 
-	</head>
+            <!-- nouislider -->
+            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}" />
 
-	<body id="body">
+            <!-- Font Awesome Icon -->
+            <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
-		<header class="navigation sticky-top bg-white">
-			<div class="container">
-				<nav class="navbar navbar-expand-lg navbar-light">
-					<a class="navbar-brand" href="{{ path('app_home') }}">
-						<img src="{{ asset('uploads/showcase/logo.png')}}" alt="JS" width="100px">
-					</a>
-					<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse"
-						data-target="#navigation" aria-controls="navigation" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+            <!-- Custom carousel -->
+            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
 
-					<div class="collapse navbar-collapse text-center" id="navigation">
-						<ul class="navbar-nav ml-auto mr-n0 mr-md-n3">
+            <!-- Custom stlylesheet -->
+            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+        {% endblock %}
 
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="{{path('app_nos_category')}}" id="dropdown03"
-									aria-haspopup="true" aria-expanded="false">Tous nos produits<i
-										class="tf-ion-chevron-down"></i></a>
-								<ul class="dropdown-menu" aria-labelledby="dropdown03">
-
-									<li class="dropdown dropdown-submenu dropright">
-										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
-											role="button" data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false">Portables <i class="fa-solid fa-laptop"></i></a>
-
-										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/5"><i class="fa-brands fa-windows"></i> PC portable</a></li>
-											<li><a class="dropdown-item" href="/category/6"><i class="fa-brands fa-apple"></i> MacBook</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown dropdown-submenu dropleft">
-										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
-											role="button" data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false"><i class="fa-solid fa-circle-nodes"></i> Objets connectés</a>
-
-										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/1"><i class="fa-regular fa-clock"></i> Apple watch</a></li>
-											<li><a class="dropdown-item" href="/category/2"><i class="fa-regular fa-clock"></i> Android watch</a></li>
-											<li><a class="dropdown-item" href="/category/10"><i class="fa-regular fa-clock"></i> Drone</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown dropdown-submenu dropright">
-										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
-											role="button" data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false">Téléphonie <i class="fa-solid fa-mobile-screen-button"></i></a>
-
-										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/3"><i class="fa-brands fa-apple"></i> Iphone</a></li>
-											<li><a class="dropdown-item" href="/category/4"><i class="fa-brands fa-android"></i> Smartphone Android</a></li>
-										</ul>
-									</li>
-
-									<li class="dropdown dropdown-submenu dropleft">
-										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301"
-											role="button" data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false"><i class="fa-solid fa-tv"></i> Image et son</a>
-
-										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="/category/7"><i class="fa-solid fa-tv"></i> Télévision</a></li>
-											<li><a class="dropdown-item" href="/category/8"><i class="fa-solid fa-camera"></i> Appareil Photo</a></li>
-											<li><a class="dropdown-item" href="/category/9"><i class="fa-solid fa-headphones"></i> Son Numérique</a></li>
-										</ul>
-									</li>
-
-								</ul>
-							</li>
-
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_cart')}}">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</a>
-							</li>
-
-							<li class="nav-item">
-								<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
-							</li>
-
-							{# Si l'utilisateur est identifié, j'affiche les liens suivant #}
-							{% if app.user %}
-							<a class="nav-link" href="{{ path('app_account') }}">
-								<i class="fa-solid fa-house-user"></i><small>({{ app.user.firstname }})</small>
-							</a>
-							|
-							<a class="nav-link" href="{{ path('app_logout') }}">
-								<i class="fa-solid fa-arrow-right-from-bracket"></i>
-							</a>
-							<a class="nav-link" href="#">
-								<i class="fa-brands fa-instagram"></i>
-							</a>
-							<a class="nav-link" href="#">
-								<i class="fa-brands fa-twitter"></i>
-							</a>
-							{# Si l'utilisateur n'est pas identifié, j'affiche les liens suivant #}
-							{% else %}
-							<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-							|
-							<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
-							<a class="nav-link" href="#">
-								<i class="fa-brands fa-instagram"></i>
-							</a>
-							<a class="nav-link" href="#">
-								<i class="fa-brands fa-twitter"></i>
-							</a>
-							{% endif %}
-						</ul>
-					</div>
-				</nav>
+    </head>
+    <body>
+        <!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> jstech@jstech-contact.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Monte-Carlo Monaco</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+                        {# Si l'utilisateur est identifié, j'affiche les liens suivant #}
+                        {% if app.user %}
+                        <li><a href="{{ path('app_account') }}">Bonjour <small>({{ app.user.firstname }})</small></a></li>
+                        |
+                        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                        {# Si l'utilisateur n'est pas identifié, j'affiche les liens suivant #}
+                        {% else %}
+                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                        |
+                        <li><a href="{{ path('app_register') }}">Inscription</a></li>
+                        {% endif %}
+					</ul>
+				</div>
 			</div>
-		</header>
+			<!-- /TOP HEADER -->
 
-		<main role="main">
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo header-ctn">
+								<a href="{{ path('app_home') }}" class="logo">
+									<img src="{{ asset('uploads/logo.png') }}" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
 
-			{% if block('carousel') is defined %}
-				{# {{dump(headers)}} #}
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						{% for key,header in headers %}
-							<li data-target="#myCarousel" data-slide-to="{{key}}" {% if key == 0 %} class="active"{% endif %}></li>
-						{% endfor %}
-					</ol>
-					<div class="carousel-inner">
-						{% for key,header in headers %}
-						{# -id: 1
-						-title: "Nouvelle collection"
-						-content: "Découvrez notre collection créée par nos artisans et nos couturiers."
-						-btnTitle: "Découvrez"
-						-btnUrl: "/nos-produits"
-						-illustration: "header-04d1383d1eecefefec8f4eb9b8166e95eb1e7efa.jpg" #}
-							<div class="carousel-item {% if key == 0 %}active{% endif %}" 
-								style="background: url('/uploads/{{header.illustration}}');
-										background-size: cover;
-										background-position: center; {# au cas où Pb avec bg position #}
-										background-position: {{header.backgroundPosition}};">
-								<div class="container">
-									<div class="carousel-caption text-left" style="color: {{ header.textColor }}">
-										<h1 class="header_shadow">{{header.title}}</h1>
-										<p class="header_shadow">{{header.content}}</p>
-										<a class="btn btn-lg btn-second" href="{{header.btnUrl}}" role="button">{{header.btnTitle}}</a>
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form>
+									{# <select class="input-select">
+										<option value="0">All Categories</option>
+										<option value="1">Category 01</option>
+										<option value="1">Category 02</option>
+									</select> #}
+									<input class="input" placeholder="Search here">
+									<button class="search-btn">Rechercher</button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Wishlist -->
+								<div>
+									<a href="#">
+										<i class="fa fa-heart-o"></i>
+										<span>Mes favoris</span>
+										<div class="qty">2</div>
+									</a>
+								</div>
+								<!-- /Wishlist -->
+
+								<!-- Cart -->
+								<div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										<i class="fa fa-shopping-cart"></i>
+										<span>Panier</span>
+										<div class="qty">3</div>
+									</a>
+									<div class="cart-dropdown">
+										<div class="cart-list">
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="./img/product01.png" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">product name goes here</a></h3>
+													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="./img/product02.png" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">product name goes here</a></h3>
+													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+										</div>
+										<div class="cart-summary">
+											<small>3 Item(s) selected</small>
+											<h5>SUBTOTAL: $2940.00</h5>
+										</div>
+										<div class="cart-btns">
+											<a href="{{ path('app_cart')}}">View Cart</a>
+											<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
 									</div>
 								</div>
+								<!-- /Cart -->
+
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
 							</div>
-						{% endfor %}
+						</div>
+						<!-- /ACCOUNT -->
 					</div>
-					<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-						<span class="arrow-color"><span class="carousel-control-prev-icon" aria-hidden="true"></span></span>
-						
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-						<span class="arrow-color"><span class="carousel-control-next-icon" aria-hidden="true"></span></span>
-						<span class="sr-only">Next</span>
-					</a>
+					<!-- row -->
 				</div>
-			{% endif %}
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
 
-			{% block content %}{% endblock %}
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a href="#">Accueil</a></li>
+						<li><a href="#">Meilleur ventes</a></li>
+						<li><a href="{{path('app_nos_category')}}">Categories</a></li>
+						<li><a href="#">Ordinateurs portables</a></li>
+						<li><a href="#">Smartphones</a></li>
+						<li><a href="#">Cameras</a></li>
+						<li><a href="#">Accessories</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
 
-		</main>
+		<!-- Carousel -->
+			{% block content %}
+				
+			{% endblock %}
+		<!-- /Carousel -->
 
-		<!-- FOOTER -->
-		<footer>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="block">
-							<a href="index.html" class="mb-4 d-inline-block">
-								<img src="{{ asset('uploads/showcase/logo.png')}}" alt="JS" width="100px">
-							</a>
-							<ul class="list-inline footer-menu">
+        <!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+									incididunt ut.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+								</ul>
+							</div>
+						</div>
 
-								<li class="list-inline-item">
-									<a href="#">Blog</a>
-								</li>
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="#">Hot deals</a></li>
+									<li><a href="#">Laptops</a></li>
+									<li><a href="#">Smartphones</a></li>
+									<li><a href="#">Cameras</a></li>
+									<li><a href="#">Accessories</a></li>
+								</ul>
+							</div>
+						</div>
 
-								<li class="list-inline-item">
-									<a href="{{path('app_contact')}}">Contact</a>
-								</li>
+						<div class="clearfix visible-xs"></div>
 
-								<li class="list-inline-item">
-									<a href="#">Terms &amp; Conditions</a>
-								</li>
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Information</h3>
+								<ul class="footer-links">
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">Contact Us</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Terms & Conditions</a></li>
+								</ul>
+							</div>
+						</div>
 
-								<li class="list-inline-item">
-									<a href="#">Privacy Policy</a>
-								</li>
-
-								<li class="list-inline-item">
-									<a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i></a>
-								</li>
-
-								<li class="list-inline-item">
-									<a class="nav-link" href="#"><i class="fa-brands fa-twitter"></i></a>
-								</li>
-
-							</ul>
-							<p class="copyright-text">Copyright &copy; 2022, Designed &amp; Developed By
-								<a href="https://github.com/steeven-js">Jacques Steeven</a>
-							</p>
-							
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Service</h3>
+								<ul class="footer-links">
+									<li><a href="#">My Account</a></li>
+									<li><a href="#">View Cart</a></li>
+									<li><a href="#">Wishlist</a></li>
+									<li><a href="#">Track My Order</a></li>
+									<li><a href="#">Help</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
+					<!-- /row -->
 				</div>
+				<!-- /container -->
 			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								Copyright &copy;
+								<script>document.write(new Date().getFullYear());</script> All rights reserved | JSTech <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://github.com/steeven-js" target="_blank">steeven-js</a>
+							</span>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
 		</footer>
+		<!-- /FOOTER -->
 
-	</body>
-
-	{% block javascripts %}
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-		<script src="{{ asset('assets/js/bootstrap.bundle.js')}}"></script>
-	{% endblock %}
+        <!-- jQuery Plugins -->
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+			<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+			<script src="{{ asset('assets/js/slick.min.js') }}"></script>
+			<script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
+			<script src="{{ asset('assets/js/jquery.zoom.min.js') }}"></script>
+			<script src="{{ asset('assets/js/main.js') }}"></script>
+        {% endblock %}
+    </body>
 </html>
