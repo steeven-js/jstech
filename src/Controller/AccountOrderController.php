@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,19 +19,20 @@ class AccountOrderController extends AbstractController
     }
 
     #[Route('/compte/mes-commandes', name: 'app_account_order')]
-    public function index(): Response
+    public function index(Cart $cart): Response
     {
         $orders = $this->entityManager->getRepository(Order::class)->findSucessOrders($this->getUser());
 
         // dd($orders);
 
         return $this->render('account/order.html.twig', [
-            'orders' => $orders
+            'orders' => $orders,
+            'cart' => $cart->getFull()
         ]);
     }
 
     #[Route('/compte/mes-commandes/{reference}', name: 'app_account_order_show')]
-    public function show($reference): Response
+    public function show($reference, Cart $cart): Response
     {
         $order = $this->entityManager->getRepository(Order::class)->findOneByReference($reference);
 
@@ -41,7 +43,8 @@ class AccountOrderController extends AbstractController
         }
 
         return $this->render('account/order_show.html.twig', [
-            'order' => $order
+            'order' => $order,
+            'cart' => $cart->getFull()
         ]);
     }
 }

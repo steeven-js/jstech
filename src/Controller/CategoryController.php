@@ -29,6 +29,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Entity\Header;
 use App\Entity\Product;
 use App\Entity\Category;
@@ -47,7 +48,7 @@ class CategoryController extends AbstractController
     }
     
     #[Route('/category', name: 'app_nos_category')]
-    public function idex(): Response
+    public function idex(Cart $cart): Response
     {
         $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
 
@@ -56,13 +57,14 @@ class CategoryController extends AbstractController
 
         return $this->render('category/index.html.twig', [
             'category' => $category, // 4 
-            'headers' => $headers // 4
+            'headers' => $headers, // 4
+            'cart' => $cart->getFull()
         ]);
         
     }
     
     #[Route('/category/{id}', name: 'app_category')] // 5  
-    public function show($id): Response
+    public function show($id, Cart $cart): Response
     {
          
         $category = $this->entityManager->getRepository(Category::class)->findOneById($id); // 6  
@@ -79,6 +81,7 @@ class CategoryController extends AbstractController
         return $this->render('category/show.html.twig', [
             'category' => $category, // 9
             'products' => $products, // 9
+            'cart' => $cart->getFull()
         ]);
         
     }

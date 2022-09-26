@@ -63,7 +63,7 @@
 
 								<td>
 									<a href=" {{path('delete_to_cart', {'id' : product.product.id})}}">
-										<i class="fa-solid fa-trash-can"></i>
+										<i class="fa fa-trash"></i>
 									</a>
 								</td>
 							</tr>
@@ -73,22 +73,22 @@
 					</tbody>
 				</table>
 
-			<div class="text-right mb-5">
+			<div class="cart-summary">
+				<div class="text-right mb-5">
 
-				<div class="row">
-				<b>Nombe de produits : </b> {{cart|length}}
+					<b>Nombe de produits : </b> {{cart|length}}
 
-				<br>
+					<br>
 
-				<b>Total du panier : </b> {{((total) / 100) |number_format(2, ',', '.')}}€
-
+					<b>Total du panier : </b> {{((total) / 100) |number_format(2, ',', '.')}}€
+	
+				</div>
+				<div class="row text-right">
+	
+					<a href="{{path('app_order')}}" class="primary-btn mt-10">Valider mon panier</a>
 				</div>
 			</div>
-			<div class="row text-right">
-
-				<a href="{{path('app_order')}}" class="primary-btn mt-10">Valider mon panier</a>
-			</div>
-
+			
 			{% else %}
 
 				<br>

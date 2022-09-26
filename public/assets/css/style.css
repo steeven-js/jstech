@@ -1849,7 +1849,7 @@ textarea.input {
 }
 
 /*=========================================================
-	09 -> CHECKOUT PAGE
+	09 -> CHECKOUT PAGE AND CART
 ===========================================================*/
 
 .billing-details {
@@ -1921,6 +1921,12 @@ textarea.input {
 .order-details .order-submit {
   display: block;
   margin-top: 30px;
+}
+
+.cart-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 /*=========================================================

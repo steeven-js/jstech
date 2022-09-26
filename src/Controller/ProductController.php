@@ -6,14 +6,15 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Classe\Search;
 use App\Entity\Product;
 use App\Form\SearchType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class ProductController extends AbstractController
@@ -26,7 +27,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/nos-produits', name: 'app_products')]
-    public function index(Request $request): Response
+    public function index(Request $request, Cart $cart): Response
     {
         
         $search = new Search();
@@ -42,12 +43,13 @@ class ProductController extends AbstractController
 
         return $this->render('product/index.html.twig', [
             'products' => $products,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'cart' => $cart->getFull()
         ]);
     }
 
     #[Route('/produit/{slug}', name: 'app_product')]
-    public function show($slug): Response
+    public function show($slug, Cart $cart): Response
     {
         // dd($slug);
         // On recherche en base de donnée un produit associer à son slug.
@@ -61,7 +63,8 @@ class ProductController extends AbstractController
         }
 
         return $this->render('product/show.html.twig', [
-            'product' => $product
+            'product' => $product,
+            'cart' => $cart->getFull()
         ]);
     }
 }

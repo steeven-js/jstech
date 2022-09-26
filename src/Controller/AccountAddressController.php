@@ -28,10 +28,12 @@ class AccountAddressController extends AbstractController
     // 4. Si tout est ok => enregister en DB
 
     #[Route('/compte/adresses', name: 'app_account_address')]
-    public function index(): Response
+    public function index(Cart $cart): Response
     {
         // dd($this->getUser());
-        return $this->render('account/address.html.twig');
+        return $this->render('account/address.html.twig', [
+            'cart' => $cart->getFull()
+        ]);
     }
     
     // AJOUTER une adresse
@@ -63,13 +65,14 @@ class AccountAddressController extends AbstractController
 
         // dd($this->getUser());
         return $this->render('account/address_form.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'cart' => $cart->getFull()
         ]);
     }
 
     // MODIFIER une adresse
     #[Route('/compte/modifier-une-adresse/{id}', name: 'app_account_address_edit')]
-    public function edit(Request $request, $id): Response
+    public function edit(Cart $cart, Request $request, $id): Response
     {
         // Je récupère l'adresse concernée à l'aide de doctrine en base de donnée
         $address = $this->entityManager->getRepository(Address::class)->findOneById($id);// De quel id on parle? De celui qui est passé en paramètre.
@@ -101,13 +104,14 @@ class AccountAddressController extends AbstractController
 
         // dd($this->getUser());
         return $this->render('account/address_form.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'cart' => $cart->getFull()
         ]);
     }
 
     // SUPPRIMER une adresse
     #[Route('/compte/supprimer-une-adresse/{id}', name: 'app_account_address_delete')]
-      public function delete($id): Response
+      public function delete($id, Cart $cart): Response
     {
         $address = $this->entityManager->getRepository(Address::class)->findOneById($id);
 
@@ -115,6 +119,8 @@ class AccountAddressController extends AbstractController
             $this->entityManager->remove($address);
 			$this->entityManager->flush();
         }
-        return $this->redirectToRoute('app_account_address');
+        return $this->redirectToRoute('app_account_address', [
+            'cart' => $cart->getFull()
+        ]);
     }
 }

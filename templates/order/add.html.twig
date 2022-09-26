@@ -46,7 +46,7 @@
                                     <img class="p-1 mx-1 my-0" height="75px" src="/uploads/{{ product.product.illustration }}"alt="{{ product.product.name }}"><br>
                                 </div>
 
-                                <div class="col-md-8">
+                                <div class="col-md-7">
                                     {{ product.product.name }}
                                     <br>
                                     <small>
@@ -56,7 +56,7 @@
                                     </small>
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     {{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }} €
                                 </div>
                             </div>

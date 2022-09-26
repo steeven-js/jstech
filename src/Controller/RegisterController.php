@@ -6,6 +6,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Classe\Mail;
 use App\Entity\User;
 use App\Form\RegisterType;
@@ -29,7 +30,7 @@ class RegisterController extends AbstractController
     // 4. Si tout est ok => enregister en DB
 
     #[Route('/inscription', name: 'app_register')]
-    public function index(Request $request, UserPasswordHasherInterface $encoder)
+    public function index(Request $request, UserPasswordHasherInterface $encoder, Cart $cart)
     {
         $notification = null;
 
@@ -76,7 +77,8 @@ class RegisterController extends AbstractController
 
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),
-            'notification' => $notification
+            'notification' => $notification,
+            'cart' => $cart->getFull()
         ]);
     }
 }
