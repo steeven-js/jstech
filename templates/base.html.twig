@@ -36,30 +36,6 @@
     <body>
         <!-- HEADER -->
 		<header>
-			<!-- TOP HEADER -->
-			<div id="top-header">
-				<div class="container">
-					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> jstech@jstech-contact.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Monte-Carlo Monaco</a></li>
-					</ul>
-					<ul class="header-links pull-right">
-                        {# Si l'utilisateur est identifié, j'affiche les liens suivant #}
-                        {% if app.user %}
-                        <li><a href="{{ path('app_account') }}">Bonjour <small>({{ app.user.firstname }})</small></a></li>
-                        |
-                        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
-                        {# Si l'utilisateur n'est pas identifié, j'affiche les liens suivant #}
-                        {% else %}
-                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
-                        |
-                        <li><a href="{{ path('app_register') }}">Inscription</a></li>
-                        {% endif %}
-					</ul>
-				</div>
-			</div>
-			<!-- /TOP HEADER -->
 
 			<!-- MAIN HEADER -->
 			<div id="header">
@@ -78,7 +54,7 @@
 						<!-- /LOGO -->
 
 						<!-- SEARCH BAR -->
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<div class="header-search">
 								<form>
 									{# <select class="input-select">
@@ -94,8 +70,9 @@
 						<!-- /SEARCH BAR -->
 
 						<!-- ACCOUNT -->
-						<div class="col-md-3 clearfix">
+						<div class="col-md-5 clearfix">
 							<div class="header-ctn">
+								
 								<!-- Wishlist -->
 								<div>
 									<a href="#">
@@ -148,6 +125,46 @@
 									</div>
 								</div>
 								<!-- /Cart -->
+
+								{% if app.user %}
+								<!-- Mon compte -->
+								<div>
+									<a href="{{ path('app_account') }}">
+										<i class="fa fa-heart-o"></i>
+										<span>Mon compte</span>
+									</a>
+								</div>
+								<!-- /Mon compte -->
+
+								<!-- Déconnexion -->
+								<div>
+									<a href="{{ path('app_logout') }}">
+										<i class="fa fa-heart-o"></i>
+										<span>Déconnexion</span>
+									</a>
+								</div>
+								<!-- /Déconnexion -->
+								{% else %}
+								<!-- Connexion -->
+								<div>
+									<a href="{{ path('app_login') }}">
+										<i class="fa fa-heart-o"></i>
+										<span>Connexion</span>
+									</a>
+								</div>
+								<!-- /Connexion -->
+
+								
+								<!-- Inscription -->
+								<div>
+									<a href="{{ path('app_register') }}">
+										<i class="fa fa-heart-o"></i>
+										<span>Inscription</span>
+									</a>
+								</div>
+								<!-- /Inscription -->
+								{% endif %}
+								
 
 								<!-- Menu Toogle -->
 								<div class="menu-toggle">
