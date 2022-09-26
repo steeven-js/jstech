@@ -72,6 +72,7 @@ a {
   font-weight: 500;
   -webkit-transition: 0.2s color;
   transition: 0.2s color;
+  text-decoration: none;
 }
 
 a:hover, a:focus {
@@ -467,6 +468,7 @@ textarea.input {
 
 .header-search form {
   position: relative;
+  display: flex;
 }
 
 .header-search form .input-select {
@@ -475,14 +477,14 @@ textarea.input {
 }
 
 .header-search form .input {
-  width: calc(100% - 100px);
+  width: calc(100% - 110px);
   margin-right: -4px;
   border-radius: 40px 0px 0px 40px;
 }
 
 .header-search form .search-btn {
   height: 40px;
-  width: 100px;
+  /* width: 100px; */
   background: #D10024;
   color: #FFF;
   font-weight: 700;
@@ -624,6 +626,9 @@ textarea.input {
   background: #FFF;
   border-bottom: 2px solid #E4E7ED;
   border-top: 3px solid #D10024;
+  height: 60px;
+  display: flex;
+  align-items: center;
 }
 
 /*----------------------------*\
@@ -659,6 +664,11 @@ textarea.input {
 
 .header-ctn li.nav-toggle {
   display: none;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: row;
 }
 
 /*----------------------------*\

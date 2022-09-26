@@ -7,6 +7,7 @@
 namespace App\Controller;
 
 use App\Entity\Header;
+use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,12 +26,14 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
+        $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
 
         $headers = $this->entityManager->getRepository(Header::class)->findall();
         // dd($headers);
         
         return $this->render('home/index.html.twig', [
-            'headers' => $headers
+            'headers' => $headers,
+            'category' => $category
         ]);
     }
 }

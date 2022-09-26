@@ -12,24 +12,21 @@
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
             <!-- Bootstrap -->
-            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/css/bootstrap-utilities.min.css" integrity="sha512-/j+mUkUn8RkWly6SVmNCaTNXRhoZAhe/mDv3+EgwjBEhQemU2smhHIDrAiC+qE3GpnwBKLd//8X2yq2axnJLnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 
-            <!-- Slick -->
-            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick.css') }}" />
-            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}" />
+			<!-- Slick -->
+			<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick.css') }}"/>
+			<link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}"/>
 
             <!-- nouislider -->
-            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}" />
+            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}" /> 
 
             <!-- Font Awesome Icon -->
             <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
-            <!-- Custom carousel -->
-            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-
-            <!-- Custom stlylesheet -->
-            <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+            
+			<link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
+			<link href="{{ asset('assets/css/carousel.css')}}" rel="stylesheet">
         {% endblock %}
 
     </head>
@@ -211,10 +208,49 @@
 		<!-- /NAVIGATION -->
 
 		<!-- Carousel -->
-			{% block content %}
-				
-			{% endblock %}
+		{% if block('carousel') is defined %}
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				{% for key,header in headers %}
+					<li data-target="#myCarousel" data-slide-to="{{key}}" {% if key == 0 %} class="active"{% endif %}></li>
+				{% endfor %}
+			</ol>
+			<div class="carousel-inner">
+				{% for key,header in headers %}
+				{# -id: 1
+				-title: "Nouvelle collection"
+				-content: "Découvrez notre collection créée par nos artisans et nos couturiers."
+				-btnTitle: "Découvrez"
+				-btnUrl: "/nos-produits"
+				-illustration: "header-04d1383d1eecefefec8f4eb9b8166e95eb1e7efa.jpg" #}
+					<div class="carousel-item {% if key == 0 %}active{% endif %}" 
+						style="background: url('/uploads/{{header.illustration}}');
+								background-size: cover;
+								background-position: center; {# au cas où Pb avec bg position #}
+								background-position: {{header.backgroundPosition}};">
+						<div class="container">
+							<div class="carousel-caption text-left">
+								<h1>{{header.title}}</h1>
+								<p>{{header.content}}</p>
+								<p><a class="btn btn-lg btn-info" href="{{header.btnUrl}}" role="button">{{header.btnTitle}}</a></p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		{% endif %}
+
 		<!-- /Carousel -->
+		{% block content %}{% endblock %}
 
         <!-- FOOTER -->
 		<footer id="footer">
@@ -314,7 +350,9 @@
 
         <!-- jQuery Plugins -->
         {% block javascripts %}
-            <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+			<script src="{{ asset('assets/js/bootstrap.bundle.js')}}"></script>
+			<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 			<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 			<script src="{{ asset('assets/js/slick.min.js') }}"></script>
 			<script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
