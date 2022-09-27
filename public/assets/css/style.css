@@ -499,6 +499,8 @@ textarea.input {
 .header-ctn {
   float: right;
   padding: 15px 0px;
+  display: flex;
+  align-items: center;
 }
 
 .header-ctn>div {
@@ -678,6 +680,10 @@ textarea.input {
 @media only screen and (max-width: 991px) {
   .header-ctn .menu-toggle {
     display: inline-block;
+    position: absolute;
+    top: -140px;
+    left: -245px;
+    z-index: 999;
   }
   #responsive-nav {
     position: fixed;
@@ -705,6 +711,8 @@ textarea.input {
   .main-nav {
     margin: 0px;
     float: none;
+    flex-direction: column;
+    margin-top: 50px;
   }
   .main-nav>li {
     display: block;
@@ -2206,11 +2214,6 @@ textarea.input {
   }
 }
 
-
-
-
-
-
 /**
 * A trier
 */
@@ -2243,6 +2246,7 @@ textarea.input {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+  border: 1px solid;
 }
 
 .border-primary {
@@ -2271,4 +2275,116 @@ textarea.input {
 
 .card-text:last-child {
   margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  body {
+    background-color: #D10024;
+  }
+
+  .header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-resp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-search {
+    padding: 15px 0px;
+    max-width: 50%;
+    /* display: flex; */
+    margin: 0 auto;
+  }
+
+  .header-resp-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+@media only screen and (max-width: 990px) {
+
+  body {
+    background-color: #D10024;
+  }
+
+  .header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-resp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-search {
+    padding: 15px 0px;
+    max-width: 50%;
+    /* display: flex; */
+    margin: 0 auto;
+  }
+
+  .header-resp-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+}
+
+@media only screen and (max-width: 770px) {
+
+  body {
+    background-color: lightblue;
+  }
+
+  .header-ctn .menu-toggle {
+    display: inline-block;
+    position: absolute;
+    top: -140px;
+    left: -90px;
+    z-index: 999;
+}
+
+  .header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-resp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-search {
+    padding: 15px 0px;
+    max-width: 50%;
+    /* display: flex; */
+    margin: 0 auto;
+  }
+
+  .header-resp-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mbl-width {
+    width: 50%;
+  }
+
 }
