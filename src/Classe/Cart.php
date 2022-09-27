@@ -76,7 +76,7 @@ class Cart
 		// Je retire du tableau l'entré cart qui à l'id qui correspond à l' id que je souhaite supprimer
 		unset($cart[$id]);
 
-		// Je redéfini la même route que mon panier
+		// Je redéfini la même route que mon panier avec les nouvelle informations.
 		$this->requestStack->getSession()->set('cart',$cart); 
 	}
 

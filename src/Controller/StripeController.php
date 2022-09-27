@@ -24,7 +24,7 @@ class StripeController extends AbstractController
         $product_for_stripe = [];
         $YOUR_DOMAIN = 'http://127.0.0.1:8000';
 
-        // On récupère la commande en base de données à l'aide de la référence
+        // On récupère la commande en base de données à l'aide de la référence (REQUETE)
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
 
         // Panier

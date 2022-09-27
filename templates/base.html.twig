@@ -4,9 +4,10 @@
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+		<meta name="author" content="Steeven Jacques">
+		
 		<title>jstech</title>
+
         {% block stylesheets %}
             <!-- Google font -->
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -24,7 +25,7 @@
             <!-- Font Awesome Icon -->
             <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
-            
+            <!-- Css -->
 			<link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
 			<link href="{{ asset('assets/css/carousel.css')}}" rel="stylesheet">
         {% endblock %}
@@ -129,7 +130,6 @@
 								<!-- /Inscription -->
 								{% endif %}
 								
-
 								<!-- Menu Toogle -->
 								<div class="menu-toggle">
 									<a href="#">
@@ -160,10 +160,10 @@
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="#">Accueil</a></li>
 						<li><a href="#">Meilleurs ventes</a></li>
-						<li><a href="{{path('app_nos_category')}}">Categories</a></li>
 						<li><a href="#">Ordinateurs portables</a></li>
 						<li><a href="#">Smart watch</a></li>
 						<li><a href="#">Smartphones</a></li>
+						<li><a href="{{ path('app_nos_category') }}">Tous nos produits</a></li>		
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -226,28 +226,28 @@
 				<div class="container">
 					<!-- row -->
 					<div class="row">
-						<p>[1] Votre adresse de messagerie est uniquement utilisée pour vous envoyer notre lettre d'information ainsi que des informations concernant les activités du GROUPE LDLC. Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter.</p>
+						<p>[1] Votre adresse de messagerie est uniquement utilisée pour vous envoyer notre lettre d'information ainsi que des informations concernant les activités du GROUPE JSTCH. Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter.</p>
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">About Us</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Monte Carlo Monaco</a></li>
 									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>jstech-contact@jstech.com</a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
+								<h3 class="footer-title">Plan du site</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
+									<li><a href="#">Meilleurs ventes</a></li>
+									<li><a href="#">Ordinateurs portables</a></li>
+									<li><a href="#">Smart watch</a></li>
 									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="{{ path('app_nos_category') }}">Tous nos produits</a></li>
 								</ul>
 							</div>
 						</div>
@@ -271,11 +271,11 @@
 							<div class="footer">
 								<h3 class="footer-title">Service</h3>
 								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
+									<li><a href="#">Mon compte</a></li>
+									<li><a href="#">Panier</a></li>
+									<li><a href="#">Liste de souhait</a></li>
+									<li><a href="#">Mes commandes</a></li>
+									<li><a href="#">Aide</a></li>
 								</ul>
 							</div>
 						</div>
