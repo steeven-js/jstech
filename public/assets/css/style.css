@@ -1,6 +1,4 @@
 /*
-Template Name: Electro - HTML Ecommerce Template
-Author: yaminncco
 
 Colors:
 	Body 		: #333
@@ -1070,12 +1068,12 @@ textarea.input {
 }
 
 .product .add-to-cart .add-to-cart-btn>i {
-  position: absolute;
+  /* position: absolute;
   left: 0;
   top: 0;
   width: 40px;
   height: 40px;
-  line-height: 38px;
+  line-height: 38px; */
   color: #D10024;
   opacity: 0;
   visibility: hidden;

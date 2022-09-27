@@ -3,124 +3,124 @@
 {% block title %}Tous Nos produit{% endblock %}
 
 {% block content %}
-    {# <pre>
-        {{ dump(category) }}
-        {{ dump(category.0.id) }}
-        {{ dump(category.0.name) }}
-    </pre> #}
+{# <pre>
+    {{ dump(category) }}
+    {{ dump(category.0.id) }}
+    {{ dump(category.0.name) }}
+</pre> #}
 
-    <!-- BREADCRUMB --> 
-    <div id="breadcrumb" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="breadcrumb-header">Categories</h3>
-                    <ul class="breadcrumb-tree">
-                        <li><a href="{{ path('app_home') }}">Home</a></li>
-                        <li class="active">Categories</li>
-                    </ul>
-                </div>
+<!-- BREADCRUMB --> 
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">Categories</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="{{ path('app_home') }}">Home</a></li>
+                    <li class="active">Categories</li>
+                </ul>
             </div>
-            <!-- /row -->
         </div>
-        <!-- /container -->
+        <!-- /row -->
     </div>
-    <!-- /BREADCRUMB -->
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
 
-    <!-- Section -->
-    <section class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
+<!-- Section -->
+<section class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
 
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/pc-portable.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">Ordinateurs Portables</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.4.id}) }}">{{ (category.4.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.5.id}) }}">{{ (category.5.name) }}</a></p>
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/pc-portable.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
                         </div>
                     </div>
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/apple-watch.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">Objets connectés</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.0.id}) }}">{{ (category.0.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.1.id}) }}">{{ (category.1.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.9.id}) }}">{{ (category.9.name) }}</a></p>
-                        </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Ordinateurs Portables</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.4.id}) }}">{{ (category.4.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.5.id}) }}">{{ (category.5.name) }}</a></p>
                     </div>
                 </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/iphone.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">Téléphonie</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/tv.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">Image et son</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.6.id}) }}">{{ (category.6.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.7.id}) }}">{{ (category.7.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.8.id}) }}">{{ (category.8.name) }}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
             </div>
-            <!-- /row -->
+            <!-- /product -->
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/apple-watch.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Objets connectés</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.0.id}) }}">{{ (category.0.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.1.id}) }}">{{ (category.1.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.9.id}) }}">{{ (category.9.name) }}</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+            <div class="clearfix visible-sm visible-xs"></div>
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/iphone.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Téléphonie</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/tv.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Image et son</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.6.id}) }}">{{ (category.6.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.7.id}) }}">{{ (category.7.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.8.id}) }}">{{ (category.8.name) }}</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
         </div>
-        <!-- /container -->
-    </section>
-    <!-- /Section -->
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</section>
+<!-- /Section -->
 
 {% endblock %}

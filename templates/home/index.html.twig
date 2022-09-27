@@ -3,186 +3,186 @@
 
 {% block content %}
 
-	<!-- Section -->
-    <section class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
+<!-- Section -->
+<section class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
 
-                <div class="col-md-12">
-                    <div class="section-title text-center">
-                        <h3 class="title">Categories</h3>
-                    </div>
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 class="title">Categories</h3>
                 </div>
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/pc-portable.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">Ordinateurs Portables</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.4.id}) }}">{{ (category.4.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.5.id}) }}">{{ (category.5.name) }}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/apple-watch.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">Objets connectés</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.0.id}) }}">{{ (category.0.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.1.id}) }}">{{ (category.1.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.9.id}) }}">{{ (category.9.name) }}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/iphone.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">OTéléphonie</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6 mbl-width">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="./images/tv.jpg" alt="">
-                            <div class="product-label">
-                                <!-- <span class="sale">-30%</span> -->
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name">Image et son</h3>
-                            <hr>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.6.id}) }}">{{ (category.6.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.7.id}) }}">{{ (category.7.name) }}</a></p>
-                            <p class="m-4"><a href="{{ path('app_category', {'id' : category.8.id}) }}">{{ (category.8.name) }}</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
             </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </section>
-    <!-- /Section -->
 
-    <!-- HOT DEAL SECTION -->
-    <div id="hot-deal" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="hot-deal">
-                        <ul class="hot-deal-countdown">
-                            <li>
-                                <div>
-                                    <h3>02</h3>
-                                    <span>Days</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3>10</h3>
-                                    <span>Hours</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3>34</h3>
-                                    <span>Mins</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <h3>60</h3>
-                                    <span>Secs</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <h2 class="text-uppercase">hot deal this week</h2>
-                        <p>New Collection Up to 50% OFF</p>
-                        <a class="primary-btn cta-btn" href="#">Shop now</a>
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/pc-portable.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Ordinateurs Portables</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.4.id}) }}">{{ (category.4.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.5.id}) }}">{{ (category.5.name) }}</a></p>
                     </div>
                 </div>
             </div>
-            <!-- /row -->
+            <!-- /product -->
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/apple-watch.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Objets connectés</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.0.id}) }}">{{ (category.0.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.1.id}) }}">{{ (category.1.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.9.id}) }}">{{ (category.9.name) }}</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+            <div class="clearfix visible-sm visible-xs"></div>
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/iphone.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Téléphonie</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
+            <!-- product -->
+            <div class="col-md-3 col-xs-6 mbl-width">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./images/tv.jpg" alt="">
+                        <div class="product-label">
+                            <!-- <span class="sale">-30%</span> -->
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Image et son</h3>
+                        <hr>
+                        <p><a href="{{ path('app_category', {'id' : category.6.id}) }}">{{ (category.6.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.7.id}) }}">{{ (category.7.name) }}</a></p>
+                        <p><a href="{{ path('app_category', {'id' : category.8.id}) }}">{{ (category.8.name) }}</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /product -->
+
         </div>
-        <!-- /container -->
+        <!-- /row -->
     </div>
-    <!-- /HOT DEAL SECTION -->
+    <!-- /container -->
+</section>
+<!-- /Section -->
 
-    <!-- NEWSLETTER -->
-    <div id="newsletter" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="newsletter">
-                        <p>Sign Up for the <strong>NEWSLETTER</strong></p>
-                        <form>
-                            <input class="input" type="email" placeholder="Enter Your Email">
-                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-                        </form>
-                        <ul class="newsletter-follow">
-                            <li>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+<!-- HOT DEAL SECTION -->
+<div id="hot-deal" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hot-deal">
+                    <ul class="hot-deal-countdown">
+                        <li>
+                            <div>
+                                <h3>02</h3>
+                                <span>Days</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>10</h3>
+                                <span>Hours</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>34</h3>
+                                <span>Mins</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>60</h3>
+                                <span>Secs</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h2 class="text-uppercase">hot deal this week</h2>
+                    <p>New Collection Up to 50% OFF</p>
+                    <a class="primary-btn cta-btn" href="#">Shop now</a>
                 </div>
             </div>
-            <!-- /row -->
         </div>
-        <!-- /container -->
+        <!-- /row -->
     </div>
-    <!-- /NEWSLETTER -->
+    <!-- /container -->
+</div>
+<!-- /HOT DEAL SECTION -->
+
+<!-- NEWSLETTER -->
+<div id="newsletter" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="newsletter">
+                    <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                    <form>
+                        <input class="input" type="email" placeholder="Enter Your Email">
+                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                    </form>
+                    <ul class="newsletter-follow">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /NEWSLETTER -->
 
 {% endblock %}
