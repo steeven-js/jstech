@@ -1980,7 +1980,7 @@ textarea.input {
 }
 
 .newsletter form .newsletter-btn {
-  width: 160px;
+  /* width: 160px; */
   height: 40px;
   font-weight: 700;
   background: #D10024;
