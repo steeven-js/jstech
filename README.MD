@@ -9,7 +9,7 @@ git push -u origin main
 
 git add .
 git commit -m "Mise à jour de la db"
-git push -u origin main
+git push -u origin main 
 ```
 ## 01 Introduction
 - [x]  001 Le programme de la formation étape par étape
