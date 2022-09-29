@@ -3,97 +3,68 @@
 {% block title %}Mon Panier{% endblock %}
 
 {% block content %}
-	<section class="section">
-		<div class="container">
-			<a class="primary-btn mb-5" href="#" onclick="history.back()"><i class="fa fa-arrow-left"></i> Retour</a>
-			<h1>Mon panier</h1>
-			<p>Rectouvez l'ensemble des produits que vous avez ajouté à votre panier.</p> 
+    <div class="small-container cart-page">
+<!-- cart items details -->
+	<h1>Mon panier</h1>
+	<p>Rectouvez l'ensemble des produits que vous avez ajouté à votre panier.</p> 
+	<br>
+	{% if cart|length > 0 %}
+		<table>
+			<tr>
+				<th>Product</th>
+				<th>Qté</th>
+				<th>Subtotal</th>
+			</tr>
 
-			<hr>
+			{% set total = null %}
 
-			{# AFFICHE le panier que si il y a au moins 1 produit #}
-			{# SINON AFFICHE "Votre panier est vide" #}
-			{% if cart|length > 0 %}
-			
-				<table class="table mt-3">
-				
-					<thead>
-					
-						<tr>
-							<th scope="col">Produit</th>
-							<th scope="col"></th>
-							<th scope="col">Quantité</th>
-							<th scope="col">Prix</th>
-							<th scope="col">Total</th>
-							<th scope="col"></th>
-						</tr>
+			{% for product in cart %}
 
-					</thead>
+			<tr>
+				<td>
+					<div class="cart-info">
+						<img src="/uploads/{{product.product.illustration}}" height="75px" alt="{{product.product.name}}">
+						<div>
+							<p>{{product.product.name}}</p>
+							<small>{{((product.product.price) / 100) |number_format(2, ',', '.')}} €</small>
+							<br>
+							<a href=" {{path('delete_to_cart', {'id' : product.product.id})}}">
+								<i class="fa fa-trash"></i>
+							</a>
+						</div>
+					</div>
+				</td>
+				<td>
+					<a href=" {{path('decrease_to_cart', {'id' : product.product.id})}}"><i class="fa fa-minus"></i></a>
+						x {{product.quantity}}
+					<a href=" {{path('add_to_cart', {'id' : product.product.id})}}"><i class="fa fa-plus"></i></a>
+				</td>
+				<td>{{((product.product.price * product.quantity) / 100) |number_format(2, ',', '.')}} €</td>
+			</tr>
 
-					<tbody>
+			{% set total = total + (product.product.price * product.quantity) %}
+			{% endfor %}
+		</table>
 
-						{% set total = null %}
+		<div class="total-price">
 
-						{% for product in cart %}
-							<tr>
-								<th>
-									<img src="/uploads/{{product.product.illustration}}" height="75px" alt="{{product.product.name}}">
-									<br>
-								</th>
+			<table>
+				<tr>
+					<td><b>Nombe de produits : </b></td>
+					<td>{{cart|length}}</td>
+				</tr>
+				<tr>
+					<td><b>Total du panier : </b></td>
+					<td>{{((total) / 100) |number_format(2, ',', '.')}} €</td>
+				</tr>
+			</table>
 
-								<td>
-									{{product.product.name}}
-									<br>
-									<small>{{product.product.subtitle}}</small>
-								</td>
+		</div>
+	{% else %}
 
-								<td>
-									<a href=" {{path('decrease_to_cart', {'id' : product.product.id})}}">
-										<i class="fa fa-minus"></i>
-									</a>
-									x {{product.quantity}}
-									<a href=" {{path('add_to_cart', {'id' : product.product.id})}}">
-										<i class="fa fa-plus"></i>
-									</a>
-								</td>
+		<br>
+		<p><b>Votre panier est vide</b></p>
 
-								<td>{{((product.product.price) / 100) |number_format(2, ',', '.')}}€</td>
-
-								<td>{{((product.product.price * product.quantity) / 100) |number_format(2, ',', '.')}}€</td>
-
-								<td>
-									<a href=" {{path('delete_to_cart', {'id' : product.product.id})}}">
-										<i class="fa fa-trash"></i>
-									</a>
-								</td>
-							</tr>
-							{% set total = total + (product.product.price * product.quantity) %}
-						{% endfor %}
-
-					</tbody>
-				</table>
-
-			<div class="cart-summary">
-				<div class="text-right mb-5">
-
-					<b>Nombe de produits : </b> {{cart|length}}
-
-					<br>
-
-					<b>Total du panier : </b> {{((total) / 100) |number_format(2, ',', '.')}}€
-	
-				</div>
-				<div class="row text-right">
-	
-					<a href="{{path('app_order')}}" class="primary-btn mt-10">Valider mon panier</a>
-				</div>
-			</div>
-			
-			{% else %}
-
-				<br>
-				<p><b>Votre panier est vide</b></p>
-
-			{% endif %}
-	</section>
+	{% endif %}
+    </div>	
 {% endblock %}

@@ -1,52 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos produit
-{% endblock %}
-
 {% block content %}
 
-<section class="section gallery">
-	<div class="heading">
-		<h2 class="font-weight-bold">Nos produits</h2>
+<div class="small-container">
+	<div class="row row-2">
+		<h2>Tous nos produits</h2>
+		<select>
+			<option>Default Shorting</option>
+			<option>Short by price Shorting</option>
+			<option>Short by popularity</option>
+			<option>Short by rating</option>
+			<option>Short by sale</option>
+		</select>
 	</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2">
-				<h3>Filtrer</h3>
-				{{form(form)}}
+	<div class="row">
+		{% for product in products %}
+			<div class="col-4">
+				<a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid"></a> 
+				<h4>{{product.name}}</h4>
+				<p>{{(product.price/100) |number_format(2, ',', '.')}} €</p>
 			</div>
-			<div class="col-md-10 text-center mb-5">
-				<div class="row product-container">
-					{% for product in products %}
+		{% endfor %}
 
-						<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-
-							<div class="block">
-								<div class="gallery-overlay">
-									<a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup">
-										<i class="fa-solid fa-plus"></i>
-									</a>
-								</div>
-								<img class="img-fluid w-100" src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
-							</div>
-
-							<div class="product-info">
-								<a class="link-title" href="{{path('app_product', {'slug' : product.slug})}}">
-									<h4>{{product.name}}</h4>
-								</a>
-								<p>{{product.subtitle}}</p>
-								<p class="price">{{(product.price/100) |number_format(2, ',', '.')}} €</p>
-							</div>
-
-						</div>
-						
-					{% endfor %}
-
-				</div>
-			</div>
-		</div>
 	</div>
-</section>
+
+</div>
 
 {% endblock %}
