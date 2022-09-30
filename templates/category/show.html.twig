@@ -23,66 +23,26 @@
 
 {% block content %}
 
-<!-- BREADCRUMB --> 
-<div id="breadcrumb" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="breadcrumb-header">{{category.name}}</h3>
-                <ul class="breadcrumb-tree">
-                    <li><a href="{{ path('app_home') }}">Home</a></li>
-                    <li><a href="{{path('app_nos_category')}}">Categories</a></li>
-                    <li class="active">{{category.name}}</li>
-                </ul>
+<div class="small-container">
+    <h2 class="title">{{category.name}}</h2>
+	<div class="row row-2">
+        {# {% for product in category.products %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                {{ dump(product) }}
             </div>
-        </div>
-        <!-- /row -->
+        {% endfor %} #}
+
+        {% for product in category.products %}
+            <!-- product -->
+            <div class="col-4">
+                <a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid"></a> 
+                <h4>{{product.name}}</h4>
+                <p>{{(product.price/100) |number_format(2, ',', '.')}} €</p>
+            </div>
+            <!-- /product -->
+        {% endfor %}
+
     </div>
-    <!-- /container -->
 </div>
-<!-- /BREADCRUMB -->
-<!-- /BREADCRUMB -->
-
-<section class="section gallery">
-    <div class="container">
-        <a href="{{path('app_nos_category')}}" class="primary-btn"><i class="fa fa-arrow-left"></i> Tous Nos Produits</a>
-        <div class="row mt-5 pt-2 ">
-            <div class="col-md-12 text-center mb-5">
-                <div class="row product-container">
-
-                    {# {% for product in category.products %}
-                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                            {{ dump(product) }}
-                        </div>
-                    {% endfor %} #}
-
-                    {% for product in category.products %}
-                        <!-- product -->
-                        <div class="col-md-4 col-xs-6 mbl-width">
-                            <div class="product">
-                                <div class="product-img">
-                                    <a href="{{path('app_product', {'slug' : product.slug})}}"></a>
-                                    <img src="/uploads/{{product.illustration}}" alt="{{product.name}}">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">{{category.name}}</p>
-                                    <h3 class="product-name"><a href="{{path('app_product', {'slug' : product.slug})}}">{{product.name}}</a></h3>
-                                    <p>{{product.subtitle}}</p>
-                                    <h4 class="product-price">{{(product.price/100) |number_format(2, ',', '.')}} €</h4>
-                                </div>
-                                <div class="add-to-cart">
-                                    <a class="add-to-cart-btn" href="{{path('app_product', {'slug' : product.slug})}}"><i class="fa fa-shopping-cart"></i> add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /product -->
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 {% endblock %}

@@ -18,7 +18,7 @@ class OrderCancelController extends AbstractController
     }
     
     #[Route('/commande/erreur/{stripeSessionId}', name: 'app_order_cancel')]
-    public function index($stripeSessionId, Cart $cart): Response
+    public function index($stripeSessionId): Response
     {
         $order = $this->entityManager->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
 
@@ -34,7 +34,6 @@ class OrderCancelController extends AbstractController
         
         return $this->render('order_cancel/index.html.twig', [
             'order' => $order,
-            'cart' => $cart->getFull()
         ]);
     }
 }

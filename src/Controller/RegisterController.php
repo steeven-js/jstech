@@ -30,7 +30,7 @@ class RegisterController extends AbstractController
     // 4. Si tout est ok => enregister en DB
 
     #[Route('/inscription', name: 'app_register')]
-    public function index(Request $request, UserPasswordHasherInterface $encoder, Cart $cart)
+    public function index(Request $request, UserPasswordHasherInterface $encoder)
     {
         $notification = null;
 
@@ -78,7 +78,6 @@ class RegisterController extends AbstractController
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),
             'notification' => $notification,
-            'cart' => $cart->getFull()
         ]);
     }
 }

@@ -5,27 +5,28 @@
 
 {% block content %}
 <!-- account-page -->
+<div class="account-page">
 	<div class="container">
 		<div class="row">
 			<div class="col-2">
-				<img src="images/image1.png" width="100%">
+				<img src="{{ asset('images/showcase-2.png') }}">
 			</div>
 
 			<div class="col-2">
 				<h1>Mon compte</h1>
-			<p class="mb-4">Bienvenue <strong>{{ app.user.firstname }}</strong> dans votre compte.</p>
-			<p>C'est dans cet espace que vous allez pouvoir gérer toutes vos <strong>informations personelles</strong>.</p>
-			<hr>
-			<div class="col-md-4 col-xs-6">
-					<a class="primary-btn" href="{{ path('app_account_password') }}">Modifier mon mot de passe</a><br>
+				<p class="mb-4">Bienvenue <strong>{{ app.user.firstname }}</strong> dans votre compte.</p>
+				<p>C'est dans cet espace que vous allez pouvoir gérer toutes vos <strong>informations personelles</strong>.</p>
+				<div>
+					<a class="btn" href="{{ path('app_account_password') }}">Modifier mon mot de passe</a><br>
 				</div>
-				<div class="col-md-4 col-xs-6">
-					<a class="primary-btn" href="{{ path('app_account_address') }}">Gérer mes adresses</a><br>
+				<div>
+					<a class="btn" href="{{ path('app_account_address') }}">Gérer mes adresses</a><br>
 				</div>
-				<div class="col-md-4 col-xs-6">
-					<a class="primary-btn" href="{{ path('app_account_order') }}">Gérer mes commandes</a><br>
+				<div>
+					<a class="btn" href="{{ path('app_account_order') }}">Gérer mes commandes</a><br>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 {% endblock %}

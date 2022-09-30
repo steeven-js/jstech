@@ -6,7 +6,6 @@
 
 namespace App\Controller;
 
-use App\Classe\Cart;
 use App\Entity\Header;
 use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,7 +24,7 @@ class HomeController extends AbstractController
        
 
     #[Route('/', name: 'app_home')]
-    public function index(Cart $cart): Response
+    public function index(): Response
     {
         $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
 
@@ -36,7 +35,6 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'headers' => $headers,
             'category' => $category,
-            'cart' => $cart->getFull()
         ]);
     }
 }

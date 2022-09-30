@@ -5,48 +5,32 @@
 
 
 {% block content %}
-<section class="section">
-    <div class="container">
-        <a href="{{ path('app_account_address_add')}}" class="primary-btn pull-right"> Ajouter une adresse</a>
-
-        <h1 class="m-4">Mes adresses</h1>
-
-        <p class="mb-4">Bienvenue {{ app.user.firstname }} dans votre compte.<br>
-            C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.
-        </p>
-
-        <a href="{{ path('app_account') }}" class="primary-btn"><i class="fa fa-arrow-left"></i> Mon compte</a><br>
-
-        <hr>
-        {# {{dump(app.user)}}
-        VUE DE MES ADRESSES #}
-        {% if app.user.addresses|length == 0 %}
-            <p>Vous n'avez pas encore ajouté d'adresse dans votre compte client. Pour en ajouter une, veuillez
-                <a href="{{ path('app_account_address_add')}}">cliquer ici</a>.
-            </p>
-        {% else %}
-
-            <div class="row">
-                {% for address in app.user.addresses %}
-                    {# {{dump(address)}} #}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h5 class="card-title">{{address.name}}</h5>
-                                <p class="card-text">{{address.address}} <br>
-                                    {{address.postal}} - {{address.city}} - {{address.country}}
-                                </p>
-                                {# Je passe en paramètre l'id de l'adresse que je souhaite modifier #}
-                                <a href="{{path('app_account_address_edit', {'id' : address.id})}}" class="">Modifier</a> | <a
-                                    href="{{path('app_account_address_delete', {'id' : address.id})}}" class="">Supprimer</a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+<div class="small-container">
+    <h2 class="title">Mes adresses</h2>
+	<div class="row row-2">
+        {# {% for product in category.products %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                {{ dump(product) }}
             </div>
+        {% endfor %} #}
 
-        {% endif %}
+        {% for address in app.user.addresses %}
+            <!-- product -->
+            <div class="col-4">
+                {# {{dump(address)}} #}
+                <h5 class="card-title">{{address.name}}</h5>
+                <p class="card-text">{{address.address}} <br>
+                    {{address.postal}} - {{address.city}} - {{address.country}}
+                </p>
+                {# Je passe en paramètre l'id de l'adresse que je souhaite modifier #}
+                <a href="{{path('app_account_address_edit', {'id' : address.id})}}" class="">Modifier</a>
+                |
+                <a href="{{path('app_account_address_delete', {'id' : address.id})}}" class="">Supprimer</a>
+            </div>
+            <!-- /product -->
+        {% endfor %}
+
     </div>
-</section>
+</div>
 
 {% endblock %}

@@ -19,7 +19,7 @@ class AccountOrderController extends AbstractController
     }
 
     #[Route('/compte/mes-commandes', name: 'app_account_order')]
-    public function index(Cart $cart): Response
+    public function index(): Response
     {
         $orders = $this->entityManager->getRepository(Order::class)->findSucessOrders($this->getUser());
 
@@ -27,12 +27,11 @@ class AccountOrderController extends AbstractController
 
         return $this->render('account/order.html.twig', [
             'orders' => $orders,
-            'cart' => $cart->getFull()
         ]);
     }
 
     #[Route('/compte/mes-commandes/{reference}', name: 'app_account_order_show')]
-    public function show($reference, Cart $cart): Response
+    public function show($reference): Response
     {
         $order = $this->entityManager->getRepository(Order::class)->findOneByReference($reference);
 
@@ -44,7 +43,6 @@ class AccountOrderController extends AbstractController
 
         return $this->render('account/order_show.html.twig', [
             'order' => $order,
-            'cart' => $cart->getFull()
         ]);
     }
 }

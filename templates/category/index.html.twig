@@ -9,118 +9,35 @@
     {{ dump(category.0.name) }}
 </pre> #}
 
-<!-- BREADCRUMB --> 
-<div id="breadcrumb" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="breadcrumb-header">Categories</h3>
-                <ul class="breadcrumb-tree">
-                    <li><a href="{{ path('app_home') }}">Home</a></li>
-                    <li class="active">Categories</li>
-                </ul>
-            </div>
+<div class="small-container">
+    <h2 class="title">Catégories</h2>
+    <div class="row">
+        <div class="col-4">
+            <img src="{{ asset('images/pc-portable.jpg') }}">
+            <h3>Ordinateurs Portables</h3>
+            <p><a href="{{ path('app_category', {'id' : category.4.id}) }}">{{ (category.4.name) }}</a></p>
+            <p><a href="{{ path('app_category', {'id' : category.5.id}) }}">{{ (category.5.name) }}</a></p>
         </div>
-        <!-- /row -->
+        <div class="col-4">
+            <img src="{{ asset('images/apple-watch.jpg') }}">
+            <h3>Téléphonie</h3>
+            <p><a href="{{ path('app_category', {'id' : category.0.id}) }}">{{ (category.0.name) }}</a></p>
+            <p><a href="{{ path('app_category', {'id' : category.1.id}) }}">{{ (category.1.name) }}</a></p>
+            <p><a href="{{ path('app_category', {'id' : category.9.id}) }}">{{ (category.9.name) }}</a></p> 
+        </div>
+        <div class="col-4">
+            <img src="{{ asset('images/iphone.jpg') }}">
+            <h3>Téléphonie</h3>
+            <p><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
+            <p><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
+        </div>
+        <div class="col-4">
+            <img src="{{ asset('images/tv.jpg') }}">
+            <h3>Image et son</h3>
+            <p><a href="{{ path('app_category', {'id' : category.6.id}) }}">{{ (category.6.name) }}</a></p>
+            <p><a href="{{ path('app_category', {'id' : category.7.id}) }}">{{ (category.7.name) }}</a></p>
+            <p><a href="{{ path('app_category', {'id' : category.8.id}) }}">{{ (category.8.name) }}</a></p>
+        </div>
     </div>
-    <!-- /container -->
 </div>
-<!-- /BREADCRUMB -->
-
-<!-- Section -->
-<section class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-
-            <!-- product -->
-            <div class="col-md-3 col-xs-6 mbl-width">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./images/pc-portable.jpg" alt="">
-                        <div class="product-label">
-                            <!-- <span class="sale">-30%</span> -->
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-name">Ordinateurs Portables</h3>
-                        <hr>
-                        <p><a href="{{ path('app_category', {'id' : category.4.id}) }}">{{ (category.4.name) }}</a></p>
-                        <p><a href="{{ path('app_category', {'id' : category.5.id}) }}">{{ (category.5.name) }}</a></p>
-                    </div>
-                </div>
-            </div>
-            <!-- /product -->
-
-            <!-- product -->
-            <div class="col-md-3 col-xs-6 mbl-width">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./images/apple-watch.jpg" alt="">
-                        <div class="product-label">
-                            <!-- <span class="sale">-30%</span> -->
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-name">Objets connectés</h3>
-                        <hr>
-                        <p><a href="{{ path('app_category', {'id' : category.0.id}) }}">{{ (category.0.name) }}</a></p>
-                        <p><a href="{{ path('app_category', {'id' : category.1.id}) }}">{{ (category.1.name) }}</a></p>
-                        <p><a href="{{ path('app_category', {'id' : category.9.id}) }}">{{ (category.9.name) }}</a></p>
-                    </div>
-                </div>
-            </div>
-            <!-- /product -->
-
-            <div class="clearfix visible-sm visible-xs"></div>
-
-            <!-- product -->
-            <div class="col-md-3 col-xs-6 mbl-width">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./images/iphone.jpg" alt="">
-                        <div class="product-label">
-                            <!-- <span class="sale">-30%</span> -->
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-name">Téléphonie</h3>
-                        <hr>
-                        <p><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
-                        <p><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
-                    </div>
-                </div>
-            </div>
-            <!-- /product -->
-
-            <!-- product -->
-            <div class="col-md-3 col-xs-6 mbl-width">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="./images/tv.jpg" alt="">
-                        <div class="product-label">
-                            <!-- <span class="sale">-30%</span> -->
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-name">Image et son</h3>
-                        <hr>
-                        <p><a href="{{ path('app_category', {'id' : category.6.id}) }}">{{ (category.6.name) }}</a></p>
-                        <p><a href="{{ path('app_category', {'id' : category.7.id}) }}">{{ (category.7.name) }}</a></p>
-                        <p><a href="{{ path('app_category', {'id' : category.8.id}) }}">{{ (category.8.name) }}</a></p>
-                    </div>
-                </div>
-            </div>
-            <!-- /product -->
-
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</section>
-<!-- /Section -->
-
 {% endblock %}

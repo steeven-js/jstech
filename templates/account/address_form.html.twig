@@ -4,24 +4,19 @@
 {% endblock %}
 
 {% block content %}
-<section class="section">
+<div class="account-page">
 	<div class="container">
-		<h1>Gérer mes adresses</h1>
-		<a href="{{ path('app_account_address') }}" class="primary-btn"><i class="fa fa-arrow-left"></i> Mes adresses</a><br>
-		<hr>
-		{{form_start(form)}}
-			<div class="row">
-				<div class="col-md-6">{{form_row(form.name)}}</div>
-				<div class="col-md-6">{{form_row(form.firstname)}}</div>
-				<div class="col-md-6">{{form_row(form.lastname)}}</div>
-				<div class="col-md-6">{{form_row(form.company)}}</div>
-				<div class="col-md-6">{{form_row(form.address)}}</div>
-				<div class="col-md-6">{{form_row(form.postal)}}</div>
-				<div class="col-md-6">{{form_row(form.city)}}</div>
-				<div class="col-md-6">{{form_row(form.country)}}</div>
-				<div class="col-md-6">{{form_row(form.phone)}}</div>
+		<div class="row">
+			<div class="col-2">
+				<h1>Ajouter une adresses</h1>
+			
+				{{form_start(form)}}
+				{{form_end(form)}}
 			</div>
-		{{form_end(form)}}
+			<div class="col-2">
+				<img src="{{ asset('images/showcase-2.png') }}">
+			</div>
+		</div>
 	</div>
-</section>
+</div>
 {% endblock %}
