@@ -29,7 +29,7 @@
 					<div class="container">
 						<div class="navbar">
 							<div class="logo">
-								<a href="{{ path('app_home') }}"><img src="{{ asset('images/logo.png') }}" width="125px"></a> 
+								<a href="{{ path('app_home') }}"><img src="{{ asset('uploads/showcase/logo.png') }}" width="125px"></a> 
 							</div>
 							<nav>
 								<ul id="MenuItems">
@@ -37,11 +37,17 @@
 									<li><a href="{{ path('app_products') }}">Products</a></li>
 									<li><a href="#">About</a></li>
 									<li><a href="#">Contact</a></li>
-									<li><a href="{{ path('app_login') }}">Account</a></li>
+									{% if app.user %}
+									<li><a href="{{ path('app_account') }}">Mon compte</a></li>
+									<li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+									{% else %}
+									<li><a href="{{ path('app_login') }}">Connexion</a></li>
+									<li><a href="{{ path('app_register') }}">Inscription</a></li>
+									{% endif %}
 								</ul>
 							</nav>
-							<a href="./cart.html"><img src="images/cart.png" width="30px" height="30px"></a> 
-							<img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+							<a href="{{ path('app_cart') }}"><img src="{{ asset('images/cart.png') }}" width="30px" height="30px"></a> 
+							<img src="{{ asset('images/menu.png') }}" class="menu-icon" onclick="menutoggle()">
 						</div>
 						<div class="row">
 							<div class="col-2">
@@ -50,7 +56,7 @@
 								<a href="#" class="btn">Explore now &#8594;</a>
 							</div>
 							<div class="col-2">
-								<img src="images/image1.png">
+								<img src="{{ asset('images/showcase-1.png') }}">
 							</div>
 						</div>
 					</div>
@@ -59,18 +65,25 @@
 			<div class="container">
 				<div class="navbar">
 					<div class="logo">
-						<a href="{{ path('app_home') }}"><img src="{{ asset('images/logo.png') }}" width="125px"></a> 
+						<a href="{{ path('app_home') }}"><img src="{{ asset('uploads/showcase/logo.png') }}" width="125px"></a> 
 					</div>
 					<nav>
 						<ul id="MenuItems">
-								<li><a href="{{ path('app_home') }}">Home</a></li>
-								<li><a href="{{ path('app_products') }}">Products</a></li>
-								<li><a href="#">About</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="{{ path('app_login') }}">Account</a></li>
+							<li><a href="{{ path('app_home') }}">Home</a></li>
+							<li><a href="{{ path('app_products') }}">Products</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Contact</a></li>
+							{% if app.user %}
+							<li><a href="{{ path('app_account') }}">Mon compte</a></li>
+							<li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+							{% else %}
+							<li><a href="{{ path('app_login') }}">Connexion</a></li>
+							<li><a href="{{ path('app_register') }}">Inscription</a></li>
+							{% endif %}
+						</ul>
 					</nav>
-					<a href="./cart.html"><img src="images/cart.png" width="30px" height="30px"></a> 
-					<img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+					<a href="{{ path('app_cart') }}"><img src="{{ asset('images/cart.png')}}" width="30px" height="30px"></a> 
+					<img src="{{ asset('images/menu.png')}}" class="menu-icon" onclick="menutoggle()">
 				</div>
 			</div>
 		{% endif %}
@@ -110,12 +123,12 @@
 						<h3>Dowload Our App</h3>
 						<p>Dowload App for Android and ios mobile phone</p>
 						<div class="app-logo">
-							<img src="images/play-store.png">
-							<img src="images/play-store.png">
+							<img src="{{ asset('images/play-store.png')}}">
+							<img src="{{ asset('images/play-store.png')}}">
 						</div>
 					</div>
 					<div class="footer-col-2">
-						<img src="images/logo-white.png">
+						<img src="{{ asset('uploads/showcase/logo-2.png') }}">
 						<p>Our Purpose Is To Sustainably Make the Pleasure ans Benefits of Sport Accessible to the Many. </p>
 					</div>
 					<div class="footer-col-3">

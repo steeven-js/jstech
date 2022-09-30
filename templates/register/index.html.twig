@@ -3,23 +3,22 @@
 {% block title %}Inscription {% endblock %}
 
 {% block content %}
-<div class="section">
+<div class="account-page">
 	<div class="container">
-		<div class="block-small">
-			<h1>Inscription</h1>
-			{% if notification %}
-				<div class="alert alert-info"> {{ notification }}</div>
-				<hr>
-			{% endif %}
+		<div class="row">
+			<div class="col-2">
+				<h1>Inscription</h1>
+				{% if notification %}
+					<div class="alert alert-info"> {{ notification }}</div>
+					<hr>
+				{% endif %}
 			
-			{{form_start(form)}}
-			<div class="row">
-				<div class="col-md-6">{{form_row(form.firstname)}}</div>
-				<div class="col-md-6">{{form_row(form.lastname)}}</div>
-				<div class="col-md-12">{{form_row(form.email)}}</div>
-				<div class="col-md-12">{{form_row(form.password)}}</div>
+				{{form_start(form)}}
+				{{form_end(form)}}
 			</div>
-			{{form_end(form)}}
+			<div class="col-2">
+				<img src="{{ asset('images/showcase-2.png') }}">
+			</div>
 		</div>
 	</div>
 </div>

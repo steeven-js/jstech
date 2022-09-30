@@ -68,7 +68,7 @@ p {
   background: #563434;
 }
 .header {
-  background: radial-gradient(#fff,#ffd6d6);
+  background: radial-gradient(#fff,#add8e6);
 }
 .header .row {
   margin-top: 70px;
@@ -135,7 +135,7 @@ h4 {
 /* offer */
 
 .offer {
-  background: radial-gradient(#fff,#ffd6d6);
+  background: radial-gradient(#fff,#add8e6);
   margin-top: 80px;
   padding: 30px 0;
 }
@@ -259,7 +259,7 @@ ul {
 }
 /* medai query for menu */
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 830px) {
   nav ul {
       position: absolute;
       top: 75px;
@@ -419,7 +419,7 @@ td:last-child {
 
 .account-page {
   padding: 50px 0;
-  background: radial-gradient(#fff,#ffd6d6);
+  background: radial-gradient(#fff,#add8e6);
 }
 .form-container {
   background: #fff;
