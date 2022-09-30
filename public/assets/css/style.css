@@ -452,7 +452,7 @@ td:last-child {
   top: 130px;
   transition: transform 1s;
 }
-form input {
+.account-page form input {
   width: 100%;
   height: 30px;
   margin: 10px 0;
@@ -510,4 +510,126 @@ form a {
   .cart-info p {
       display: none;
   }
+}
+
+/* commande */
+.commande-page {
+  padding: 50px 0;
+  background: radial-gradient(#fff,#add8e6);
+}
+
+.commande-page fieldset {
+  border: none;
+}
+
+.commande-page #order_address {
+  display: flex;
+  flex-basis: 25%;
+  padding: 10px;
+  min-width: 200px;
+  margin-bottom: 50px;
+  transition: transform 0.5s;
+  flex-wrap: wrap;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.commande-page #order_address .form-check {
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* .commande-page .adresses {
+  width: 60%;
+} */
+
+.commande-page #order_carriers {
+  border: 1px solid green;
+  display: flex;
+  flex-basis: 25%;
+  padding: 10px;
+  min-width: 200px;
+  margin-bottom: 50px;
+  transition: transform 0.5s;
+  flex-wrap: wrap;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.commande-page #order_carriers .form-check {
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.commande-page .commande-product {
+  align-self: flex-start;
+}
+
+.commande-page .commande-product .order-sumary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.commande-page .summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 120px;
+  text-align: justify;
+  margin: 10px;
+  padding: 10px;
+  font-size: 12px;
+  justify-content: space-between;
+}
+
+/* commande récapitulatif*/
+
+.commande-recap-page {
+  padding: 50px 0;
+  background: radial-gradient(#fff,#add8e6);
+}
+
+.commande-recap-page .recap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.commande-recap-page .gauche {
+  padding: 10px;
+  font-size: 12px;
+}
+.commande-recap-page .gauche .recap-adresse,
+.commande-recap-page .gauche .recap-carrier {
+  margin: 10px;
+}
+.commande-recap-page .droite {
+  padding: 10px;
+  font-size: 12px;
+}
+.commande-recap-page .droite .order-sumary {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.commande-recap-page .droite .order-sumary>div {
+  padding: 0 10px;
+}
+.commande-recap-page .droite .order-sumary .text {
+  text-align: justify;
+}
+.commande-recap-page .droite .order-sumary .price {
+  align-items: flex-end;
+}
+.commande-recap-page .droite .total {
+  margin-top: 50px;
 }

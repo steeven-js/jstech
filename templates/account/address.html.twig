@@ -1,18 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter une adresse
-{% endblock %}
+{% block title %} Ajouter une adresse {% endblock %}
 
 
 {% block content %}
 <div class="small-container">
     <h2 class="title">Mes adresses</h2>
 	<div class="row row-2">
-        {# {% for product in category.products %}
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                {{ dump(product) }}
-            </div>
-        {% endfor %} #}
 
         {% for address in app.user.addresses %}
             <!-- product -->

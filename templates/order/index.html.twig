@@ -4,56 +4,51 @@
 
 {% block content %}
 
-	<section class="section">
+	<section class="commande-page">
 
 		<div class="container">
-
 			<h2>Je passe ma commande</h2>
-			<p>Choisissez vos préférences avant de passer commande sur JSTech.</p>
-			<hr>
+			<p><b>Choisissez vos préférences avant de passer commande sur JSTech.</b></p>
 
-			<div class="row">
-				<div class="col-md-6">
+			<a href="{{path('app_account_address_add')}}" class="btn">Ajouter une nouvelle adresse</a>
 
+			<div class="row row-2">
+				<div class="adresses col-2">
 					{% set formHtml %}
 						{{ form_start( form, {action : path('app_order_recap')} )}}
-							{{ form_label(form.address, 'Choisissez votre adresse de livraison') }}
-
-							<a href="{{path('app_account_address_add')}}">Ajouter une nouvelle adresse</a>
+							
 						{{ form_end(form) }}
 					{% endset %}
 
 					{{formHtml|replace({'[br]' : '<br>'})|raw}}
 					
 				</div>
+				<div class="commande-product col-2">
 
-				<div class="col-md-6">
+				{# {{dump(cart)}} #}
+				<div>
+					<p><b>Retrouver le récapitulatif de vos produits</b></p>
+				</div>
 
-					{# {{dump(cart)}} #}
-					<div class="text-center text-center mt-3 mb-4">
-						<p><b>Retrouver le récapitulatif de vos produits</b></p>
-					</div>
+				<div class="order-sumary">
 
-					<div class="order-sumary">
-
-						{# key permet de compter... #}
+					{# key permet de compter... #}
+					
 						{% for key,product in cart %}
-							<div class="row {% if key > 0 %} mt-2 {% endif %}">
-								<div class="col-2">
-									<img class="p-1 mx-1 my-0" height="75px" src="/uploads/{{product.product.illustration}}"alt="{{product.product.name}}"><br>
+							<div class="summary">
+								<div>
+									<img width="75px" src="/uploads/{{product.product.illustration}}"alt="{{product.product.name}}"> 
 								</div>
-								<div class="col-8 my-auto">
+								<div>
 									{{product.product.name}} <small>({{product.product.subtitle}})</small>
 								</div>
-								<div class="col-2 my-auto">
+								<div>
 									x {{product.quantity}} &nbsp;&nbsp;
 								</div>
 							</div>
 						{% endfor %}
-
-					</div>
-
 				</div>
+
 			</div>
 
 		</div>

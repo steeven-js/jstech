@@ -4,71 +4,66 @@
 
 {% block content %}
 
-    <section class="section">
-        <div class="container">
+<section class="commande-recap-page">
+    <div class="container">
 
-            <h2>Mon récapitulatif</h2>
-            <p>Vérifiez vos information avant de payer votre commande.</p>
-            <hr>
+        <h1>Mon récapitulatif</h1>
+        <p>Vérifiez vos information avant de payer votre commande.</p>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <strong>Mon adresse de livraison</strong><br>
-                    <div class="form-check">
-                        {{ delivery|raw }}
-                    </div>
-
-                    <hr>
-                    <strong>Mon transporteur</strong>
-
-                    <div class="form-check">
-                        {# {{ dump(carrier) }} #}
-                        {{ carrier.name }}
-                        <br>
-                        {{ carrier.description }}
-                        <br>
-                        {{ (carrier.price / 100) |number_format(2, ',', '.') }} €
-                    </div>
+        <div class="recap">
+            <div class="gauche">
+                <strong>Mon adresse de livraison</strong><br>
+                <div class="recap-adresse">
+                    {{ delivery|raw }}
                 </div>
 
-                <div class="col-md-6">
-                    <div class="text-center text-center">
-                        <b>Ma commande</b>
-                        <br>
-                    </div>
-                    <div class="order-sumary">
-                        {# key permet de compter... #}
-                        {% set total = null %}
+                <strong>Mon transporteur</strong>
 
-                        {% for key,product in cart %}
-                            <div class="row {% if key > 0 %} mt-2 {% endif %}">
-                                <div class="col-md-2">
-                                    <img class="p-1 mx-1 my-0" height="75px" src="/uploads/{{ product.product.illustration }}"alt="{{ product.product.name }}"><br>
-                                </div>
+                <div class="recap-carrier">
+                    {# {{ dump(carrier) }} #}
+                    {{ carrier.name }}
+                    <br>
+                    {{ carrier.description }}
+                    <br>
+                    {{ (carrier.price / 100) |number_format(2, ',', '.') }} €
+                </div>
+            </div>
 
-                                <div class="col-md-7">
-                                    {{ product.product.name }}
-                                    <br>
-                                    <small>
-                                        ({{ product.product.subtitle }})
-                                        <br>
-                                        x{{ product.quantity }}
-                                    </small>
-                                </div>
+            <div class="droite">
+                <strong>Ma commande</strong>
 
-                                <div class="col-md-3">
-                                    {{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }} €
-                                </div>
+                
+
+                    {% set total = null %}
+
+                    {% for product in cart %}
+                        <div class="order-sumary">
+                            <div>
+                                <img height="45px" src="/uploads/{{ product.product.illustration }}"alt="{{ product.product.name }}"><br>
                             </div>
 
-                            {% set total = total + (product.product.price * product.quantity) %}
+                            <div class="text">
+                                {{ product.product.name }}
+                                <br>
+                                <small>
+                                    ({{ product.product.subtitle }})
+                                    <br>
+                                    x{{ product.quantity }}
+                                </small>
+                            </div>
 
-                        {% endfor %}
-                    </div>
+                            <div class="price">
+                                <p>{{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }} €</p> 
+                            </div>
+                        </div>
 
-                    {# {{ dump(carrier) }} #}
-                    <hr>
+                        {% set total = total + (product.product.price * product.quantity) %}
 
+                    {% endfor %}
+
+                {# {{ dump(carrier) }} #}
+
+                <div class="total">
                     <strong>Sous-Total :</strong> {{ (total / 100) |number_format(2, ',', '.') }} €
 
                     <br>
@@ -82,10 +77,11 @@
                     <br>
 
                     <a href="{{ path('stripe_create_session', {'reference': reference}) }}"class="btn btn-success btn-main mt-4">Payer | {{ ((total / 100) + carrier.price / 100) | number_format(2, ',', '.') }} €</a>
-
                 </div>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 {% endblock %}
