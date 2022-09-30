@@ -633,3 +633,42 @@ form a {
 .commande-recap-page .droite .total {
   margin-top: 50px;
 }
+
+/* success order */
+
+.success-order-page {
+  padding: 50px 0;
+  background: radial-gradient(#fff,#add8e6);
+}
+
+/* category */
+
+.category .row {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.category .cat-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.category .cat-card h3 {
+  padding: 20px 0;
+  text-align: center;
+}
+.category .cat-card a {
+  font-size: 14px;
+  margin: 0px;
+  /* border: 1px solid red; */
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.category .category-list p {
+  margin: 10px 0;
+  font-weight: 100;
+}
