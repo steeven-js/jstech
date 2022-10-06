@@ -21,58 +21,19 @@
 </div>
 <!-- featured products -->
 <div class="small-container">
-    <h2 class="title">Featured Products</h2>
+    <h2 class="title">Nos meilleurs ventes</h2>
+
     <div class="row">
-        <div class="col-4">
-            <a href="./product-detail.html"><img src="images/product-1.jpg"></a> 
-            <a href="./product-detail.html"><h4>Red Printed T-Shirt</h4></a> 
-            <div class="rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
+        {% for product in products %}
+            <div class="col-4">
+                <a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid"></a> 
+                <a href="{{path('app_product', {'slug' : product.slug})}}"><h4>{{product.name}}</h4></a> 
+                <p>{{(product.price/100) |number_format(2, ',', '.')}} €</p>
             </div>
-            <p>€50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="images/product-2.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-            <p>€50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="images/product-3.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-            <p>€50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="images/product-4.jpg">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-            <p>€50.00</p>
-        </div>
+        {% endfor %}
     </div>
-    <h2 class="title">Latest Products</h2>
+    
+    <h2 class="title">Nouveautés</h2>
     <div class="row">
         <div class="col-4">
             <img src="images/product-5.jpg">

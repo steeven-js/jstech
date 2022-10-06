@@ -49,6 +49,9 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $description1 = null;
 
+    #[ORM\Column]
+    private ?bool $isBest = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -182,6 +185,18 @@ class Product
     public function setDescription1(string $description1): self
     {
         $this->description1 = $description1;
+
+        return $this;
+    }
+
+    public function isIsBest(): ?bool
+    {
+        return $this->isBest;
+    }
+
+    public function setIsBest(bool $isBest): self
+    {
+        $this->isBest = $isBest;
 
         return $this;
     }

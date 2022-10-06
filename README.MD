@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Refonte graphique 2"
+git commit -m "062. Mettre des produits à la une pour les afficher sur la homepage"
 git push -u origin main 
 ```
 ## 01 Introduction
@@ -93,7 +93,7 @@ git push -u origin main
 
 ## 11 Pour aller plus loin
 - [x] 061. Créer une mécanique de gestion de statut de commande pour informer l'utilisateur
-- [ ] 062. Mettre des produits à la une pour les afficher sur la homepage
+- [x] 062. Mettre des produits à la une pour les afficher sur la homepage
 - [ ] 063. Ajouter une fonctionnalité de gestion du header depuis le backoffice
 - [ ] 064. Création de la mécanique de mot de passe oublié.
 - [ ] 065. Sécuriser l'accès à notre backoffice pour les administrateurs

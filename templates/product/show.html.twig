@@ -39,37 +39,20 @@
 </div>
 
 <!-- Related Products -->
-<div class="small-container">
-	<div class="row row-2">
-		<h2>Related Products</h2>
-		<p>View More</p>
-	</div>
-</div>
 
 <div class="small-container">
+
+	<h2 class="title">Nos meilleurs ventes</h2>
 
 	<div class="row">
-		<div class="col-4">
-			<img src="{{ asset('images/product-1.jpg') }}">
-			<h4>Red Printed T-Shirt</h4>
-			<p>€50.00</p>
-		</div>
-		<div class="col-4">
-			<img src="{{ asset('images/product-2.jpg') }}">
-			<h4>Red Printed T-Shirt</h4>
-			<p>€50.00</p>
-		</div>
-		<div class="col-4">
-			<img src="{{ asset('images/product-3.jpg') }}">
-			<h4>Red Printed T-Shirt</h4>
-			<p>€50.00</p>
-		</div>
-		<div class="col-4">
-			<img src="{{ asset('images/product-4.jpg') }}">
-			<h4>Red Printed T-Shirt</h4>
-			<p>€50.00</p>
-		</div>
-	</div>
+        {% for product in products %}
+            <div class="col-4">
+                <a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid"></a> 
+                <a href="{{path('app_product', {'slug' : product.slug})}}"><h4>{{product.name}}</h4></a> 
+                <p>{{(product.price/100) |number_format(2, ',', '.')}} €</p>
+            </div>
+        {% endfor %}
+    </div>
 
 </div>
 
