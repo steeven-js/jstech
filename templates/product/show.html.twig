@@ -54,6 +54,17 @@
         {% endfor %}
     </div>
 
+	<h2 class="title">Nouveautés</h2>
+    <div class="row">
+       {% for product in productsNew %}
+            <div class="col-4">
+                <a href="{{path('app_product', {'slug' : product.slug})}}" class="gallery-popup"><img src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid"></a> 
+                <a href="{{path('app_product', {'slug' : product.slug})}}"><h4>{{product.name}}</h4></a> 
+                <p>{{(product.price/100) |number_format(2, ',', '.')}} €</p>
+            </div>
+        {% endfor %}
+    </div>
+
 </div>
 
 {% endblock %}

@@ -29,14 +29,16 @@ class HomeController extends AbstractController
     {
 
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
+        $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);
 
-        // dd($products);
+        // dd($productsNew);
 
         // $headers = $this->entityManager->getRepository(Header::class)->findall();
         // dd($headers);
         
         return $this->render('home/index.html.twig', [
-            'products'  => $products
+            'products'  => $products,
+            'productsNew' => $productsNew
         ]);
     }
 }
