@@ -7,7 +7,7 @@
 	<div class="container">
 		<!-- cart items details -->
 		<h1>Mon panier</h1>
-		<p>Rectouvez l'ensemble des produits que vous avez ajouté à votre panier.</p> 
+		<p>Retrouvez l'ensemble des produits que vous avez ajouté à votre panier.</p> 
 		<br>
 		{% if cart|length > 0 %}
 			<table>
@@ -64,7 +64,7 @@
 		{% else %}
 
 			<br>
-			<p><b>Votre panier est vide</b></p>
+			<p>Votre panier est vide. <b><a href="{{ path('app_nos_category') }}">Découvrez tous nos produits</a></b></p>
 
 		{% endif %}
 		</div>	

@@ -42,6 +42,12 @@ p {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.product-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 .col-2 {
   flex-basis: 50%;
   min-width: 300px;
@@ -123,6 +129,7 @@ h4 {
   color: #555;
   font-weight: normal;
   font-size: inherit;
+  margin: 10px 0px;
 }
 .col-4 p {
   margin: 20px 0;
@@ -292,7 +299,7 @@ ul {
 /* all products page */
 
 .row-2 {
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 100px auto 50px;
 }
 select {

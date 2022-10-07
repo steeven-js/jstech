@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "062. Mettre des produits à la une pour les afficher sur la homepage"
+git commit -m "vérifications et ajustements"
 git push -u origin main 
 ```
 ## 01 Introduction
