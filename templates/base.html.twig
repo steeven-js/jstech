@@ -15,8 +15,12 @@
 		<!-- fontawesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+		<!-- bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 		<!-- css -->
 		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('assets/css/carousel.css')}}">
 			<link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 		{% endblock %}
 		
@@ -155,6 +159,7 @@
 
 		<!-- script js-->
 		{% block javascript %}
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 			<script src='{{ asset('assets/js/main.js') }}'></script>
 		{% endblock %}
 
