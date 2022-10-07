@@ -51,12 +51,8 @@ class CategoryController extends AbstractController
     {
         $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
 
-        $headers = $this->entityManager->getRepository(Header::class)->findAll(); // 3
-        // dd($headers);
-
         return $this->render('category/index.html.twig', [
             'category' => $category, // 4 
-            'headers' => $headers, // 4
         ]);
         
     }

@@ -22,7 +22,6 @@ class HomeController extends AbstractController
 		$this->entityManager = $entityManager;	
 	}
 
-       
 
     #[Route('/', name: 'app_home')]
     public function index(): Response
@@ -31,12 +30,13 @@ class HomeController extends AbstractController
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
         $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);
 
+        $headers = $this->entityManager->getRepository(Header::class)->findAll(); 
+        // dd($headers);
+
         // dd($productsNew);
 
-        // $headers = $this->entityManager->getRepository(Header::class)->findall();
-        // dd($headers);
-        
         return $this->render('home/index.html.twig', [
+            'headers' => $headers,
             'products'  => $products,
             'productsNew' => $productsNew
         ]);
