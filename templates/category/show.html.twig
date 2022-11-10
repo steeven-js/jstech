@@ -111,7 +111,7 @@
                                                     <div class="product-default-single-item product-color--golden"
                                                         data-aos="fade-up" data-aos-delay="0">
                                                         <div class="image-box">
-                                                            <a href="product-details-default.html" class="image-link">
+                                                            <a href="{{path('app_product', {'slug' : product.slug})}}" class="image-link">
                                                                 <img src="/uploads/{{product.illustration}}" alt="{{product.name}}">
                                                             </a>
                                                             <div class="action-link">
@@ -119,13 +119,7 @@
                                                                     <a href="{{path('add_to_cart', {'id' : product.id})}}">Ajouter au panier</a>
                                                                 </div>
                                                                 <div class="action-link-right">
-                                                                    <a href="#" data-bs-toggle="modal"
-                                                                        data-bs-target="#modalQuickview"><i
-                                                                            class="icon-magnifier"></i></a>
-                                                                    <a href="wishlist.html"><i
-                                                                            class="icon-heart"></i></a>
-                                                                    <a href="compare.html"><i
-                                                                            class="icon-shuffle"></i></a>
+                                                                    <a href="#"><i class="icon-heart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -161,7 +155,7 @@
                                                         </a>
                                                         <div class="product-list-content">
                                                             <h5 class="product-list-link">
-                                                                <a href="product-details-default.html">{{product.name}}</a>
+                                                                <a href="{{path('app_product', {'slug' : product.slug})}}">{{product.name}}</a>
                                                             </h5>
                                                             <span class="product-list-price">{{(product.price/100) |number_format(2, ',', '.')}} €</span>
                                                             <p>{{product.description}}</p>
