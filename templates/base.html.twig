@@ -455,30 +455,31 @@
             <div class="hero-slider-active swiper-container">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                
-                    <!-- Start Hero Single Slider Item -->
-                    <div class="hero-single-slider-item swiper-slide">
-                        <!-- Hero Slider Image -->
-                        <div class="hero-slider-bg">
-                            <img src="{{ asset('images/hero-slider/home-3/hero-slider-1.jpg') }}" alt="">
-                        </div>
-                        <!-- Hero Slider Content -->
-                        <div class="hero-slider-wrapper">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <div class="hero-slider-content">
-                                            <h4 class="subtitle">New collection</h4>
-                                            <h1 class="title">New Series of <br> Degital Watch </h1>
-                                            <a href="product-details-default.html" class="btn btn-lg btn-pink">shop now </a>
+                    {% for header in headers %}
+                        <!-- Start Hero Single Slider Item -->
+                        <div class="hero-single-slider-item swiper-slide">
+                            <!-- Hero Slider Image -->
+                            <div class="hero-slider-bg">
+                                <img src="/uploads/{{header.illustration}}" alt="">
+                            </div>
+                            <!-- Hero Slider Content -->
+                            <div class="hero-slider-wrapper">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div class="hero-slider-content">
+                                                <h4 class="subtitle">{{header.title}}</h4>
+                                                <h1 class="title">{{header.content}}</h1>
+                                                <a href="{{header.btnUrl}}" class="btn btn-lg btn-pink">{{header.btnTitle}}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> <!-- End Hero Single Slider Item -->
+                        </div> <!-- End Hero Single Slider Item -->
+                    {% endfor %}
 
-                    <!-- Start Hero Single Slider Item -->
+                    {# <!-- Start Hero Single Slider Item -->
                     <div class="hero-single-slider-item swiper-slide">
                         <!-- Hero Slider Image -->
                         <div class="hero-slider-bg">
@@ -498,7 +499,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Hero Single Slider Item -->
+                    </div> <!-- End Hero Single Slider Item --> #}
                 </div>
 
                 <!-- If we need pagination -->
