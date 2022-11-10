@@ -6,7 +6,28 @@
 
 {# {{ dump(order) }} #}
 
-<section class="success-order-page">
+<!-- ...:::: Start Breadcrumb Section:::... -->
+<div class="breadcrumb-section breadcrumb-bg-color--golden">
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="breadcrumb-title">Commande validé</h3>
+                    <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                        <nav aria-label="breadcrumb">
+                            <ul>
+                                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                                <li><a href="{{ path('app_account') }}">Mon compte</a></li>
+                                <li class="active" aria-current="page">Commande validé</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- ...:::: End Breadcrumb Section:::... -->
+
     <div class="container">
         <h3>Bonjour <b>{{order.user.firstName}} {{order.user.lastName}}</b></h3>
         <br>
@@ -21,7 +42,7 @@
 
             <br>
 
-            <li>Pour suivre votre commande, rendez-vous dans votre <a href="{{path('app_account')}}" class="btn">compte</a></li>
+            <li>Pour suivre votre commande, rendez-vous dans votre <a href="{{path('app_account')}}"><b>compte </b></a></li>
         </ul>
     </div>
 </section>

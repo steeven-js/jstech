@@ -58,7 +58,7 @@ class ChangePasswordType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => "Mettre à jour",
                 'attr' => [
-                    'class' => 'primary-btn'
+                    'class' => 'btn btn-lg btn-black-default-hover'
                 ]
             ])
         ;

@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "vérifications et ajustements"
+git commit -m "Refonte total du site v3"
 git push -u origin main 
 ```
 ## 01 Introduction

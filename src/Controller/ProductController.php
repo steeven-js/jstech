@@ -50,21 +50,25 @@ class ProductController extends AbstractController
     public function show($slug): Response
     {
         // dd($slug);
-        // On recherche en base de donnée un produit associer à son slug.
+        // On recherche en base de donnée un produit associé à son slug.
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
-        $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
+
+        // Les meilleurs ventes
+        $productsBest = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
+
+        // Les nouveautés
         $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);
 
         // dd($productsNew);
 
-         // Partie sécurité
+        // Partie sécurité
         if (!$product){
             return $this->redirectToRoute('app_products');
         }
 
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'products' => $products,
+            'productsBest' => $productsBest,
             'productsNew' => $productsNew
         ]);
     }

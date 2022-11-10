@@ -4,67 +4,155 @@
 
 {% block content %}
 <div class="account-page">
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Mon panier</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                                    <li><a href="{{ path('app_nos_category') }}">Produits</a></li>
+                                    <li class="active" aria-current="page">Mon panier</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
 	<div class="container">
 		<!-- cart items details -->
 		<h1>Mon panier</h1>
 		<p>Retrouvez l'ensemble des produits que vous avez ajouté à votre panier.</p> 
 		<br>
 		{% if cart|length > 0 %}
-			<table>
-				<tr>
-					<th>Product</th>
-					<th>Qté</th>
-					<th>Subtotal</th>
-				</tr>
+			<!-- ...:::: Start Cart Section:::... -->
+			<div class="cart-section">
+				<!-- Start Cart Table -->
+				<div class="cart-table-wrapper" data-aos="fade-up" data-aos-delay="0">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="table_desc">
+									<div class="table_page table-responsive">
+										<table>
+											<!-- Start Cart Table Head -->
+											<thead>
+												<tr>
+													<th class="product_remove">Supprimer</th>
+													<th class="product_thumb">Image</th>
+													<th class="product_name">Produit</th>
+													<th class="product-price">Prix</th>
+													<th class="product_quantity">Quantité</th>
+													<th class="product_total">Total</th>
+												</tr>
+											</thead> <!-- End Cart Table Head -->
+											<tbody>
+											{% set total = null %}
 
-				{% set total = null %}
+											{% for product in cart %}
+												<!-- Start Cart Single Item-->
+												<tr>
+													<td class="product_remove"><a href="{{path('delete_to_cart', {'id' : product.product.id})}}"><i class="fa fa-trash-o"></i></a>
+													</td>
+													<td class="product_thumb"><a href="#"><img
+																src="/uploads/{{product.product.illustration}}"
+																alt="{{product.product.name}}"></a>
+													</td>
+													<td class="product_name"><a href="#">{{product.product.name}}</a></td>
+													<td class="product-price">{{((product.product.price) / 100) |number_format(2, ',', '.')}} €</td>
+													<td class="product_quantity">
+														<a href=" {{path('decrease_to_cart', {'id' : product.product.id})}}"><i class="fa fa-minus"></i></a>
 
-				{% for product in cart %}
+														x {{product.quantity}}
 
-				<tr>
-					<td>
-						<div class="cart-info">
-							<img src="/uploads/{{product.product.illustration}}" height="75px" alt="{{product.product.name}}">
-							<div>
-								<p>{{product.product.name}}</p>
-								<small>{{((product.product.price) / 100) |number_format(2, ',', '.')}} €</small>
-								<br>
-								<a href=" {{path('delete_to_cart', {'id' : product.product.id})}}">
-									<i class="fa fa-trash"></i>
-								</a>
+														<a href=" {{path('add_to_cart', {'id' : product.product.id})}}"><i class="fa fa-plus"></i></a>
+													</td>
+													<td class="product_total">{{((product.product.price * product.quantity) / 100) |number_format(2, ',', '.')}} €</td>
+												</tr> <!-- End Cart Single Item-->
+											
+											{% set total = total + (product.product.price * product.quantity) %}
+
+											{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<div class="cart_submit">
+										<a href="{{path('app_order')}}" class="btn btn-md btn-golden" type="submit">Valider mon panier</a>
+									</div>
+								</div>
 							</div>
 						</div>
-					</td>
-					<td>
-						<a href=" {{path('decrease_to_cart', {'id' : product.product.id})}}"><i class="fa fa-minus"></i></a>
-							x {{product.quantity}}
-						<a href=" {{path('add_to_cart', {'id' : product.product.id})}}"><i class="fa fa-plus"></i></a>
-					</td>
-					<td>{{((product.product.price * product.quantity) / 100) |number_format(2, ',', '.')}} €</td>
-				</tr>
+					</div>
+				</div> <!-- End Cart Table -->
 
-				{% set total = total + (product.product.price * product.quantity) %}
-				{% endfor %}
-			</table>
+				<!-- Start Coupon Start -->
+				<div class="coupon_area">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="coupon_code left" data-aos="fade-up" data-aos-delay="200">
+									<h3>Coupon</h3>
+									<div class="coupon_inner">
+										<p>Enter your coupon code if you have one.</p>
+										<input class="mb-2" placeholder="Coupon code" type="text">
+										<button type="submit" class="btn btn-md btn-golden">Apply coupon</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<div class="coupon_code right" data-aos="fade-up" data-aos-delay="400">
+									<h3>Total du panier</h3>
+									<div class="coupon_inner">
+										<div class="cart_subtotal">
+											<p>Nombe de produits :</p>
+											<p class="cart_amount">{{cart|length}}</p>
+										</div>
 
-			<div class="total-price">
-
-				<table>
-					<tr>
-						<td><b>Nombe de produits : </b></td>
-						<td>{{cart|length}}</td>
-					</tr>
-					<tr>
-						<td><b>Total du panier : </b></td>
-						<td>{{((total) / 100) |number_format(2, ',', '.')}} €</td>
-					</tr>
-				</table>
-			</div>
-				<a href="{{path('app_order')}}" class="btn btn-main btn-block m-3">Valider mon panier</a>
+										<div class="cart_subtotal">
+											<p>Total</p>
+											<p class="cart_amount">{{((total) / 100) |number_format(2, ',', '.')}} €</p>
+										</div>
+										<div class="checkout_btn">
+											<a href="{{path('app_order')}}" class="btn btn-md btn-golden" type="submit">Valider mon panier</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- End Coupon Start -->
+			</div> <!-- ...:::: End Cart Section:::... -->
 		{% else %}
 
 			<br>
-			<p>Votre panier est vide. <b><a href="{{ path('app_nos_category') }}">Découvrez tous nos produits</a></b></p>
+
+			<!-- ...::::Start About Us Center Section:::... -->
+			<div class="empty-cart-section section-fluid">
+				<div class="emptycart-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-md-10 offset-md-1 col-xl-6 offset-xl-3">
+								<div class="emptycart-content text-center">
+									<div class="image">
+										<img class="img-fluid" src="{{ asset('/images/emprt-cart/empty-cart.png') }}" alt="">
+									</div>
+									<h4 class="title">otre panier est vide.</h4>
+									<h6 class="sub-title">Sorry Mate... No item Found inside your cart!</h6>
+									<a href="{{ path('app_nos_category') }}" class="btn btn-lg btn-golden">Découvrez tous nos produits</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> <!-- ...::::End  About Us Center Section:::... -->
 
 		{% endif %}
 		</div>	

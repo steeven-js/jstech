@@ -69,7 +69,7 @@ class RegisterType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => "s'inscrire",
                 'attr' => [
-                    'class' => 'primary-btn'
+                    'class' => 'btn btn-lg btn-black-default-hover'
                 ]
             ])
         ;

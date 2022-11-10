@@ -4,14 +4,36 @@
 
 {% block content %}
 
-<section class="commande-recap-page">
+<div class="account-page">
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Récapitulatif</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                                    <li><a href="{{ path('app_nos_category') }}">Produits</a></li>
+                                    <li class="active" aria-current="page">Récapitulatif</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+</div>
     <div class="container">
 
         <h1>Mon récapitulatif</h1>
         <p>Vérifiez vos information avant de payer votre commande.</p>
 
-        <div class="recap">
-            <div class="gauche">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
                 <strong>Mon adresse de livraison</strong><br>
                 <div class="recap-adresse">
                     {{ delivery|raw }}
@@ -29,37 +51,35 @@
                 </div>
             </div>
 
-            <div class="droite">
+            <div class="col-lg-6 col-md-6">
                 <strong>Ma commande</strong>
 
-                
-
                     {% set total = null %}
+                    <div class="order_table table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Nom</th>
+                                    <th>Quantité</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {# key permet de compter... #}
 
-                    {% for product in cart %}
-                        <div class="order-sumary">
-                            <div>
-                                <img height="45px" src="/uploads/{{ product.product.illustration }}"alt="{{ product.product.name }}"><br>
-                            </div>
+                                {% for key,product in cart %}
+                                    <tr>
+                                        <td><img width="75px" src="/uploads/{{product.product.illustration}}"alt="{{product.product.name}}"> </td>
+                                        <td>{{product.product.name}} x {{product.quantity}} &nbsp;&nbsp;</td>
+                                        <td>{{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }} €</td>
+                                    </tr>
 
-                            <div class="text">
-                                {{ product.product.name }}
-                                <br>
-                                <small>
-                                    ({{ product.product.subtitle }})
-                                    <br>
-                                    x{{ product.quantity }}
-                                </small>
-                            </div>
-
-                            <div class="price">
-                                <p>{{ ((product.product.price * product.quantity) / 100) |number_format(2, ',', '.') }} €</p> 
-                            </div>
-                        </div>
-
-                        {% set total = total + (product.product.price * product.quantity) %}
-
-                    {% endfor %}
+                                    {% set total = total + (product.product.price * product.quantity) %}
+                                    
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
 
                 {# {{ dump(carrier) }} #}
 

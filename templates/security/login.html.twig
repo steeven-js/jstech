@@ -1,55 +1,83 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Se connecter - La boutique Française
-{% endblock %}
-
+{% block title %}Se connecter - JSTech{% endblock %}
 
 {% block content %}
-<div class="account-page">
-	<div class="container">
-		<div class="row">
-			<div class="col-2">
-				<form method="post" >
-					{% if error %}
-						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-					{% endif %}
 
-					{% for message in app.flashes('notice') %}
-						<div class="alert alert-info">{{ message }}</div>
-					{% endfor %}
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Connexion</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="#">Acceuil</a></li>
+                                    <li><a href="#">Produits</a></li>
+                                    <li class="active" aria-current="page">Connexion</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
 
-					{% if app.user %}
-					<div class="mb-3">
-						Vous etes connecté en tant que
-						{{ app.user.userIdentifier }},
-						<a href="{{ path('app_logout') }}">Se déconnecter</a>
-					</div>
-					{% endif %}
+    <!-- ...:::: Start Customer Login Section :::... -->
+    <div class="customer-login">
+        <div class="container">
+            <div class="row">
+                <!--login area start-->
+                <div class="col-lg-6 col-md-6">
+                    <div class="account_form">
+                        <h3>Connexion</h3>
+                        <form action="#" method="POST">
+						{% if error %}
+							<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+						{% endif %}
 
-					<h1>Merci de vous connecter</h1>
-					<label for="inputEmail">Votre Email</label>
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3"
-						placeholder="Votre adresse email" autocomplete="email" required autofocus>
+						{% for message in app.flashes('notice') %}
+							<div class="alert alert-info">{{ message }}</div>
+						{% endfor %}
 
-					<label for="inputPassword">Mot de passe</label>
-					<input type="password" name="password" id="inputPassword" class="form-control mb-3"
+						{% if app.user %}
+							<div class="mb-3">
+								Vous etes connecté en tant que
+								{{ app.user.userIdentifier }},
+								<a href="{{ path('app_logout') }}">Se déconnecter</a>
+							</div>
+						{% endif %}
+						
+                            <div class="default-form-box">
+                                <label>Votre Email <span>*</span></label>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3" placeholder="Votre adresse email" autocomplete="email" required autofocus>
+                            </div>
+                            <div class="default-form-box">
+                                <label>Mot de passe <span>*</span></label>
+                                <input type="password" name="password" id="inputPassword" class="form-control mb-3"
 						placeholder="Votre mot de passe" autocomplete="current-password" required>
 
-					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            </div>
+                            <div class="login_submit">
+                                <button class="btn btn-md btn-black-default-hover mb-4" type="submit">Se connecter</button>
 
-					<button class="btn" type="submit">Se connecter</button>
+                                <a href="#">Mot de passe perdu</a>
 
-					<p class="text-center">Où souhaitez-vous
-						<a href="{{path('app_register')}}">Créer un compte</a>
-					</p>
-				</form>
-			</div>
-			
-			<div class="col-2">
-				<img src="images/showcase-1.png">
-			</div>
-		</div>
-	</div>
-</div>
+								<p class="text-center">Où souhaitez-vous
+									<a href="{{path('app_register')}}">Créer un compte</a>
+								</p>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--login area start-->
+            </div>
+        </div>
+    </div> <!-- ...:::: End Customer Login Section :::... -->
 
 {% endblock %}

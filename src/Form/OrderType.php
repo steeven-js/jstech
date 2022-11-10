@@ -35,7 +35,7 @@ class OrderType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => "Validez ma commande",
                 'attr' => [
-                    'class' => 'primary-btn'
+                    'class' => 'btn btn-lg btn-black-default-hover'
                 ]
             ])
         ;

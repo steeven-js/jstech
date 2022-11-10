@@ -1,25 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription {% endblock %}
+{% block title %}Inscription - JSTech{% endblock %}
 
 {% block content %}
-<div class="account-page">
-	<div class="container">
-		<div class="row">
-			<div class="col-2">
-				<h1>Inscription</h1>
-				{% if notification %}
-					<div class="alert alert-info"> {{ notification }}</div>
-					<hr>
-				{% endif %}
-			
-				{{form_start(form)}}
-				{{form_end(form)}}
-			</div>
-			<div class="col-2">
-				<img src="{{ asset('images/showcase-2.png') }}">
-			</div>
-		</div>
-	</div>
-</div>
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">Inscription</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="#">Acceueil</a></li>
+                                    <li><a href="#">Produits</a></li>
+                                    <li class="active" aria-current="page">Inscription</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Customer Login Section :::... -->
+    <div class="customer-login">
+        <div class="container">
+            <div class="row">
+                <!--register area start-->
+                <div class="col-lg-6 col-md-6">
+                    <div class="account_form register">
+                        <h3>Inscription</h3>
+						{% if notification %}
+							<div class="alert alert-info"> {{ notification }}</div>
+							<hr>
+						{% endif %}
+
+                        {{form_start(form)}}
+						{{form_end(form)}}
+                    </div>
+                </div>
+                <!--register area end-->
+            </div>
+        </div>
+    </div> <!-- ...:::: End Customer Login Section :::... -->
 {% endblock %}

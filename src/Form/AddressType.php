@@ -74,7 +74,7 @@ class AddressType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
                 'attr' => [
-                    'class' => 'primary-btn'
+                    'class' => 'btn btn-lg btn-black-default-hover'
                 ]
             ])
         ;
