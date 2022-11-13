@@ -50,15 +50,15 @@
                                                             <a href="#" class="mega-menu-item-title">Ordinateurs Portables</a>
                                                             <ul class="mega-menu-sub">
                                                                 <li><a href="/category/4">PC Portables</a></li>
-                                                                <li><a href="/category/5">Macbook</a></li>
+                                                                <li><a href="/category/6">Macbook</a></li>
                                                             </ul>
                                                         </li>
                                                         <!-- Mega Menu Sub Link -->
                                                         <li class="mega-menu-item">
                                                             <a href="#" class="mega-menu-item-title">Object connecté</a>
                                                             <ul class="mega-menu-sub">
-                                                                <li><a href="/category/0">Apple watch</a></li>
-                                                                <li><a href="/category/1">Android watch</a></li>
+                                                                <li><a href="/category/1">Apple watch</a></li>
+                                                                <li><a href="/category/2">Android watch</a></li>
                                                                 <li><a href="/category/10">Drone</a></li>
                                                             </ul>
                                                         </li>
@@ -66,17 +66,17 @@
                                                         <li class="mega-menu-item">
                                                             <a href="#" class="mega-menu-item-title">Téléphonies</a>
                                                             <ul class="mega-menu-sub">
-                                                                <li><a href="/category/2">Iphone</a></li>
-                                                                <li><a href="/category/3">Smartphone Android</a></li>
+                                                                <li><a href="/category/3">Iphone</a></li>
+                                                                <li><a href="/category/4">Smartphone Android</a></li>
                                                             </ul>
                                                         </li>
                                                         <!-- Mega Menu Sub Link -->
                                                         <li class="mega-menu-item">
                                                             <a href="#" class="mega-menu-item-title">Image et son</a>
                                                             <ul class="mega-menu-sub">
-                                                                <li><a href="/category/6">Télévisions</a></li>
-                                                                <li><a href="/category/7">Appareil Photo</a></li>
-                                                                <li><a href="/category/8">Son Numérique</a></li>
+                                                                <li><a href="/category/7">Télévisions</a></li>
+                                                                <li><a href="/category/8">Appareil Photo</a></li>
+                                                                <li><a href="/category/9">Son Numérique</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>
@@ -181,11 +181,11 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        class="offcanvas-toggle offside-menu offside-menu-color--black">
-                                        <i class="icon-menu"></i>
-                                    </a>
-                                </li>
+                                <a href="#mobile-menu-offcanvas"
+                                    class="offcanvas-toggle offside-menu offside-menu-color--black">
+                                    <i class="icon-menu"></i>
+                                </a>
+                            </li>
                             </ul>
                         </div>
                         <!-- End Mobile Right Side -->
@@ -214,8 +214,8 @@
                                     <li>
                                         <a href="#">Ordinateurs portables</a>
                                         <ul class="mobile-sub-menu">
-                                            <li><a href="#">PC Portables</a></li>
-                                            <li><a href="#">Macbook</a></li>
+                                            <li><a href="/category/5">PC Portables</a></li>
+                                            <li><a href="/category/6">Macbook</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -223,9 +223,9 @@
                                     <li>
                                         <a href="#">Objets connectés</a>
                                         <ul class="mobile-sub-menu">
-                                            <li><a href="cart.html">Apple watch</a></li>
-                                            <li><a href="empty-cart.html">Android watch</a></li>
-                                            <li><a href="wishlist.html">Drones</a></li>
+                                            <li><a href="/category/1">Apple watch</a></li>
+                                            <li><a href="/category/2">Android watch</a></li>
+                                            <li><a href="/category/10">Drones</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -233,8 +233,8 @@
                                     <li>
                                         <a href="#">Téléphonies</a>
                                         <ul class="mobile-sub-menu">
-                                            <li><a href="product-details-default.html">Iphone</a></li>
-                                            <li><a href="product-details-variable.html">Smartphone Android</a></li>
+                                            <li><a href="/category/3">Iphone</a></li>
+                                            <li><a href="/category/4">Smartphone Android</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -242,9 +242,9 @@
                                         <li>
                                             <a href="#">Images et sons</a>
                                             <ul class="mobile-sub-menu">
-                                                <li><a href="cart.html">Télévisions</a></li>
-                                                <li><a href="empty-cart.html">Appareil photo</a></li>
-                                                <li><a href="wishlist.html">Son numérique</a></li>
+                                                <li><a href="/category/7">Télévisions</a></li>
+                                                <li><a href="/category/8">Appareil photo</a></li>
+                                                <li><a href="/category/9">Son numérique</a></li>
                                             </ul>
                                         </li>
                                 </ul>
@@ -285,7 +285,7 @@
 
                     <ul class="user-link">
                         <li><a href="#">Liste de souhaits</a></li>
-                        <li><a href="#">Panier</a></li>
+                        <li><a href="{{ path('app_cart') }}">Panier</a></li>
                     </ul>
                 </div>
                 <!-- End Mobile contact Info -->
@@ -303,13 +303,13 @@
             <!-- Start Mobile contact Info -->
             <div class="mobile-contact-info">
                 <div class="logo">
-                    <a href="index.html"><img src="{{ asset('images/logo/logo-2.png') }}" alt=""></a>
+                    <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo/logo-2.png') }}" alt=""></a>
                 </div>
 
                 <address class="address">
-                    <span>Address: Your address goes here.</span>
+                    <span>Address: Monté Carlo, Monaco</span>
                     <span>Call Us: 0123456789, 0123456789</span>
-                    <span>Email: demo@example.com</span>
+                    <span>Email: contect@jstech.com</span>
                 </address>
 
                 <ul class="social-link">
@@ -320,9 +320,8 @@
                 </ul>
 
                 <ul class="user-link">
-                    <li><a href="wishlist.html">Wishlist</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="#">Liste de souhaits</a></li>
+                    <li><a href="{{ path('app_cart') }}">Panier</a></li>
                 </ul>
             </div>
             <!-- End Mobile contact Info -->
@@ -337,7 +336,7 @@
 
             <!-- Start Offcanvas Mobile Menu Wrapper -->
             <div class="offcanvas-wishlist-wrapper">
-                <h4 class="offcanvas-title">Wishlist</h4>
+                <h4 class="offcanvas-title">Liste de souhaits</h4>
                 <ul class="offcanvas-wishlist">
                     <li class="offcanvas-wishlist-item-single">
                         <div class="offcanvas-wishlist-item-block">
@@ -395,7 +394,7 @@
                     </li>
                 </ul>
                 <ul class="offcanvas-wishlist-action-button">
-                    <li><a href="#" class="btn btn-block btn-pink">View wishlist</a></li>
+                    <li><a href="#" class="btn btn-block btn-pink">Liste de souhaits</a></li>
                 </ul>
             </div> <!-- End Offcanvas Mobile Menu Wrapper -->
 
