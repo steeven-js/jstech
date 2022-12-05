@@ -109,7 +109,7 @@ class AccountAddressController extends AbstractController
 
     // SUPPRIMER une adresse
     #[Route('/compte/supprimer-une-adresse/{id}', name: 'app_account_address_delete')]
-      public function delete($id): Response
+    public function delete($id): Response
     {
         $address = $this->entityManager->getRepository(Address::class)->findOneById($id);
 

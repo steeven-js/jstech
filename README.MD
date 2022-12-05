@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "MAJ Navbar"
+git commit -m "création des pages sous catégories"
 git push -u origin main 
 ```
 ## 01 Introduction

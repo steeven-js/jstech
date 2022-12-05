@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous Nos produit{% endblock %}
+
+{% block content %}
+{# <pre>
+    {{ dump(category) }}
+    {{ dump(category.0.id) }}
+    {{ dump(category.0.name) }}
+</pre> #}
+
+<div class="small-container category">
+    <!-- Start Tab Wrapper -->
+    <div class="sort-product-tab-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab-content">
+                        <!-- Start Grid View Product -->
+                        <div class="tab-pane active show sort-layout-single" id="layout-4-grid">
+                            <div class="row" style="justify-content: center;">
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <!-- Start Product Default Single Item -->
+                                    <div class="product-default-single-item product-color--golden"
+                                        data-aos="fade-up" data-aos-delay="0">
+                                        <div class="image-box">
+                                            <a href="#" class="image-link">
+                                                <img src="{{ asset('images/product/default/home-3/default-12.jpg') }}"
+                                                    alt="">
+                                                <img src="{{ asset('images/product/default/home-3/default-16.jpg') }}"
+                                                    alt="">
+                                            </a>
+                                        </div>
+                                        <div class="text-center">
+                                            <h5 class="m-4">Téléphonie</h5>
+                                            <p><a href="{{ path('app_category', {'id' : category.2.id}) }}">{{ (category.2.name) }}</a></p>
+                                            <p><a href="{{ path('app_category', {'id' : category.3.id}) }}">{{ (category.3.name) }}</a></p>
+                                        </div>
+                                    </div>
+                                    <!-- End Product Default Single Item -->
+                                </div>
+                            </div>
+                        </div> <!-- End Grid View Product -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Tab Wrapper -->
+
+{% endblock %}
