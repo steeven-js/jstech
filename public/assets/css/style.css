@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 
------------------------------------------------------------------------------------
 
+/* -----------------------------------------------------------------------------------
     CSS INDEX
     ===================
 
@@ -45,11 +45,9 @@
     -> Layout - Footer
     -> Layout - Offcanvas
     -> Layout - Modal
-
-
 -----------------------------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap");
-/*!
+/*
  * Bootstrap v5.0.0-alpha2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
@@ -2653,10 +2651,10 @@ progress {
     background-size: contain;
     border: 1px solid rgba(0, 0, 0, 0.25);
     -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     -webkit-print-color-adjust: exact;
-            color-adjust: exact;
+    color-adjust: exact;
     transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -15467,7 +15465,8 @@ input {
     padding-top: 25px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start !important;
+    flex-direction: column !important;
 }
 .product-default-single-item .content-left .title {
     font-size: 16px;

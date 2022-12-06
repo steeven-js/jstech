@@ -1,8 +1,4 @@
 <?php
-/**
- * Commentaires
- */
-
 
 namespace App\Controller;
 
