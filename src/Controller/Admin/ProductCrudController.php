@@ -10,10 +10,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -45,7 +46,8 @@ class ProductCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex(),
             TextField::new('subtitle')->hideOnIndex(),
             TextareaField::new('description')->hideOnIndex(),
-            TextareaField::new('description1', 'Détails')->hideOnIndex(), 
+            TextareaField::new('description1', 'Détails')
+                ->renderAsHtml(),
             BooleanField::new('isBest'),
             BooleanField::new('isNew'),
             ImageField::new('illustration')
@@ -69,7 +71,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
             MoneyField::new('price')->setCurrency('EUR'),
-            AssociationField::new('category'),
+            AssociationField::new('category')
         ];
     }
 

@@ -1,13 +1,8 @@
 <?php
-/**
- * Commentaires
- */
-
 
 namespace App\Controller;
 
-use App\Classe\Cart;
-use App\Classe\Mail;
+
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,11 +18,6 @@ class RegisterController extends AbstractController
     public function __construct(EntityManagerInterface $entityManager) {
         $this->entityManager = $entityManager;
     }
-
-    // 1. Dès que ce formulaire est saisi (ecoute submit)
-    // 2. Traiter les informations
-    // 3. Les valider ou pas...
-    // 4. Si tout est ok => enregister en DB
 
     #[Route('/inscription', name: 'app_register')]
     public function index(Request $request, UserPasswordHasherInterface $encoder)
