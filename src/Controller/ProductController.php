@@ -6,6 +6,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Classe\Search;
 use App\Entity\Product;
 use App\Form\SearchType;
@@ -26,9 +27,9 @@ class ProductController extends AbstractController
     }
 
     #[Route('/nos-produits', name: 'app_products')]
-    public function index(Request $request): Response
+    public function index(Request $request, Cart $cart): Response
     {
-        
+        $cart = $cart->get();
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);
 
@@ -43,11 +44,12 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'products' => $products,
             'form' => $form->createView(),
+            'cart' => $cart
         ]);
     }
 
     #[Route('/produit/{slug}', name: 'app_product')]
-    public function show($slug): Response
+    public function show($slug, Cart $cart): Response
     {
         // dd($slug);
         // On recherche en base de donnée un produit associé à son slug.
@@ -59,6 +61,8 @@ class ProductController extends AbstractController
         // Les nouveautés
         $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);
 
+        $cart = $cart->get();
+
         // dd($productsNew);
 
         // Partie sécurité
@@ -69,7 +73,8 @@ class ProductController extends AbstractController
         return $this->render('product/show.html.twig', [
             'product' => $product,
             'productsBest' => $productsBest,
-            'productsNew' => $productsNew
+            'productsNew' => $productsNew,
+            'cart'  => $cart
         ]);
     }
 }

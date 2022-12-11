@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Entity\Header;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,7 +20,7 @@ class HomeController extends AbstractController
 
 
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(Cart $cart): Response
     {
         //Produits début
         // Les nouveautés
@@ -32,14 +33,17 @@ class HomeController extends AbstractController
         // Carousel
         $headers = $this->entityManager->getRepository(Header::class)->findAll(); 
 
-        // dd($headers);
+        $cart = $cart->get();
+
+        // dd($cart->get());
 
         // dd($productsNew);
 
         return $this->render('home/index.html.twig', [
             'headers' => $headers,
             'productsBest'  => $productsBest,
-            'productsNew' => $productsNew
+            'productsNew' => $productsNew,
+            'cart' => $cart
         ]);
     }
 }

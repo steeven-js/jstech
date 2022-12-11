@@ -23,7 +23,7 @@ class CartController extends AbstractController
         // dans le dd on dit: "$cart tu m'affiche le contenu du panier
 		// On va donc créer une fonction get() dans la Class Cart
         // dd($cart->get());
-        
+        // dd($cart->getFull());
         return $this->render('cart/index.html.twig', [
             'cart' => $cart->getFull()
         ]);
@@ -76,7 +76,7 @@ class CartController extends AbstractController
         // je définis decrease dans l'entité Cart
         $cart->decrease($id);
 
-    
+
         return $this->redirectToRoute('app_cart');
 
     }

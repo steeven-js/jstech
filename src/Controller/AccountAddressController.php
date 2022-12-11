@@ -28,11 +28,12 @@ class AccountAddressController extends AbstractController
     // 4. Si tout est ok => enregister en DB
 
     #[Route('/compte/adresses', name: 'app_account_address')]
-    public function index(): Response
+    public function index(Cart $cart): Response
     {
         // dd($this->getUser());
+        $cart = $cart->get();
         return $this->render('account/address.html.twig', [
-            
+            'cart' => $cart
         ]);
     }
     
@@ -66,12 +67,13 @@ class AccountAddressController extends AbstractController
         // dd($this->getUser());
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
+            'cart' => $cart
         ]);
     }
 
     // MODIFIER une adresse
     #[Route('/compte/modifier-une-adresse/{id}', name: 'app_account_address_edit')]
-    public function edit(Request $request, $id): Response
+    public function edit(Request $request, $id, Cart $cart): Response
     {
         // Je récupère l'adresse concernée à l'aide de doctrine en base de donnée
         $address = $this->entityManager->getRepository(Address::class)->findOneById($id);// De quel id on parle? De celui qui est passé en paramètre.
@@ -102,22 +104,28 @@ class AccountAddressController extends AbstractController
         // dd($form);
 
         // dd($this->getUser());
+        $cart = $cart->get();
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
+            'cart' => $cart
         ]);
     }
 
     // SUPPRIMER une adresse
     #[Route('/compte/supprimer-une-adresse/{id}', name: 'app_account_address_delete')]
-    public function delete($id): Response
+    public function delete($id, Cart $cart): Response
     {
+        $cart = $cart->get();
+
         $address = $this->entityManager->getRepository(Address::class)->findOneById($id);
 
         if ($address && $address->getUser() === $this->getUser()){// REdirection si : l'adresse n'existe pas OU {sécurité} si l'user n'est pas le meme que l'user courrant (barre d'adresse, on peut taper n'importe quel id...) 
             $this->entityManager->remove($address);
 			$this->entityManager->flush();
         }
+
         return $this->redirectToRoute('app_account_address', [
+            'cart' => $cart
         ]);
     }
 }

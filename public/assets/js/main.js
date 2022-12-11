@@ -115,10 +115,10 @@
     var heroSlider = new Swiper('.hero-slider-active.swiper-container', {
         slidesPerView: 1,
         effect: "fade",
-        speed: 1500,
+        speed: 2500,
         watchSlidesProgress: true,
         loop: true,
-        autoplay: false,
+        autoplay: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -137,6 +137,7 @@
         slidesPerView: 4,
         spaceBetween: 30,
         speed: 1500,
+        autoplay: true,
         slidesPerColumn: 2,
         slidesPerColumnFill: 'row',
 
@@ -173,6 +174,7 @@
         slidesPerView: 4,
         spaceBetween: 30,
         speed: 1500,
+        autoplay: true,
 
         navigation: {
             nextEl: '.product-slider-default-1row .swiper-button-next',
@@ -206,6 +208,7 @@
         slidesPerView: 4,
         spaceBetween: 30,
         speed: 1500,
+        autoplay: true,
         slidesPerColumn: 3,
         slidesPerColumnFill: 'row',
 
