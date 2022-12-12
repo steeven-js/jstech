@@ -30,27 +30,17 @@ class OrderController extends AbstractController
     // getAddresses : get les addresses mais BdD relationnelle => il nous faut les valeurs correspondantes
     // getValues : get les valeurs correspondantes
     #[Route('/commande', name: 'app_order')]
-   public function index(Cart $cart, Request $request): Response
+    public function index(Cart $cart, Request $request)
     {
-        // dd($this->getUser()->getAdresses()->getValue());
-        
-        // Si l'utilisateur n'a pas d'adresses ALORS
-        if (!$this->getUser()->getAddresses()->getValues()) {
-            // On le redirige vers la page d'ajout d'adresse
+        if (!$this->getUser()->getAddresses()->getValues())
+        {
             return $this->redirectToRoute('app_account_address_add');
         }
-        
-        // createForm : OrderType / null (instance de la classe ex : $search etc..) / [current user]
-        $form = $this->createForm(OrderType::class, null,[
+
+        $form = $this->createForm(OrderType::class, null, [
             'user' => $this->getUser()
-        ]); 
+        ]);
 
-        $form = $form->handleRequest($request); // 1. ecoute de la request
-
-        if ($form->isSubmitted() && $form->isValid()){// if 2(ecoute) && 3(check EmailType etc...)
-            // dd($form->getData());
-        }
-   
         return $this->render('order/index.html.twig', [
             'form' => $form->createView(),
             'cart' => $cart->getFull()

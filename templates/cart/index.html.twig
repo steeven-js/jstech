@@ -85,7 +85,12 @@
 										</table>
 									</div>
 									<div class="cart_submit">
+									{% if app.user %}
 										<a href="{{path('app_order')}}" class="btn btn-md btn-golden" type="submit">Valider mon panier</a>
+									{% else %}
+										<a href="{{path('app_login')}}" class="btn btn-md btn-golden" type="submit">Se connecter</a>
+									{% endif %}
+									
 									</div>
 								</div>
 							</div>
