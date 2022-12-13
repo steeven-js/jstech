@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Vérifications et ajustements"
+git commit -m "Vérifications et ajustements de toutes les pages de Mon compte "
 git push -u origin main 
 ```
 ## 01 Introduction

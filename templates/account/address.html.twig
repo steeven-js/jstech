@@ -35,12 +35,14 @@
                     <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
                         <ul role="tablist" class="nav flex-column dashboard-list">
                             <li><a href="{{ path('app_account') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Dashboard</a>
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover active">Dashboard</a>
                             </li>
                             <li> <a href="{{ path('app_account_order') }}"
                                     class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes commandes</a></li>
                             <li><a href="{{ path('app_account_address') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover active">Gérer mes adresses</a></li>
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes adresses</a></li>
+                            <li><a href="{{ path('app_account_address_add') }}"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Ajouter une adresses</a></li>
                             <li><a href="{{ path('app_account_password') }}"
 									class="nav-link btn btn-block btn-md btn-black-default-hover">Modifier mon mot de passe</a></li>
                         </ul>
@@ -50,21 +52,23 @@
                 <div class="col-sm-12 col-md-9 col-lg-9">
                     <!-- Tab panes -->
                     <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
-                        <h4>Vos adresses</h4>
-                        {% for address in app.user.addresses %}
-                        <!-- product -->
-                            <div class="card">
-                                {# {{dump(address)}} #}
-                                <h5 class="card-title">{{address.name}}</h5>
-                                <p class="card-text">{{address.address}} <br>
-                                    {{address.postal}} - {{address.city}} - {{address.country}}
-                                </p>
-                                {# Je passe en paramètre l'id de l'adresse que je souhaite modifier #}
-                                <a href="{{path('app_account_address_edit', {'id' : address.id})}}" class="">Modifier</a>
-                                <a href="{{path('app_account_address_delete', {'id' : address.id})}}" class="">Supprimer</a>
-                            </div>
-                            <!-- /product -->
-                        {% endfor %}
+
+                        <div class="row">
+                            {% for address in app.user.addresses %}
+                                <!-- product -->
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    {# {{dump(address)}} #}
+                                    <h5 class="card-title">{{address.name}}</h5>
+                                    <p class="card-text">{{address.address}} <br>
+                                        {{address.postal}} - {{address.city}} - {{address.country}}
+                                    </p>
+                                    {# Je passe en paramètre l'id de l'adresse que je souhaite modifier #}
+                                    <a href="{{path('app_account_address_edit', {'id' : address.id})}}" class="view">Modifier</a>
+                                    <a href="{{path('app_account_address_delete', {'id' : address.id})}}" class="view2">Supprimer</a>
+                                </div>
+                                <!-- /product -->
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
 

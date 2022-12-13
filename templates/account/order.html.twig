@@ -35,12 +35,14 @@
                     <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
                         <ul role="tablist" class="nav flex-column dashboard-list">
                             <li><a href="{{ path('app_account') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Dashboard</a>
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover active">Dashboard</a>
                             </li>
                             <li> <a href="{{ path('app_account_order') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover active">Gérer mes commandes</a></li>
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes commandes</a></li>
                             <li><a href="{{ path('app_account_address') }}"
                                     class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes adresses</a></li>
+                            <li><a href="{{ path('app_account_address_add') }}"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Ajouter une adresses</a></li>
                             <li><a href="{{ path('app_account_password') }}"
 									class="nav-link btn btn-block btn-md btn-black-default-hover">Modifier mon mot de passe</a></li>
                         </ul>
@@ -66,7 +68,6 @@
                                         <th>Référence</th>
                                         <th>Statut</th>
                                         <th>Passé le</th>
-                                        <th>Produit(s)</th>
                                         <th>Total</th>
                                         <th></th>
                                     </tr>
@@ -75,7 +76,7 @@
                                     {% for order in orders %}
                                     {# {{dump(order)}} #}
                                     <tr>
-                                        <td>{{ order.reference }}</td>
+                                        <td>{{ order.id }}</td>
                                         <td>
                                             {% if order.state == 1 %}
                                                 Paiement accepté
@@ -85,11 +86,10 @@
                                                 Livraison en cours
                                             {% endif %}
                                         </td>
-                                        <td><span>{{ order.createdAt|date("{m/d/Y}") }}</span></td>
-                                        <td>{{ order.orderDetails|length }}</td>
+                                        <td><span>{{ order.createdAt|date("m/d/Y") }}</span></td>
                                         <td>{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',', '.') }} €</td>
                                         <td>
-                                            <a class="btn btn-lg btn-black-default-hover" href="{{ path('app_account_order_show', {'reference' : order.reference}) }}">Voir ma commande</a>
+                                            <a class="view" href="{{ path('app_account_order_show', {'reference' : order.reference}) }}">Voir ma commande</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
