@@ -32,7 +32,7 @@
                                 <!-- Start Header Logo -->
                                 <div class="header-logo">
                                     <div class="logo">
-                                        <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo/logo-2.png') }}" alt=""></a>
+                                        <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo/logo-2.png') }}" alt="Logo"></a>
                                     </div>
                                 </div>
                                 <!-- End Header Logo -->
@@ -152,7 +152,7 @@
                         <div class="mobile-header-left">
                             <ul class="mobile-menu-logo">
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ path('app_home') }}">
                                         <div class="logo">
                                             <img src="{{ asset('images/logo/logo-2.png') }}" alt="">
                                         </div>
@@ -165,11 +165,11 @@
                         <!-- Start Mobile Right Side -->
                         <div class="mobile-right-side">
                             <ul class="header-action-link action-color--white action-hover-color--pink">
-                                <li>
+                                {# <li>
                                     <a href="#">
                                         <i class="icon-magnifier"></i>
                                     </a>
-                                </li>
+                                </li> #}
                                 {# <li>
                                     <a href="#" class="offcanvas-toggle">
                                         <i class="icon-heart"></i>
