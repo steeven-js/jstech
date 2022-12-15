@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Header;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,6 +23,9 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(Cart $cart): Response
     {
+        // $mail = new Mail();
+        // $mail->send('kisama972@gmail.com', 'adminJSTECH', 'Mon premier mail', "Bonjour steeven, j'espère que tu vas bien");
+
         //Produits début
         // Les nouveautés
         $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);

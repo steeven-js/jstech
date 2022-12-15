@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Classe\Cart;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,8 +21,10 @@ class RegisterController extends AbstractController
     }
 
     #[Route('/inscription', name: 'app_register')]
-    public function index(Request $request, UserPasswordHasherInterface $encoder)
+    public function index(Request $request, UserPasswordHasherInterface $encoder, Cart $cart)
     {
+        $cart = $cart->get();
+
         $notification = null;
 
         $user = new User(); 
@@ -49,7 +52,7 @@ class RegisterController extends AbstractController
 
                 // $mail = new Mail();
 
-                // $content = "Bonjour ".$user->getFirstname()."Bienvenue sur jstech";
+                // $content = "Bonjour ".$user->getFirstname()."<br>Bienvenue sur jstech";
 
                 // $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur la Boutique Française', $content);
 
@@ -68,6 +71,7 @@ class RegisterController extends AbstractController
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),
             'notification' => $notification,
+            'cart' => $cart
         ]);
     }
 }

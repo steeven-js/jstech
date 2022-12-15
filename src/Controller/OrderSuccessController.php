@@ -46,7 +46,7 @@ class OrderSuccessController extends AbstractController
 
             // Envoyer un Email à notre client pour lui confirmer çà commande
             // $mail = new Mail();
-            // $content = "Bonjour ...";
+            // $content = "Merci pour votre commande";
             // $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande jstech est bien validée', $content);
         }
 

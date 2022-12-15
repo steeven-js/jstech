@@ -18,7 +18,7 @@ class Mail
             'Messages' => [
                 [
                     'From' => [
-                    'Email' => "kisama972@gmail.com",
+                    'Email' => "jsprod08@gmail.com",
                     'Name' => "jstech"
                     ],
                     'To' => [
