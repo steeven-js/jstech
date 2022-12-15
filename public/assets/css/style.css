@@ -17369,6 +17369,32 @@ table {
     border-bottom: 1px solid #ddd;
 }
 
+.order_div #order_address{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    padding-top: 15px;
+}
+
+.order_div .form-check{
+    padding: 0px 24px 24px;
+}
+
+.order_div #order_carriers {
+    display: flex;
+    flex-direction: row; 
+    padding-top: 15px;
+}
+
+.order_div .col-form-label,
+.order_div .col-form-label{
+    background: #f2f2f2;
+    padding: 15px 0 15px 15px;
+    color: #777;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
 /*****************************
 * Pages - Log In
 *****************************/
@@ -19313,8 +19339,14 @@ Pages - Contact
     color: #fff;
 }
 
-.material-scrolltop, .material-scrolltop::before {
-    background-image: url(../images/icons/top-arrow.svg);
+/* .material-scrolltop, .material-scrolltop::before {
+    background-image: url(https://www.jsprod.fr);
+    background-position: center 50%;
+    background-repeat: no-repeat;
+} */
+
+.material-scrolltop.reveal img {
+    width: 50%;
     background-position: center 50%;
     background-repeat: no-repeat;
 }

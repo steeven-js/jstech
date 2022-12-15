@@ -1,26 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Erreur de paiement - JSTech{% endblock %}
+{% block title %}Commande annulée - JSTech{% endblock %}
 
 {% block content %}
 
 {# {{ dump(order) }} #}
 
-<section class="section">
-    <div class="container">
-
-        <h3>Bonjour <b>{{order.user.firstName}} {{order.user.lastName}}</b></h3>
-
-        <ul style="list-style:none;">
-            <li>Il semblerait que votre paiement ait échoué pour votre commande n° <b>{{order.reference}}</b></li>
-            {# <li>Une confirmation d'erreur vient de vous être envoyée par email à l'adresse : {{order.user.email}}</li> #}
-
-            <hr>
-
-            <li><a  class="btn btn-second mt-3 " href="{{path('app_order')}}">Réessayer le paiement</a></li>
-        </ul>
-
+<!-- ...:::: Start Breadcrumb Section:::... -->
+<div class="breadcrumb-section breadcrumb-bg-color--golden">
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="breadcrumb-title">Commande annulée</h3>
+                    <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                        <nav aria-label="breadcrumb">
+                            <ul>
+                                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                                <li><a href="{{ path('app_account') }}">Mon compte</a></li>
+                                <li class="active" aria-current="page">Commande annulée</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+<div class="container">
+    <h3>Bonjour <b>{{order.user.firstName}} {{order.user.lastName}}</b></h3>
+    <br>
+    <ul style="list-style:none;">
+        <li>Vous avez annulé votre commande n° <b>{{order.reference}}</b></li>
+
+        <li>Pour revenir vers <a href="{{path('app_cart')}}"><b>votre panier</b></a></li>
+    </ul>
+</div>
 
 {% endblock %}

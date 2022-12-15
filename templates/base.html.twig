@@ -562,9 +562,8 @@
                             <div class="col-auto mb-6">
                                 <div class="footer-copyright">
                                     <p class="copyright-text">&copy; 2022 <a href="index.html">JSTech</a>. Made with <i
-                                            class="fa fa-heart text-danger"></i> by <a href="https://therankme.com/"
+                                            class="fa fa-heart text-danger"></i> by <a href="https://www.jsprod.fr/"
                                             target="_blank">JSTech</a> </p>
-
                                 </div>
                             </div>
                             <div class="col-auto mb-6">
@@ -583,7 +582,7 @@
         <!-- End Footer Section -->
 
         <!-- material-scrolltop button -->
-        <button class="material-scrolltop" type="button"></button>
+        <button class="material-scrolltop" type="button"><img src="{{ asset("images/icons/top-arrow.svg") }}" alt="Back to the top"></button>
 
         <!-- Start Modal Add cart -->
         <div class="modal fade" id="modalAddcart" tabindex="-1" role="dialog" aria-hidden="true">
@@ -634,7 +633,7 @@
             </div>
         </div> <!-- End Modal Add cart -->
 
-        <!-- Start Modal Quickview cart -->
+        {# <!-- Start Modal Quickview cart -->
         <div class="modal fade" id="modalQuickview" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog  modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -785,9 +784,6 @@
                                             <ul>
                                                 <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
                                                 <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                                                <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                                                </li>
                                                 <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
                                             </ul>
 
@@ -799,7 +795,7 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- End Modal Quickview cart -->
+        </div> <!-- End Modal Quickview cart --> #}
 
         {% block javascripts %}
             <script src="{{ asset('assets/js/vendor/vendor.min.js') }}"></script> 

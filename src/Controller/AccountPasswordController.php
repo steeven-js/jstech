@@ -29,6 +29,10 @@ class AccountPasswordController extends AbstractController
                             Cart $cart,
                             ): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+        
         $cart = $cart->get();
 
         $notification = null;

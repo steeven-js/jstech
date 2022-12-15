@@ -18,6 +18,10 @@ class AccountController extends AbstractController
     {
         $cart = $cart->get();
 
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         return $this->render('account/index.html.twig', [
             'cart' => $cart
         ]);

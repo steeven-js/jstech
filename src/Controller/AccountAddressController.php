@@ -41,6 +41,10 @@ class AccountAddressController extends AbstractController
     #[Route('/compte/ajouter-une-adresse', name: 'app_account_address_add')]
     public function add(Request $request, Cart $cart): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+        
         $address = new Address();
 
         $form = $this->createForm(AddressType::class, $address);

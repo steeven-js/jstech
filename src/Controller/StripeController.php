@@ -21,8 +21,9 @@ class StripeController extends AbstractController
     #[Route('/commande/create-session/{reference}', name: 'stripe_create_session')]
     public function index(EntityManagerInterface $entityManager, Cart $cart, $reference)
     {
+        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        // $YOUR_DOMAIN = 'http://jspro.fr';
         $product_for_stripe = [];
-        $YOUR_DOMAIN = 'http://jspro.fr';
 
         // On récupère la commande en base de données à l'aide de la référence (REQUETE)
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);

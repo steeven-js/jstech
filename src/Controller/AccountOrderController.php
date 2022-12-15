@@ -36,6 +36,10 @@ class AccountOrderController extends AbstractController
     #[Route('/compte/mes-commandes/{reference}', name: 'app_account_order_show')]
     public function show($reference, Cart $cart): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+        
         $cart = $cart->get();
 
         $order = $this->entityManager->getRepository(Order::class)->findOneByReference($reference);
