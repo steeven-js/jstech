@@ -2,8 +2,6 @@
 /**
  * Commentaires
  */
-
-
 namespace App\Controller;
 
 use App\Form\OrderType;
@@ -19,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends AbstractController
 {
-     private $entityManager;
+    private $entityManager;
 	public function __construct(EntityManagerInterface $entityManager)
 	{
 		$this->entityManager = $entityManager;	
@@ -30,8 +28,12 @@ class OrderController extends AbstractController
     // getAddresses : get les addresses mais BdD relationnelle => il nous faut les valeurs correspondantes
     // getValues : get les valeurs correspondantes
     #[Route('/commande', name: 'app_order')]
-    public function index(Cart $cart, Request $request)
+    public function index(Cart $cart)
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
         if (!$this->getUser()->getAddresses()->getValues())
         {
             return $this->redirectToRoute('app_account_address_add');
@@ -50,6 +52,9 @@ class OrderController extends AbstractController
     #[Route('/commande/recapitutulatif', name: 'app_order_recap')]
     public function add(Cart $cart, Request $request): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
 
         // createForm : OrderType / null (instance de la classe ex : $search etc..) / [current user]
         $form = $this->createForm(OrderType::class, null,[
