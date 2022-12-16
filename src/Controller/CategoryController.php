@@ -66,8 +66,6 @@ class CategoryController extends AbstractController
     {
         $category = $this->entityManager->getRepository(Category::class)->findOneById($id); // 6  
 
-        $products = $this->entityManager->getRepository(Product::class)->findPrice();
-
         $cart = $cart->get();
 
         // dd($category); // 7  
@@ -79,7 +77,6 @@ class CategoryController extends AbstractController
 
         return $this->render('category/show.html.twig', [
             'category' => $category, // 9
-            'products' => $products, // 9
             'cart' => $cart
         ]);
         

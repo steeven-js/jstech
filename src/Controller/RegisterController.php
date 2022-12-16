@@ -56,11 +56,11 @@ class RegisterController extends AbstractController
 
                 // $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur la Boutique Française', $content);
 
-                $notification = "Votre inscrpition c'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte";
+                $notification = "Votre inscripition c'est correctement déroulé. Vous pouvez dès à présent vous connecter à votre compte";
 
             }else {
 
-                $notification = "L'email que vous avez renseigner existe déjà.";
+                $notification = "L'email que vous avez renseigné existe déjà.";
                 
             }
 

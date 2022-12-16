@@ -45,9 +45,8 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('name'),
             SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex(),
             TextField::new('subtitle')->hideOnIndex(),
-            TextareaField::new('description')->hideOnIndex(),
-            TextareaField::new('description1', 'Détails')
-                ->renderAsHtml(),
+            TextField::new('description')->hideOnIndex(),
+            TextField::new('description1', 'Détails')->hideOnIndex(),
             BooleanField::new('isBest'),
             BooleanField::new('isNew'),
             ImageField::new('illustration')
