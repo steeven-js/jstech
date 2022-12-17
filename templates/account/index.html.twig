@@ -36,26 +36,17 @@
                                     class="nav-link btn btn-block btn-md btn-black-default-hover active">Dashboard</a>
                             </li>
                             {% if is_granted('ROLE_ADMIN') %}
-                            
-                            <li> <a href="/admin"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Accéder au backoffice</a></li>
-                            <li> <a href="{{ path('app_account_order') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes commandes</a></li>
-                            <li><a href="{{ path('app_account_address') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes adresses</a></li>
-                            <li><a href="{{ path('app_account_address_add') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Ajouter une adresses</a></li>
-                            <li><a href="{{ path('app_account_password') }}"
-									class="nav-link btn btn-block btn-md btn-black-default-hover">Modifier mon mot de passe</a></li>
+                                <li> <a href="/admin"
+                                        class="nav-link btn btn-block btn-md btn-black-default-hover">Accéder au backoffice</a></li>
                             {% else %}
-                            <li> <a href="{{ path('app_account_order') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes commandes</a></li>
-                            <li><a href="{{ path('app_account_address') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes adresses</a></li>
-                            <li><a href="{{ path('app_account_address_add') }}"
-                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Ajouter une adresses</a></li>
-                            <li><a href="{{ path('app_account_password') }}"
-									class="nav-link btn btn-block btn-md btn-black-default-hover">Modifier mon mot de passe</a></li>
+                                <li> <a href="{{ path('app_account_order') }}"
+                                        class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes commandes</a></li>
+                                <li><a href="{{ path('app_account_address') }}"
+                                        class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes adresses</a></li>
+                                <li><a href="{{ path('app_account_address_add') }}"
+                                        class="nav-link btn btn-block btn-md btn-black-default-hover">Ajouter une adresses</a></li>
+                                <li><a href="{{ path('app_account_password') }}"
+                                        class="nav-link btn btn-block btn-md btn-black-default-hover">Modifier mon mot de passe</a></li>
                             {% endif %}
                         </ul>
                     </div>
