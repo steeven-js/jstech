@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Mes adresses {% endblock %}
-
+{% block title %}Mon compte{% endblock %}
 
 {% block content %}
     <!-- ...:::: Start Breadcrumb Section:::... -->
@@ -10,13 +9,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="breadcrumb-title">Mes adresses</h3>
+                        <h3 class="breadcrumb-title">Mon compte</h3>
                         <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
                             <nav aria-label="breadcrumb">
                                 <ul>
                                     <li><a href="{{ path('app_home') }}">Accueil</a></li>
-                                    <li><a href="{{ path('app_account') }}">Mon compte</a></li>
-                                    <li class="active" aria-current="page">Mes adresses</li>
+                                    <li class="active" aria-current="page">Mon compte</li>
                                 </ul>
                             </nav>
                         </div>
@@ -37,6 +35,8 @@
                             <li><a href="{{ path('app_account') }}"
                                     class="nav-link btn btn-block btn-md btn-black-default-hover active">Dashboard</a>
                             </li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                            
                             <li> <a href="/admin"
                                     class="nav-link btn btn-block btn-md btn-black-default-hover">Accéder au backoffice</a></li>
                             <li> <a href="{{ path('app_account_order') }}"
@@ -47,42 +47,44 @@
                                     class="nav-link btn btn-block btn-md btn-black-default-hover">Ajouter une adresses</a></li>
                             <li><a href="{{ path('app_account_password') }}"
 									class="nav-link btn btn-block btn-md btn-black-default-hover">Modifier mon mot de passe</a></li>
+                            {% else %}
+                            <li> <a href="{{ path('app_account_order') }}"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes commandes</a></li>
+                            <li><a href="{{ path('app_account_address') }}"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Gérer mes adresses</a></li>
+                            <li><a href="{{ path('app_account_address_add') }}"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover">Ajouter une adresses</a></li>
+                            <li><a href="{{ path('app_account_password') }}"
+									class="nav-link btn btn-block btn-md btn-black-default-hover">Modifier mon mot de passe</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-9 col-lg-9">
-                    {% if app.user.addresses|length == 0 %}
-                        <div class="col-md-12 m-4 text-center">
-                            <p>Vous n'avez pas encore d'adresse sur JSTech.</p>
-                            <p>N'hésitez pas! <a href="{{ path('app_account_address_add')}}">Ajoutez une adresse.</a></p>
-                        </div>
-                    {% else %}
-                        <!-- Tab panes -->
-                        <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
-
-                            <div class="row">
-                                
-                                    {% for address in app.user.addresses %}
-                                        <!-- product -->
-                                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                                            {# {{dump(address)}} #}
-                                            <h5 class="card-title">{{address.name}}</h5>
-                                            <p class="card-text">{{address.address}} <br>
-                                                {{address.postal}} - {{address.city}} - {{address.country}}
-                                            </p>
-                                            {# Je passe en paramètre l'id de l'adresse que je souhaite modifier #}
-                                            <a href="{{path('app_account_address_edit', {'id' : address.id})}}" class="view">Modifier</a>
-                                            <a href="{{path('app_account_address_delete', {'id' : address.id})}}" class="view2">Supprimer</a>
-                                        </div>
-                                        <!-- /product -->
-                                    {% endfor %}
-                            </div>
-                        </div>
-                    {% endif %}
+				<div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Tab panes -->
+                    <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
+                        
+                        <div class="tab-pane fade show active">
+                        {% if app.user.addresses|length == 0 %}
+                            <p>issou</p>
+                        {% endif %}
+                        
+                            {% for address in app.user.addresses %}
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <h5 class="card-title">{{address.name}}</h5>
+                                    <p class="card-text">{{address.address}} <br>
+                                        {{address.postal}} - {{address.city}} - {{address.country}}
+                                    </p>
+                                    <a href="{{path('app_account_address_edit', {'id' : address.id})}}" class="view">Modifier</a>
+                                    <a href="{{path('app_account_address_delete', {'id' : address.id})}}" class="view2">Supprimer</a>
+                                </div>
+                            {% endfor %} 
+						</div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div> <!-- ...:::: End Account Dashboard Section:::... -->
 {% endblock %}
+
