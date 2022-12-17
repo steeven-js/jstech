@@ -53,12 +53,12 @@
                     <!-- Tab panes -->
                     <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
 
-                        {% if app.user.addresse|lenght == 0 %}
-                            <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                                <p>issou</p>
-                            </div>
-                        {% endif %}
                         <div class="row">
+                            {% if app.user.addresses|length == 0 %}
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <p>issou</p>
+                                </div>
+                            {% endif %}
                             {% for address in app.user.addresses %}
                                 <!-- product -->
                                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
