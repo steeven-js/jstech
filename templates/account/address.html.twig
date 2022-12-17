@@ -54,7 +54,7 @@
                     <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
 
                         <div class="row">
-                        {% if orders|length == 0 %}
+                        {% if app.user.addresses|length == 0 %}
                             <div class="col-md-12 m-4 text-center">
                                 <p>Vous n'avez pas encore d'adresse sur JSTech.</p>
                                 <p>N'hésitez pas! <a href="{{ path('app_nos_category')}}">Ajoutez une adresse.</a></p>
