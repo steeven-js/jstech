@@ -22,7 +22,7 @@ class RegisterController extends AbstractController
     #[Route('/inscription', name: 'app_register')]
     public function index(Request $request, UserPasswordHasherInterface $encoder)
     {
-        $headers = $this->entityManager->getRepository(Header::class)->findAll();
+
         $notification = null;
 
         $user = new User();
