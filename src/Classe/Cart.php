@@ -42,7 +42,7 @@ class Cart
 		// Si dans le panier il y a un produit déjà inséré
 		if (!empty($cart[$id])) {
 			// On incrémente
-        	$cart[$id]++; 
+        $cart[$id]++; 
 		} else {
 			$cart[$id] = 1;
 		}

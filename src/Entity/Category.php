@@ -30,7 +30,7 @@ class Category
     {
         return $this->getName();
     }  
-   
+
     public function getId(): ?int
     {
         return $this->id;

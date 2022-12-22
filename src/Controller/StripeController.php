@@ -30,7 +30,12 @@ class StripeController extends AbstractController
 
         // Panier
         foreach ($order->getOrderDetails()->getValues() as $product) {
-            $product_object = $entityManager->getRepository(Product::class)->findOneBy(['name' => $product->getProduct()]);
+
+            $product_object = $entityManager->getRepository(Product::class)->findOneBy([
+                'name' => $product->getProduct()]
+            );
+
+
             $product_for_stripe[] = [
                 'price_data' => [
                     'currency' => 'eur',

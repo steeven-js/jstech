@@ -34,7 +34,7 @@ class OrderController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        if (!$this->getUser()->getAddresses()->getValues())
+        if (!$this->getUser()->getAddresses()->getValues())// si pas d'adresse => redir vers ajouter une adresse
         {
             return $this->redirectToRoute('app_account_address_add');
         }

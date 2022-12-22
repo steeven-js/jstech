@@ -2,6 +2,7 @@
 
 namespace App\Controller\Category;
 
+use App\Classe\Cart;
 use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,13 +18,17 @@ class DroneController extends AbstractController
         $this->entityManager = $entityManager; // 1  
     }
     
-    #[Route('/drone', name: 'app_drone')]
-    public function index(): Response
+    #[Route('/objet-connecte/drone', name: 'app_drone')]
+    public function index(Cart $cart): Response
     {
+        $cart = $cart->get();
+
         $category = $this->entityManager->getRepository(Category::class)->findAll(); 
         
         return $this->render('category/drone.html.twig', [
             'category' => $category, 
+            'cart' => $cart
+
         ]);
     }
 }
