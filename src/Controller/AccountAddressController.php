@@ -47,16 +47,16 @@ class AccountAddressController extends AbstractController
         
         $address = new Address();
 
-        $form = $this->createForm(AddressType::class, $address);
+        $form = $this->createForm(AddressType::class, $address); // j'importe le formulaire
 
-        $form->handleRequest($request); // 1. ecoute de la request
+        $form->handleRequest($request); // 1. ecoute de la request du formulaire dans ce cas
 
         if ($form->isSubmitted() && $form->isValid()) {  // if 2(ecoute) && 3(check EmailType etc...
 
             // dd($address); // 1.
 
             // A quel utilisateur lié cette adresse?
-            $address->setUser($this->getUser());
+            $address->setUser($this->getUser()); // L'addresse sera lié à l'id de l'utilisateur.
 
             $this->entityManager->persist($address);
             $this->entityManager->flush(); // 4

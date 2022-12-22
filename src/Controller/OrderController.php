@@ -98,22 +98,23 @@ class OrderController extends AbstractController
 
             foreach($cart->getFull() as $product){
 
-                // dd($product);
                 $orderDetails = new OrderDetails();
                 // enregistrer les produits OrderDetails
-                $orderDetails->setMyOrder($order);
+                $orderDetails->setMyOrder($order); // MyOrder est la propriété de la relation Id avec l'entity Order
                 $orderDetails->setProduct($product['product']->getName());
                 $orderDetails->setQuantity($product['quantity']);
                 $orderDetails->setPrice($product['product']->getPrice());
                 $orderDetails->setTotal($product['quantity'] * $product['product']->getPrice()  );
                 $orderDetails->setMyOrder($order);
 
+                dd($order);
+
                 $this->entityManager->persist($orderDetails);
                 // dump($product['product']);
             }
             // dd($order);
 
-            $this->entityManager->flush(); // enregistrement BdD
+            // $this->entityManager->flush(); // enregistrement BdD
 
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
