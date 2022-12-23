@@ -195,6 +195,11 @@ address {
     border-radius: 5px;
 }
 
+.address_choices {
+    display: flex;
+    justify-content: space-between;
+}
+
 ol,
 ul {
     padding-left: 2rem;
