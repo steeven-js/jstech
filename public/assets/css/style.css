@@ -189,6 +189,12 @@ address {
     line-height: inherit;
 }
 
+.address_container {
+    border: 1px solid #ededed;
+    padding: 23px 20px 29px;
+    border-radius: 5px;
+}
+
 ol,
 ul {
     padding-left: 2rem;

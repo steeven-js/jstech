@@ -71,8 +71,8 @@
                         {% else %}   
                             <div class="row">
                                 {% for address in app.user.addresses %}
-                                    <!-- product -->
-                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                                    <!-- address -->
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12 address_container">
                                         {# {{dump(address)}} #}
                                         <h5 class="card-title">{{address.name}}</h5>
                                         <p class="card-text">{{address.address}} <br>
@@ -82,7 +82,7 @@
                                         <a href="{{path('app_account_address_edit', {'id' : address.id})}}" class="view">Modifier</a>
                                         <a href="{{path('app_account_address_delete', {'id' : address.id})}}" class="view2">Supprimer</a>
                                     </div>
-                                    <!-- /product -->
+                                    <!-- /address -->
                                 {% endfor %}
                             </div>
                         {% endif %}
