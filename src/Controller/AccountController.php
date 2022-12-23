@@ -16,11 +16,11 @@ class AccountController extends AbstractController
     #[Route('/compte', name: 'app_account')]
     public function index(Cart $cart): Response
     {
-        $cart = $cart->get();
-
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
+
+        $cart = $cart->get();
 
         return $this->render('account/index.html.twig', [
             'cart' => $cart

@@ -6,6 +6,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Classe\Mail;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request): Response {
+    public function index(Request $request, Cart $cart): Response {
 
         $form = $this->createForm(ContactType::class);
 
@@ -28,14 +29,17 @@ class ContactController extends AbstractController
             $mail = new Mail();
 
             $content = "Bonjour </br>Vous avez reçus un message de <strong>".$form->getData()['prenom']." ".$form->getData()['nom']."</strong></br>Adresse email : <strong>".$form->getData()['email']."</strong> </br>Message : ".$form->getData()['content']."</br></br>";             
-         
+
             $mail->send('kisama972@gmail.com', 'JSTech', 'Vous avez reçus une nouvelle demande de contact', $content); 
 
             // dd($form->getData());
         }
 
+        $cart = $cart->get();
+
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
+            'cart' => $cart
         ]);
     }
 }

@@ -24,7 +24,7 @@ class AccountPasswordController extends AbstractController
     }
     
     #[Route('/compte/modifier-mon-mot-de-passe', name: 'app_account_password')]
-     public function index(Request $request, 
+    public function index(Request $request, 
                             UserPasswordHasherInterface $passwordHasher,
                             Cart $cart,
                             ): Response
@@ -32,9 +32,6 @@ class AccountPasswordController extends AbstractController
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
-        
-        $cart = $cart->get();
-
         $notification = null;
 
         $user = $this->getUser();
@@ -59,6 +56,8 @@ class AccountPasswordController extends AbstractController
                 $notification = "Votre mot de passe n'est pas le bon.";
             }
         }
+
+        $cart = $cart->get();
 
         return $this->render('account/password.html.twig', [
             'form'=>$form->createView(),

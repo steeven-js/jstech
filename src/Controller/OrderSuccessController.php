@@ -53,6 +53,8 @@ class OrderSuccessController extends AbstractController
         // Afficher les quelques information de la commande de l'utilisateur
 
         // dd($order);
+
+        $cart = $cart->get();
         
         return $this->render('order_success/index.html.twig', [
             'order' => $order,

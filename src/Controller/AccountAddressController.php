@@ -32,6 +32,7 @@ class AccountAddressController extends AbstractController
     {
         // dd($this->getUser());
         $cart = $cart->get();
+        
         return $this->render('account/address.html.twig', [
             'cart' => $cart
         ]);
@@ -69,6 +70,8 @@ class AccountAddressController extends AbstractController
         }
 
         // dd($this->getUser());
+        $cart = $cart->get();
+
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
             'cart' => $cart
@@ -109,6 +112,7 @@ class AccountAddressController extends AbstractController
 
         // dd($this->getUser());
         $cart = $cart->get();
+
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
             'cart' => $cart
@@ -119,7 +123,6 @@ class AccountAddressController extends AbstractController
     #[Route('/compte/supprimer-une-adresse/{id}', name: 'app_account_address_delete')]
     public function delete($id, Cart $cart): Response
     {
-        $cart = $cart->get();
 
         $address = $this->entityManager->getRepository(Address::class)->findOneById($id);
 
@@ -127,6 +130,8 @@ class AccountAddressController extends AbstractController
             $this->entityManager->remove($address);
 			$this->entityManager->flush();
         }
+
+        $cart = $cart->get();
 
         return $this->redirectToRoute('app_account_address', [
             'cart' => $cart

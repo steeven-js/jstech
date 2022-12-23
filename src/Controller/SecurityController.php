@@ -13,8 +13,6 @@ class SecurityController extends AbstractController
     #[Route(path: '/connexion', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils, Cart $cart): Response
     {
-        $cart = $cart->get();
-
         if ($this->getUser()) {
             return $this->redirectToRoute('app_account');
         }
@@ -23,6 +21,8 @@ class SecurityController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+
+        $cart = $cart->get();
 
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername, 

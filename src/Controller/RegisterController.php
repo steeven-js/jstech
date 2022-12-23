@@ -23,8 +23,6 @@ class RegisterController extends AbstractController
     #[Route('/inscription', name: 'app_register')]
     public function index(Request $request, UserPasswordHasherInterface $encoder, Cart $cart)
     {
-        $cart = $cart->get();
-
         $notification = null;
 
         $user = new User();
@@ -54,6 +52,8 @@ class RegisterController extends AbstractController
                 $notification = "L'email que vous avez renseigné existe déjà.";
             }
         }
+
+        $cart = $cart->get();
 
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),

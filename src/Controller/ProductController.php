@@ -29,7 +29,6 @@ class ProductController extends AbstractController
     #[Route('/nos-produits', name: 'app_products')]
     public function index(Request $request, Cart $cart): Response
     {
-        $cart = $cart->get();
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);
 
@@ -40,6 +39,8 @@ class ProductController extends AbstractController
         } else {
             $products = $this->entityManager->getRepository(Product::class)->findAll();
         }
+
+        $cart = $cart->get();
 
         return $this->render('product/index.html.twig', [
             'products' => $products,

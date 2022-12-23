@@ -21,11 +21,11 @@ class AccountOrderController extends AbstractController
     #[Route('/compte/mes-commandes', name: 'app_account_order')]
     public function index(Cart $cart): Response
     {
-        $cart = $cart->get();
-
         $orders = $this->entityManager->getRepository(Order::class)->findSucessOrders($this->getUser());
 
         // dd($orders);
+
+        $cart = $cart->get();
 
         return $this->render('account/order.html.twig', [
             'orders' => $orders,

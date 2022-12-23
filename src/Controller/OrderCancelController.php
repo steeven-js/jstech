@@ -21,8 +21,6 @@ class OrderCancelController extends AbstractController
     #[Route('/commande/erreur/{stripeSessionId}', name: 'app_order_cancel')]
     public function index($stripeSessionId, Cart $cart): Response
     {
-        $cart = $cart->get();
-
         $order = $this->entityManager->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
 
         //Sécurité
@@ -34,7 +32,8 @@ class OrderCancelController extends AbstractController
         }
 
         // Envoyer un email à notre utilisateur pour lui indiquer l'échec de paiement
-        
+        $cart = $cart->get();
+
         return $this->render('order_cancel/index.html.twig', [
             'order' => $order,
             'cart' => $cart
