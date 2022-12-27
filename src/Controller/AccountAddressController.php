@@ -1,8 +1,4 @@
 <?php
-/**
- * Commentaires
- */
-
 namespace App\Controller;
 
 use App\Classe\Cart;
@@ -31,10 +27,10 @@ class AccountAddressController extends AbstractController
     public function index(Cart $cart): Response
     {
         // dd($this->getUser());
-        $cart = $cart->get();
+        $count = $cart->count();
         
         return $this->render('account/address.html.twig', [
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
     
@@ -70,11 +66,11 @@ class AccountAddressController extends AbstractController
         }
 
         // dd($this->getUser());
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 
@@ -111,11 +107,11 @@ class AccountAddressController extends AbstractController
         // dd($form);
 
         // dd($this->getUser());
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 
@@ -131,10 +127,10 @@ class AccountAddressController extends AbstractController
 			$this->entityManager->flush();
         }
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->redirectToRoute('app_account_address', [
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 }

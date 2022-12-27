@@ -25,11 +25,11 @@ class CategoryController extends AbstractController
     {
         $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('category/index.html.twig', [
             'category' => $category, // 4 
-            'cart' => $cart
+            'count' => $count
         ]);
         
     }
@@ -46,11 +46,11 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('app_nos_category');
         }
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('category/show.html.twig', [
             'category' => $category, // 9
-            'cart' => $cart
+            'count' => $count,
         ]);
         
     }

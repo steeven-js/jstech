@@ -1,9 +1,4 @@
 <?php
-/**
- * Commentaires
- */
-
-
 namespace App\Controller;
 
 use App\Classe\Cart;
@@ -40,12 +35,12 @@ class ProductController extends AbstractController
             $products = $this->entityManager->getRepository(Product::class)->findAll();
         }
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('product/index.html.twig', [
             'products' => $products,
             'form' => $form->createView(),
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 
@@ -62,7 +57,7 @@ class ProductController extends AbstractController
         // Les nouveautés
         $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         // dd($productsNew);
 
@@ -75,7 +70,7 @@ class ProductController extends AbstractController
             'product' => $product,
             'productsBest' => $productsBest,
             'productsNew' => $productsNew,
-            'cart'  => $cart
+            'count' => $count,
         ]);
     }
 }

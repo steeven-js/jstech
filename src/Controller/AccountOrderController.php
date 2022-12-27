@@ -25,11 +25,11 @@ class AccountOrderController extends AbstractController
 
         // dd($orders);
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('account/order.html.twig', [
             'orders' => $orders,
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 
@@ -40,7 +40,7 @@ class AccountOrderController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
         
-        $cart = $cart->get();
+        $count = $cart->count();
 
         $order = $this->entityManager->getRepository(Order::class)->findOneByReference($reference);
 
@@ -52,7 +52,7 @@ class AccountOrderController extends AbstractController
 
         return $this->render('account/order_show.html.twig', [
             'order' => $order,
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 }

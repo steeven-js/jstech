@@ -1,9 +1,4 @@
 <?php
-/**
- * Commentaires
- */
-
-
 namespace App\Controller;
 
 use App\Classe\Cart;
@@ -20,10 +15,10 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('account/index.html.twig', [
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 }

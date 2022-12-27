@@ -1,9 +1,4 @@
 <?php
-/**
- * Commentaires
- */
-
-
 namespace App\Controller;
 
 use App\Classe\Cart;
@@ -57,12 +52,12 @@ class AccountPasswordController extends AbstractController
             }
         }
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('account/password.html.twig', [
             'form'=>$form->createView(),
             'notification' => $notification,
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 }

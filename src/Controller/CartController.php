@@ -1,9 +1,4 @@
 <?php
-/**
- * Commentaires
- */
-
-
 namespace App\Controller;
 
 use App\Classe\Cart;

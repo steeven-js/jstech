@@ -35,11 +35,11 @@ class ContactController extends AbstractController
             // dd($form->getData());
         }
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 }

@@ -53,12 +53,12 @@ class RegisterController extends AbstractController
             }
         }
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),
             'notification' => $notification,
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 }
