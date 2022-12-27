@@ -15,6 +15,7 @@
             <!-- Use the minified version files listed below for better performance and remove the files listed above -->
             <link rel="stylesheet" href="{{ asset('assets/css/vendor/vendor.min.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/plugins/plugins.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
         {% endblock %}
 
@@ -83,7 +84,7 @@
                                                         </li>
                                                     </ul>
                                                     <div class="menu-banner">
-                                                        <a href="#" class="menu-banner-link">
+                                                        <a href="{{ path('app_about') }}" class="menu-banner-link">
                                                             <img class="menu-banner-img"
                                                                 src="{{ asset('images/banner/banniere jstech.png') }}" alt="">
                                                         </a>
@@ -125,7 +126,7 @@
                                     <li>
                                         <a href="{{ path('app_cart') }}">
                                             <i class="icon-bag"></i>
-                                            <span class="item-count">{{cart|length}}</span>
+                                            <span class="item-count">{{count}}</span>
                                         </a>
                                     </li>
                                     <li>
@@ -179,7 +180,7 @@
                                 <li>
                                     <a href="#" class="offcanvas-toggle">
                                         <i class="icon-bag"></i>
-                                        <span class="item-count">{{cart|length}}</span>
+                                        <span class="item-count">{{count}}</span>
                                     </a>
                                 </li>
                                 <li>
@@ -503,11 +504,9 @@
                                 <!-- Start Footer Single Item -->
                                 <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
                                     data-aos-delay="600">
-                                    <h5 class="title">A propos de nous</h5>
+                                    <h5 class="title">A propos de JSTech</h5>
                                     <div class="footer-about">
-                                        <p>We are a team of designers and developers that create high quality Magento,
-                                            Prestashop, Opencart.</p>
-
+                                        <p>Dans le cadre de ma formation de développeur Web et Web mobile, j’ai eu le plaisir de développer la partie front-end et back-end d’une application web et web mobile.</p>
                                         <address class="address">
                                             <span>Address: Monté Carlo Monaco</span><br>
                                             <span>Email: contact@jstech.com</span>
@@ -800,6 +799,7 @@
         {% block javascripts %}
             <script src="{{ asset('assets/js/vendor/vendor.min.js') }}"></script> 
             <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
+            <script src="{{ asset('assets/js/plugins/jquery.nice-select.min.js') }}"></script>
 
             <!-- Main JS -->
             <script src="{{ asset('assets/js/main.js') }}"></script>

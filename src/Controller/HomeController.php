@@ -37,7 +37,7 @@ class HomeController extends AbstractController
         // Carousel
         $headers = $this->entityManager->getRepository(Header::class)->findAll(); 
 
-        $cart = $cart->get();
+        $count = $cart->count();
 
         // dd($cart->get());
 
@@ -47,7 +47,7 @@ class HomeController extends AbstractController
             'headers' => $headers,
             'productsBest'  => $productsBest,
             'productsNew' => $productsNew,
-            'cart' => $cart
+            'count' => $count,
         ]);
     }
 }

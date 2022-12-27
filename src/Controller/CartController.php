@@ -25,7 +25,8 @@ class CartController extends AbstractController
         // dd($cart->get());
         // dd($cart->getFull());
         return $this->render('cart/index.html.twig', [
-            'cart' => $cart->getFull()
+            'cart' => $cart->getFull(),
+            'count' =>$cart->count()
         ]);
     }
 

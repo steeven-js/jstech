@@ -103,7 +103,7 @@ class Cart
 	public function getFull() 
 	{
 		$cartComplete = [];
-
+		$qtt = 0;
         // Si il y a un ajout, je rente dans le tableau
         if ($this->get()) {
             // Je récupère l'ID du produit en base de données
@@ -112,14 +112,36 @@ class Cart
                     'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
                     'quantity' => $quantity
                 ];
+				$qtt += $quantity;
             }
-
-			// dd($cartComplete);
-
         }
 		return $cartComplete;
 
 		// Sinon je retrouve le template mon panier vide
 	}
+
+	public function count()
+	{
+		$cartComplete = [];
+		$qtt = 0;
+		$cart = $this->requestStack->getSession()->get('cart', []);
+        // Si il y a un ajout, je rente dans le tableau
+        if ($this->get()) {
+            // Je récupère l'ID du produit en base de données
+            foreach ($this->get() as $id => $quantity){
+                $cartComplete[] = [
+                    'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
+                    'quantity' => $quantity
+                ];
+				$qtt += $quantity;
+            }
+        }
+
+		// dd($qtt);
+		
+		$this->requestStack->getSession()->set('cart',$cart);
+		return $qtt;
+	}
+
 
 }

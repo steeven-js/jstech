@@ -79,7 +79,6 @@
 												</tr> <!-- End Cart Single Item-->
 											
 											{% set total = total + (product.product.price * product.quantity) %}
-
 											{% endfor %}
 											</tbody>
 										</table>
@@ -118,7 +117,7 @@
 									<div class="coupon_inner">
 										<div class="cart_subtotal">
 											<p>Nombe de produits :</p>
-											<p class="cart_amount">{{cart|length}}</p>
+											<p class="cart_amount">{{count}}</p>
 										</div>
 
 										<div class="cart_subtotal">

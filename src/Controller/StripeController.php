@@ -48,7 +48,7 @@ class StripeController extends AbstractController
                 'quantity' => $product->getQuantity(),
             ];
         }
- 
+
         // Transporteur
         $product_for_stripe[] = [
             'price_data' => [
@@ -61,12 +61,12 @@ class StripeController extends AbstractController
             ],
             'quantity' => 1,
         ];
- 
+
         // dd($product_for_stripe);
- 
+
         // API Stripe pour le paiement
         Stripe::setApiKey('sk_test_51LeOHYBy39DOXZlGW09bx55BbH1bl4HiaBQbUKUns3aW94VFvRowCJUx8b7gohpOWSe7g4ms1y57H3AAub444zsX00ehwupWiB');
- 
+
         $checkout_session = Session::create([
             'customer_email' => $this->getUser()->getEmail(),
             'line_items' => [
