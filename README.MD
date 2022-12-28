@@ -8,7 +8,7 @@ git remote add origin https://github.com/steeven-js/jstech.git
 git push -u origin main
 
 git add .
-git commit -m "Vérifications et ajustements + count"
+git commit -m "Vérifications et ajustements + Display flex category Mobile"
 git push -u origin main 
 ```
 ## 01 Introduction
