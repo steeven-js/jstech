@@ -14662,32 +14662,34 @@ input {
     transform: translateY(-50%);
 }
 .hero-slider-content .subtitle {
-    font-size: 12px;
+    font-size: 30px !important;
     text-transform: uppercase;
+    font-weight: 400 !important;
+    line-height: 1 !important;
 }
 @media (min-width: 576px) {
     .hero-slider-content .subtitle {
-        font-size: 12px;
+        font-size: 17px !important;
     }
 }
 @media (min-width: 768px) {
     .hero-slider-content .subtitle {
-        font-size: 16px;
+        font-size: 22px !important;
     }
 }
 @media (min-width: 992px) {
     .hero-slider-content .subtitle {
-        font-size: 19px;
+        font-size: 36px !important;
     }
 }
 @media (min-width: 1200px) {
     .hero-slider-content .subtitle {
-        font-size: 13px;
+        font-size: 20px !important;
     }
 }
 @media (min-width: 1440px) {
     .hero-slider-content .subtitle {
-        font-size: 20px;
+        font-size: 43px !important;
     }
 }
 .hero-slider-content .title {
