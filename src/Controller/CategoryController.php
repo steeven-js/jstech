@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
-use App\Entity\Header;
-use App\Entity\Product;
 use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,11 +11,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryController extends AbstractController
 {
-    private $entityManager; // 1  
+    private $entityManager; 
 
-    public function __construct(EntityManagerInterface $entityManager) // 1  
+    public function __construct(EntityManagerInterface $entityManager)    
     {
-        $this->entityManager = $entityManager; // 1  
+        $this->entityManager = $entityManager;    
     }
     
     #[Route('/category', name: 'app_nos_category')]
@@ -34,22 +32,27 @@ class CategoryController extends AbstractController
         
     }
     
-    #[Route('/category/{id}', name: 'app_category')] // 5  
+    #[Route('/category/{id}', name: 'app_category')]   
     public function show($id, Cart $cart): Response
     {
-        $category = $this->entityManager->getRepository(Category::class)->findOneById($id); // 6  
+        $count = $cart->count();
 
-        // dd($category); // 7  
+        $categoryid = $this->entityManager->getRepository(Category::class)->findOneById($id);   
 
         // Partie sécurité
-        if (!$category){     // 8                 
+        if (!$categoryid){                   
             return $this->redirectToRoute('app_nos_category');
         }
 
-        $count = $cart->count();
+        $categoryProduct = $categoryid->getProducts()->getValues();
+
+        // dd($category->getProducts()->getValues());   
+
+        // dd($categoryProduct);
 
         return $this->render('category/show.html.twig', [
-            'category' => $category, // 9
+            'categoryid' => $categoryid,
+            'categoryProduct' => $categoryProduct,  
             'count' => $count,
         ]);
         
