@@ -29,6 +29,8 @@ class OrderController extends AbstractController
     #[Route('/commande', name: 'app_order')]
     public function index(Cart $cart)
     {
+        $count = $cart->count();
+
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
@@ -44,13 +46,16 @@ class OrderController extends AbstractController
 
         return $this->render('order/index.html.twig', [
             'form' => $form->createView(),
-            'cart' => $cart->getFull()
+            'cart' => $cart->getFull(),
+            'count' => $count,
         ]);
     }
 
     #[Route('/commande/recapitutulatif', name: 'app_order_recap')]
     public function add(Cart $cart, Request $request): Response
     {
+        $count = $cart->count();
+
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
@@ -108,18 +113,19 @@ class OrderController extends AbstractController
 
                 // dd($order);
 
-                // $this->entityManager->persist($orderDetails);
+                $this->entityManager->persist($orderDetails);
                 // dump($product['product']);
             }
             // dd($order);
 
-            // $this->entityManager->flush(); // enregistrement BdD
+            $this->entityManager->flush(); // enregistrement BdD
 
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'carrier' => $carriers,
                 'delivery' => $delivery_content,
-                'reference' => $order->getReference()
+                'reference' => $order->getReference(),
+                'count' => $count,
             ]);
         }
         return $this->redirectToRoute('cart');

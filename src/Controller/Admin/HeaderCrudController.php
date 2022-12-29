@@ -17,7 +17,6 @@ class HeaderCrudController extends AbstractCrudController
         return Header::class;
     }
 
- 
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -30,20 +29,12 @@ class HeaderCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            ChoiceField::new('backgroundPosition', "Alignement de l'image")
-                    ->autocomplete()
-                    ->setChoices([  'Centré' => 'center',
-                                    'Haut' => 'top',
-                                    'Bas' => 'bottom',
-                                    'A droite' => 'right',
-                                    'A gauche' => 'left'
-                                    ] ),
             ChoiceField::new('textColor', 'couleur du text')
                     ->autocomplete()
                     ->setChoices([  'blanc' => '#fff',
-                                    'sombre' => '#008DD0',
+                                    'sombre' => '#24262B',
+                                    'or' => '#FFC107'
                                     ])
         ];
     }
-
 }

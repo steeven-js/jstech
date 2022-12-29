@@ -30,9 +30,6 @@ class Header
     private ?string $illustration = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $backgroundPosition = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $textColor = null;
 
     public function getId(): ?int
@@ -96,18 +93,6 @@ class Header
     public function setIllustration(string $illustration): self
     {
         $this->illustration = $illustration;
-
-        return $this;
-    }
-
-    public function getBackgroundPosition(): ?string
-    {
-        return $this->backgroundPosition;
-    }
-
-    public function setBackgroundPosition(string $backgroundPosition): self
-    {
-        $this->backgroundPosition = $backgroundPosition;
 
         return $this;
     }
