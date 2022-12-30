@@ -15412,7 +15412,7 @@ input {
 /***********************
 * Components - Category
 ************************/
-@media (max-width: 576px) {
+@media (max-width: 800px) {
     .category-row {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
