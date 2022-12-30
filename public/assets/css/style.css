@@ -15412,16 +15412,6 @@ input {
 /***********************
 * Components - Category
 ************************/
-.category-row {
-    --bs-gutter-x: 1.875rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: calc(var(--bs-gutter-y) * -1);
-    margin-right: calc(var(--bs-gutter-x) / -2);
-    margin-left: calc(var(--bs-gutter-x) / -2);
-}
 @media (max-width: 576px) {
     .category-row {
         display: grid;
