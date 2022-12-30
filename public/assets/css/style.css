@@ -15418,6 +15418,11 @@ input {
         grid-template-columns: repeat(2, 1fr) !important;
         grid-gap: 10px !important;
     }
+    .shop-section .category-row {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 10px !important;
+    }
 }
 
 /***********************
