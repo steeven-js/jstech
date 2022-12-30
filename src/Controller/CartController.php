@@ -1,6 +1,5 @@
 <?php
 namespace App\Controller;
-
 use App\Classe\Cart;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,34 +32,11 @@ class CartController extends AbstractController
 		//Le controller ne connait la variable $cart que le viens de créer dans la Class Cart. On utilise donc le même mécanique d'injection de dépendance.
 		//Des que tu vas entrer dans CartController et dans la fonction add je veux que tu embarques avec toi ma Class Cart que tu stock dans la variable $cart comme nouvel objet de la class.
 
-        //La fonction add connait $cart grace à l'injection de dépendance.
+        //La méthode add connait $cart grace à l'injection de dépendance.
         $cart->add($id);
+        // dd($cart);
 
         // On transforme le rendu en redirection vers app_cart.
-        return $this->redirectToRoute('app_cart');
-
-    }
-
-    // Suppression de panier 
-    #[Route('/cart/remove', name: 'remove_my_cart')]
-    public function remove(Cart $cart)
-    {
-        //La fonction remove connait $cart grace à l'injection de dépendance 
-        $cart->remove();
-
-
-        return $this->redirectToRoute('app_products');
-
-    }
-
-    // Suppression du produit
-    #[Route('/cart/delete/{id}', name: 'delete_to_cart')]
-    public function delete(Cart $cart, $id)
-    {
-        // je définis delete dans l'entité Cart
-        $cart->delete($id);
-
-        
         return $this->redirectToRoute('app_cart');
 
     }
@@ -72,9 +48,27 @@ class CartController extends AbstractController
         // je définis decrease dans l'entité Cart
         $cart->decrease($id);
 
-
         return $this->redirectToRoute('app_cart');
+    }
 
+    // Suppression du produit
+    #[Route('/cart/delete/{id}', name: 'delete_to_cart')]
+    public function delete(Cart $cart, $id)
+    {
+        // je définis delete dans l'entité Cart
+        $cart->delete($id);   
+        
+        return $this->redirectToRoute('app_cart');    
+    }
+
+    // Suppression du panier 
+    #[Route('/cart/remove', name: 'remove_my_cart')]
+    public function remove(Cart $cart)
+    {
+        //La fonction remove connait $cart grace à l'injection de dépendance 
+        $cart->remove();
+
+        return $this->redirectToRoute('app_nos_category');
     }
 
 }

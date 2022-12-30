@@ -16,7 +16,8 @@
                                 <ul>
                                     <li><a href="index.html">Accueil</a></li>
                                     <li><a href="{{ path('app_nos_category') }}">Nos Category</a></li>
-                                    <li class="active" aria-current="page">{{product.category}}</li>
+                                    <li><a href="/category/{{ (product.category.id) }}">{{ (product.category.name) }}</a></li>
+                                    <li class="active" aria-current="page">{{product.name}}</li>
                                 </ul>
                             </nav>
                         </div>

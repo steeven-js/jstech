@@ -27,10 +27,9 @@ class AccountAddressController extends AbstractController
     public function index(Cart $cart): Response
     {
         // dd($this->getUser());
-        $count = $cart->count();
         
         return $this->render('account/address.html.twig', [
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
     
@@ -66,11 +65,10 @@ class AccountAddressController extends AbstractController
         }
 
         // dd($this->getUser());
-        $count = $cart->count();
 
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 
@@ -107,11 +105,10 @@ class AccountAddressController extends AbstractController
         // dd($form);
 
         // dd($this->getUser());
-        $count = $cart->count();
 
         return $this->render('account/address_form.html.twig', [
             'form' => $form->createView(),
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 
@@ -127,10 +124,8 @@ class AccountAddressController extends AbstractController
 			$this->entityManager->flush();
         }
 
-        $count = $cart->count();
-
         return $this->redirectToRoute('app_account_address', [
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 }

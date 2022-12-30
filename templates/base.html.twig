@@ -86,7 +86,7 @@
                                                     <div class="menu-banner">
                                                         <a href="{{ path('app_about') }}" class="menu-banner-link">
                                                             <img class="menu-banner-img"
-                                                                src="{{ asset('images/banner/banniere jstech.png') }}" alt="">
+                                                                src="{{ asset('images/banner/banniere-jstech.png') }}" alt="bannière">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -104,11 +104,11 @@
                                             </li>
 
 											{% if app.user %}
-											<li><a href="{{ path('app_account') }}">Mon compte</a></li>
-											<li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                                <li><a href="{{ path('app_account') }}">Mon compte</a></li>
+                                                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
 											{% else %}
-											<li><a href="{{ path('app_login') }}">Connexion</a></li>
-											<li><a href="{{ path('app_register') }}">Inscription</a></li>
+                                                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                                                <li><a href="{{ path('app_register') }}">Inscription</a></li>
 											{% endif %}
                                         </ul>
                                     </nav>
@@ -256,13 +256,13 @@
                                 <a href="#"><span>Jstech</span></a>
                                 <ul class="mobile-sub-menu">
                                     <li><a href="#">Questions fréquentes</a></li>
-                                    <li><a href="#">A propos de nous</a></li>
-                                    <li><a href="#">Nous contacter</a></li>
+                                    <li><a href="{{ path('app_about') }}">A propos de nous</a></li>
+                                    <li><a href="{{ path('app_contact') }}">Nous contacter</a></li>
                                     <li><a href="#">Termes et conditions</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Inscription</a></li>
-                            <li><a href="#">Connection</a></li>
+                            <li><a href="{{ path('app_register') }}">Inscription</a></li>
+                            <li><a href="{{ path('app_login') }}">Connection</a></li>
                         </ul>
                     </div> <!-- End Mobile Menu Nav -->
                 </div> <!-- End Mobile Menu -->
@@ -270,13 +270,12 @@
                 <!-- Start Mobile contact Info -->
                 <div class="mobile-contact-info">
                     <div class="logo">
-                        <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo/logo-2.png') }}" alt=""></a>
+                        <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo/logo-2.png') }}" alt="logo-2"></a>
                     </div>
 
                     <address class="address">
-                        <span>Address: Monté Carlo Monaco</span>
-                        <span>Call Us: 0123456789, 0123456789</span>
-                        <span>Email: contact@jstech.com</span>
+                        <span>Address: Fort de France, Martinique</span>
+                        <span>Email: contact@jsprod.com</span>
                     </address>
 
                     <ul class="social-link">
@@ -306,13 +305,12 @@
             <!-- Start Mobile contact Info -->
             <div class="mobile-contact-info">
                 <div class="logo">
-                    <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo/logo-2.png') }}" alt=""></a>
+                    <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo/logo-2.png') }}" alt="logo-2"></a>
                 </div>
 
                 <address class="address">
-                    <span>Address: Monté Carlo, Monaco</span>
-                    <span>Call Us: 0123456789, 0123456789</span>
-                    <span>Email: contact@jstech.com</span>
+                    <span>Address: Fort de France, Martinique</span>
+                    <span>Email: contact@jsprod.com</span>
                 </address>
 
                 <ul class="social-link">
@@ -508,8 +506,8 @@
                                     <div class="footer-about">
                                         <p>Dans le cadre de ma formation de développeur Web et Web mobile, j’ai eu le plaisir de développer la partie front-end et back-end d’une application web et web mobile.</p>
                                         <address class="address">
-                                            <span>Address: Monté Carlo Monaco</span><br>
-                                            <span>Email: contact@jstech.com</span>
+                                            <span>Address: Fort de France, Martinique</span><br>
+                                            <span>Email: contact@jsprod.com</span>
                                         </address>
                                     </div>
                                 </div>
@@ -541,7 +539,7 @@
                                     <div class="form-newsletter">
                                         <form action="#" method="post">
                                             <div class="form-fild-newsletter-single-item input-color--golden">
-                                                <input type="email" placeholder="Your email address..." required>
+                                                <input type="email" placeholder="Votre adresse email..." required>
                                                 <button type="submit">Souscrire!</button>
                                             </div>
                                         </form>
@@ -562,13 +560,13 @@
                                 <div class="footer-copyright">
                                     <p class="copyright-text">&copy; 2022 <a href="index.html">JSTech</a>. Made with <i
                                             class="fa fa-heart text-danger"></i> by <a href="https://www.jsprod.fr/"
-                                            target="_blank">JSTech</a> </p>
+                                            target="_blank">JSTech</a></p>
                                 </div>
                             </div>
                             <div class="col-auto mb-6">
                                 <div class="footer-payment">
                                     <div class="image">
-                                        <img src="{{ asset('images/company-logo/payment.png') }}" alt="">
+                                        <img src="{{ asset('images/company-logo/payment.png') }}" alt="JSTech">
                                     </div>
                                 </div>
                             </div>
@@ -584,7 +582,7 @@
         <button class="material-scrolltop" type="button"><img src="{{ asset("images/icons/top-arrow.svg") }}" alt="Back to the top"></button>
 
         <!-- Start Modal Add cart -->
-        <div class="modal fade" id="modalAddcart" tabindex="-1" role="dialog" aria-hidden="true">
+        {# <div class="modal fade" id="modalAddcart" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog  modal-dialog-centered modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -630,7 +628,7 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- End Modal Add cart -->
+        </div> <!-- End Modal Add cart --> #}
 
         {# <!-- Start Modal Quickview cart -->
         <div class="modal fade" id="modalQuickview" tabindex="-1" role="dialog" aria-hidden="true">

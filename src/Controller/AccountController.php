@@ -15,10 +15,8 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        $count = $cart->count();
-
         return $this->render('account/index.html.twig', [
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 }

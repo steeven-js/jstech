@@ -52,12 +52,10 @@ class AccountPasswordController extends AbstractController
             }
         }
 
-        $count = $cart->count();
-
         return $this->render('account/password.html.twig', [
             'form'=>$form->createView(),
             'notification' => $notification,
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 }

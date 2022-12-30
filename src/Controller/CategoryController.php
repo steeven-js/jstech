@@ -21,10 +21,10 @@ class CategoryController extends AbstractController
     #[Route('/category', name: 'app_nos_category')]
     public function idex(Cart $cart): Response
     {
-        $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
-
         $count = $cart->count();
 
+        $category = $this->entityManager->getRepository(Category::class)->findAll(); // 2
+        // dd($category);
         return $this->render('category/index.html.twig', [
             'category' => $category, // 4 
             'count' => $count
@@ -46,9 +46,8 @@ class CategoryController extends AbstractController
 
         $categoryProduct = $categoryid->getProducts()->getValues();
 
+        // dd($categoryid);
         // dd($category->getProducts()->getValues());   
-
-        // dd($categoryProduct);
 
         return $this->render('category/show.html.twig', [
             'categoryid' => $categoryid,

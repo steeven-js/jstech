@@ -32,14 +32,13 @@ class ContactController extends AbstractController
 
             $mail->send('kisama972@gmail.com', 'JSTech', 'Vous avez reçus une nouvelle demande de contact', $content); 
 
-            // dd($form->getData());
         }
 
         $count = $cart->count();
 
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 }

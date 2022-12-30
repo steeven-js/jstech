@@ -54,8 +54,6 @@ class OrderController extends AbstractController
     #[Route('/commande/recapitutulatif', name: 'app_order_recap')]
     public function add(Cart $cart, Request $request): Response
     {
-        $count = $cart->count();
-
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
@@ -125,7 +123,7 @@ class OrderController extends AbstractController
                 'carrier' => $carriers,
                 'delivery' => $delivery_content,
                 'reference' => $order->getReference(),
-                'count' => $count,
+                'count' => $cart->count()
             ]);
         }
         return $this->redirectToRoute('cart');

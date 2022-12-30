@@ -15424,12 +15424,11 @@ input {
 }
 @media (max-width: 576px) {
     .category-row {
-        display: grid;
+        display: grid !important;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
     }
 }
-
 
 /***********************
 * Components - Product

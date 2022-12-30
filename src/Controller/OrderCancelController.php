@@ -32,11 +32,10 @@ class OrderCancelController extends AbstractController
         }
 
         // Envoyer un email à notre utilisateur pour lui indiquer l'échec de paiement
-        $count = $cart->count();
 
         return $this->render('order_cancel/index.html.twig', [
             'order' => $order,
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 }

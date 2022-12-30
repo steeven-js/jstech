@@ -24,8 +24,6 @@ class ProductController extends AbstractController
     #[Route('/nos-produits', name: 'app_products')]
     public function index(Request $request, Cart $cart): Response
     {
-        $count = $cart->count();
-
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);
 
@@ -40,7 +38,7 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'products' => $products,
             'form' => $form->createView(),
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 
@@ -57,8 +55,6 @@ class ProductController extends AbstractController
         // Les nouveautés
         $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);
 
-        $count = $cart->count();
-
         // dd($productsNew);
 
         // Partie sécurité
@@ -70,7 +66,7 @@ class ProductController extends AbstractController
             'product' => $product,
             'productsBest' => $productsBest,
             'productsNew' => $productsNew,
-            'count' => $count,
+            'count' => $cart->count()
         ]);
     }
 }

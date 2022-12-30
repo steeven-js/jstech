@@ -54,6 +54,7 @@ class OrderSuccessController extends AbstractController
         // dd($order);       
         return $this->render('order_success/index.html.twig', [
             'order' => $order,
+            'count' => $cart->count()
         ]);
     }
 }

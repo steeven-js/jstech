@@ -30,6 +30,14 @@ class Cart
 	$this->entityManager = $entityManager;
 	}
 
+	// AFFICHE le panier
+	public function get()
+	{
+		// Il s'agit du get de la biblihothèque SessionInterface (Returns an attribute.)
+		// La session appelé va donc s'appellé 'cart'
+		return $this->requestStack->getSession()->get('cart');
+	}
+
 	// AJOUTER
 	public function add($id)
 	{
@@ -48,35 +56,6 @@ class Cart
 		}
 		// Il s'agit du set de la biblihothèque SessionInterface (Sets an attribute.)
 		// On stock les informations du panier dans une variable $cart de la session 'cart'
-		$this->requestStack->getSession()->set('cart',$cart); 
-	}
-
-	// AFFICHE le panier
-	public function get()
-	{
-		// Il s'agit du get de la biblihothèque SessionInterface (Returns an attribute.)
-		// La session appelé va donc s'appellé 'cart'
-		return $this->requestStack->getSession()->get('cart');
-	}
-
-	// SUPPRIME le panier
-	public function remove()
-	{
-		// Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
-		// La session appelé 'cart' va donc être supprimé.
-		return $this->requestStack->getSession()->remove('cart');
-	}
-
-	// SUPPRIME le produit du panier sans supprimer le reste du panier
-	public function delete($id)
-	{
-
-		$cart = $this->requestStack->getSession()->get('cart', []);
-
-		// Je retire du tableau l'entré cart qui à l'id qui correspond à l' id que je souhaite supprimer
-		unset($cart[$id]);
-
-		// Je redéfini la même route que mon panier avec les nouvelle informations.
 		$this->requestStack->getSession()->set('cart',$cart); 
 	}
 
@@ -100,10 +79,30 @@ class Cart
 		$this->requestStack->getSession()->set('cart',$cart); 
 	}
 
+	// Suppression du produit
+	public function delete($id)
+	{
+
+		$cart = $this->requestStack->getSession()->get('cart', []);
+
+		// Je retire du tableau l'entré cart qui à l'id qui correspond à l' id que je souhaite supprimer
+		unset($cart[$id]);
+
+		// Je redéfini la même route que mon panier avec les nouvelle informations.
+		$this->requestStack->getSession()->set('cart',$cart); 
+	}
+
+    // Suppression du panier 
+	public function remove()
+	{
+		// Il s'agit du remove de la biblihothèque SessionInterface (Removes an attribute.)
+		// La session appelé 'cart' va donc être supprimé.
+		return $this->requestStack->getSession()->remove('cart');
+	}
+
 	public function getFull() 
 	{
 		$cartComplete = [];
-		$qtt = 0;
         // Si il y a un ajout, je rente dans le tableau
         if ($this->get()) {
             // Je récupère l'ID du produit en base de données
@@ -112,7 +111,6 @@ class Cart
                     'product' => $this->entityManager->getRepository(Product::class)->findOneById($id),
                     'quantity' => $quantity
                 ];
-				$qtt += $quantity;
             }
         }
 		return $cartComplete;

@@ -2,7 +2,6 @@
 namespace App\Controller;
 
 use Stripe\Stripe;
-use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\Product;
 use Stripe\Checkout\Session;
@@ -14,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class StripeController extends AbstractController
 {
     #[Route('/commande/create-session/{reference}', name: 'stripe_create_session')]
-    public function index(EntityManagerInterface $entityManager, Cart $cart, $reference)
+    public function index(EntityManagerInterface $entityManager, $reference)
     {
         $YOUR_DOMAIN = 'http://127.0.0.1:8000';
         // $YOUR_DOMAIN = 'http://jsprod.fr';
@@ -78,7 +77,7 @@ class StripeController extends AbstractController
         $order->setStripeSessionId($checkout_session->id);
 
         $entityManager->flush();
- 
+
         return $this->redirect($checkout_session->url);
     }
     
