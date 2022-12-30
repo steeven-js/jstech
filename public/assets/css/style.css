@@ -15428,7 +15428,10 @@ input {
         grid-template-columns: repeat(2, 1fr) !important;
         grid-gap: 10px !important;
     }
-    #categoryshow .category-row {
+    #categoryshow .category-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 10px !important;
         background-color: lightblue;
     }
 }
