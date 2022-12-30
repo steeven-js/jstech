@@ -15418,7 +15418,7 @@ input {
         grid-template-columns: repeat(2, 1fr) !important;
         grid-gap: 10px !important;
     }
-    #categoryshow .categoryshow-row {
+    .categoryshow-row {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         grid-gap: 10px !important;
