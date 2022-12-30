@@ -15422,17 +15422,17 @@ input {
     margin-right: calc(var(--bs-gutter-x) / -2);
     margin-left: calc(var(--bs-gutter-x) / -2);
 }
-@media (max-width: 576px) {
-    .category-row {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
-    }
+@media (max-width: 800px) {
     #categoryshow .category-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
         background-color: lightblue;
+    }
+    .category-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
     }
 }
 
