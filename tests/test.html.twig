@@ -1,0 +1,32 @@
+{% for product in categoryProduct %}
+    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+        <!-- Start Product Default Single Item -->
+        <div class="product-default-single-item product-color--golden"
+            data-aos="fade-up" data-aos-delay="0">
+            <div class="image-box">
+                <a href="{{path('app_product', {'slug' : product.slug})}}" class="image-link">
+                    <img src="/uploads/{{product.illustration}}" alt="{{product.name}}">
+                </a>
+                <div class="action-link">
+                    <div class="action-link-left">
+                        <a href="{{path('add_to_cart', {'id' : product.id})}}">Ajouter au panier</a>
+                    </div>
+                    <div class="action-link-right">
+                        <a href="#"><i class="icon-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-left">
+                    <h6 class="title"><a
+                            href="{{path('app_product', {'slug' : product.slug})}}">{{product.name}}</a></h6>
+                </div>
+                <div class="content-right">
+                    <span class="price">{{(product.price/100) |number_format(2, ',', '.')}} €</span>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Product Default Single Item -->
+    </div>
+{% endfor %}

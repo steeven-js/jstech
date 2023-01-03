@@ -62,4 +62,3 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Header', 'fa-solid fa-desktop', Header::class);
     }
 }
- 

@@ -47,7 +47,7 @@ class CategoryController extends AbstractController
         $categoryProduct = $categoryid->getProducts()->getValues();
 
         // dd($categoryid);
-        // dd($category->getProducts()->getValues());   
+        // dd($categoryid->getProducts()->getValues());   
 
         return $this->render('category/show.html.twig', [
             'categoryid' => $categoryid,

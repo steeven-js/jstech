@@ -1,7 +1,7 @@
 {# templates/bundles/TwigBundle/Exception/error404.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}error 404 - JSTech{% endblock %}
+{% block title %}Page introuvable - JSTech{% endblock %}
 
 {% block content %}
     <!-- ...:::: Start Breadcrumb Section:::... -->
@@ -10,13 +10,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="breadcrumb-title">404 Page</h3>
+                        <h3 class="breadcrumb-title">Page introuvable</h3>
                         <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
                             <nav aria-label="breadcrumb">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="{{ path('app_nos_category') }}">Tous nos produits</a></li>
-                                    <li class="active" aria-current="page">404 Page</li>
+                                    <li class="active" aria-current="page">Page introuvable</li>
                                 </ul>
                             </nav>
                         </div>

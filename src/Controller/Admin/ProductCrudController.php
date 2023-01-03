@@ -81,5 +81,4 @@ class ProductCrudController extends AbstractCrudController
             ->add('category')
         ;
     }
- 
 }
