@@ -1,32 +1,43 @@
-{% for product in categoryProduct %}
-    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-        <!-- Start Product Default Single Item -->
-        <div class="product-default-single-item product-color--golden"
-            data-aos="fade-up" data-aos-delay="0">
-            <div class="image-box">
-                <a href="{{path('app_product', {'slug' : product.slug})}}" class="image-link">
-                    <img src="/uploads/{{product.illustration}}" alt="{{product.name}}">
-                </a>
-                <div class="action-link">
-                    <div class="action-link-left">
-                        <a href="{{path('add_to_cart', {'id' : product.id})}}">Ajouter au panier</a>
-                    </div>
-                    <div class="action-link-right">
-                        <a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="content-left">
-                    <h6 class="title"><a
-                            href="{{path('app_product', {'slug' : product.slug})}}">{{product.name}}</a></h6>
-                </div>
-                <div class="content-right">
-                    <span class="price">{{(product.price/100) |number_format(2, ',', '.')}} €</span>
-                </div>
+<!-- Start User Details Checkout Form -->
+<div class="checkout_form" data-aos="fade-up" data-aos-delay="400">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <h3>Adresses et transporteurs</h3>
+            <div class="order_div">
+                {% set formHtml %}
+                    {{ form_start( form, {action : path('app_order_recap')} )}}
+                        
+                    {{ form_end(form) }}
+                {% endset %}
 
+                {{formHtml|replace({'[br]' : '<br>'})|raw}}
             </div>
         </div>
-        <!-- End Product Default Single Item -->
+        <div class="col-lg-6 col-md-6">
+            <form action="#">
+                <h3>Votre commande</h3>
+                <div class="order_table table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Quantité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {# key permet de compter... #}
+                            {% for key,product in cart %}
+                                <tr>
+                                    <td><img width="75px" src="/uploads/{{product.product.illustration}}"alt="{{product.product.name}}"> </td>
+                                    <td>{{product.product.name}} <small>({{product.product.subtitle}})</small></td>
+                                    <td>x {{product.quantity}} &nbsp;&nbsp;</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
     </div>
-{% endfor %}
+</div> <!-- Start User Details Checkout Form -->
