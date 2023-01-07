@@ -51,7 +51,7 @@ class ProductController extends AbstractController
 
         // Partie sécurité
         if (!$product){
-            return $this->redirectToRoute('app_products');
+            return $this->redirectToRoute('app_nos_category');
         }
 
         return $this->render('product/show.html.twig', [
