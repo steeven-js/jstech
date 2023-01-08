@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller\Admin;
-
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -15,29 +13,23 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-
 class ProductCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
         return Product::class;
     }
-
     public function configureActions(Actions $actions): Actions
     {
-
         return $actions
             ->add('index', 'detail');
     }
-
     // Modification du trie par défault (Du plus ancien au plus vieux DESC)
     public function configureCrud(Crud $crud): Crud
     {
         // J'affiche mes category par défaut par ordre ascendant (par ordre alphabétique pour un meilleur regroupement des produits)
         return $crud->setDefaultSort(['category' => 'ASC']);
-
     }
-
     // Configuration des champs de easy admin en lien avec l'entité Product
     public function configureFields(string $pageName): iterable
     {
@@ -47,6 +39,7 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('subtitle')->hideOnIndex(),
             TextField::new('description')->hideOnIndex(),
             TextField::new('description1', 'Détails')->hideOnIndex(),
+            TextareaField::new('description1', 'Détails')->hideOnIndex(),
             BooleanField::new('isBest'),
             BooleanField::new('isNew'),
             ImageField::new('illustration')
@@ -73,7 +66,6 @@ class ProductCrudController extends AbstractCrudController
             AssociationField::new('category')
         ];
     }
-
     // Ajout d'un système de filtre
     public function configureFilters(Filters $filters): Filters
     {
@@ -81,5 +73,4 @@ class ProductCrudController extends AbstractCrudController
             ->add('category')
         ;
     }
- 
 }
