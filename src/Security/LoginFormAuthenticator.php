@@ -1,4 +1,9 @@
 <?php
+/**
+ * Commentaires
+ */
+
+
 namespace App\Security;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;

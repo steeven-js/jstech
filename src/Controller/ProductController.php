@@ -49,13 +49,23 @@ class ProductController extends AbstractController
         // On recherche en base de donnée un produit associé à son slug.
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
 
+        // Les meilleurs ventes
+        $productsBest = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
+
+        // Les nouveautés
+        $productsNew = $this->entityManager->getRepository(Product::class)->findByIsNew(1);
+
+        // dd($productsNew);
+
         // Partie sécurité
         if (!$product){
-            return $this->redirectToRoute('app_nos_category');
+            return $this->redirectToRoute('app_products');
         }
 
         return $this->render('product/show.html.twig', [
             'product' => $product,
+            'productsBest' => $productsBest,
+            'productsNew' => $productsNew,
             'count' => $cart->count()
         ]);
     }

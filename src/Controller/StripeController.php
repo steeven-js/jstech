@@ -29,6 +29,7 @@ class StripeController extends AbstractController
                 'name' => $product->getProduct()]
             );
 
+
             $product_for_stripe[] = [
                 'price_data' => [
                     'currency' => 'eur',

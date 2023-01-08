@@ -149,7 +149,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
+       /**
      * @return Collection|Address[]
      */
     public function getAddresses(): Collection
