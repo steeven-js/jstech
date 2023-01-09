@@ -33,7 +33,7 @@ class HeaderCrudController extends AbstractCrudController
                     ->autocomplete()
                     ->setChoices([  'blanc' => '#fff',
                                     'sombre' => '#24262B',
-                                    'or' => '#FFC107'
+                                    'or' => '#b19361'
                                     ])
         ];
     }
