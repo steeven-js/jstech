@@ -9,7 +9,7 @@ git push -u origin main
 
 git add .
 git commit -m "Vérifications et ajustements"
-git push -u origin main 
+git push  
 ```
 ## 01 Introduction
 - [x]  001 Le programme de la formation étape par étape
